@@ -61,4 +61,4 @@ Disallow: /
 User-agent: ZoominfoBot
 Disallow: /
 
-Sitemap: https://baikov.github.io/sitemap.xml
+Sitemap: https://baikov.dev/sitemap.xml
