@@ -1,0 +1,295 @@
+<!doctype html><html lang=ru>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="all">
+<title class=pjax-title>Типы данных в Python - int, float, complex, list, tuple - baikov.dev</title><meta name=Description content="Встроенные типы данных языка Python"><meta property="og:title" content="Типы данных в Python - int, float, complex, list, tuple">
+<meta property="og:description" content="Встроенные типы данных языка Python">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://baikov.dev/python-built-in-data-types/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-12-11T00:00:00+00:00">
+<meta property="article:modified_time" content="2022-01-27T14:04:55+00:00"><meta property="og:site_name" content="baikov.dev">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Типы данных в Python - int, float, complex, list, tuple">
+<meta name=twitter:description content="Встроенные типы данных языка Python">
+<meta name=application-name content="baikov.dev">
+<meta name=apple-mobile-web-app-title content="baikov.dev">
+<meta name=theme-color content="#f8f8f8"><meta name=msapplication-TileColor content="#ffffff"><link rel=icon href=/favicon.svg><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#e31e25><link rel=canonical href=https://baikov.dev/python-built-in-data-types/>
+<link rel=alternate hreflang=ru href=https://baikov.dev/python-built-in-data-types/>
+<link rel=alternate hreflang=en href=https://baikov.dev/en/python-built-in-data-types/>
+<link rel=alternate hreflang=x-default href=https://baikov.dev/python-built-in-data-types/>
+<link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
+<noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
+<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><meta name=google-site-verification content="7PfgOufFiirb5fKc1Uc8iRsP2vqxwhsv6wkLbbQAbGo"><meta name=yandex-verification content="67a921f283ab1e01">
+<script>(function(b,d,e,a,g){b[a]=b[a]||[],b[a].push({'gtm.start':(new Date).getTime(),event:'gtm.js'});var f=d.getElementsByTagName(e)[0],c=d.createElement(e),h=a!='dataLayer'?'&l='+a:'';c.async=!0,c.src='https://www.googletagmanager.com/gtm.js?id='+g+h,f.parentNode.insertBefore(c,f)})(window,document,'script','dataLayer','GTM-T78LHF7')</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Типы данных в Python - int, float, complex, list, tuple","inLanguage":"ru","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/baikov.dev\/python-built-in-data-types\/"},"genre":"posts","keywords":"python, data-types","wordcount":646,"url":"https:\/\/baikov.dev\/python-built-in-data-types\/","datePublished":"2021-12-11T00:00:00+00:00","dateModified":"2022-01-27T14:04:55+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Baikov"},"description":"Встроенные типы данных языка Python"}</script></head>
+<body header-desktop=fixed header-mobile=auto><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T78LHF7" height=0 width=0 style=display:none;visibility:hidden></iframe></noscript><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let metaColors={light:'#f8f8f8',dark:'#252627',black:'#000000'};getMeta('theme-color').content=metaColors[document.body.getAttribute('theme')]</script>
+<div id=back-to-top></div>
+<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title=baikov.dev><span class=header-title-pre><i class="fas fa-laptop-code"></i></span>baikov<span class=header-title-post>.dev</span></a>
+</div>
+<div class=menu>
+<div class=menu-inner><a class=menu-item href=/about/> Обо мне </a><a class=menu-item href=/posts/> Блог </a><a class=menu-item href=/tags/> Тэги </a><a class=menu-item href=/cv/> Резюме </a><span class="menu-item delimiter"></span><a href=# onclick=return!1 class="menu-item language" title="Выбор Языка">Русский<i class="fas fa-chevron-right fa-fw"></i>
+<select class=language-select title="Select Language" id=language-select-desktop onchange="location=this.value"><option value=/python-built-in-data-types/ selected>Русский</option><option value=/en/python-built-in-data-types/>English</option></select>
+</a><a href=# onclick=return!1 class="menu-item theme-switch" title="Сменить Тему">
+<i class="fas fa-adjust fa-fw"></i>
+</a></div>
+</div>
+</div>
+</header><header class=mobile id=header-mobile>
+<div class=header-container>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title=baikov.dev><span class=header-title-pre><i class="fas fa-laptop-code"></i></span>baikov<span class=header-title-post>.dev</span></a>
+</div>
+<div class=menu-toggle id=menu-toggle-mobile>
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class=menu id=menu-mobile><a class=menu-item href=/about/ title>Обо мне</a><a class=menu-item href=/posts/ title>Блог</a><a class=menu-item href=/tags/ title>Тэги</a><a class=menu-item href=/cv/ title>Резюме</a><a href=# onclick=return!1 class="menu-item theme-switch" title="Сменить Тему">
+<i class="fas fa-adjust fa-fw"></i>
+</a><a href=# onclick=return!1 class=menu-item title="Выбор Языка">Русский<i class="fas fa-chevron-right fa-fw"></i>
+<select class=language-select title="Select Language" onchange="location=this.value"><option value=/python-built-in-data-types/ selected>Русский</option><option value=/en/python-built-in-data-types/>English</option></select>
+</a></div>
+</div>
+</header>
+<div class="search-dropdown desktop">
+<div id=search-dropdown-desktop></div>
+</div>
+<div class="search-dropdown mobile">
+<div id=search-dropdown-mobile></div>
+</div>
+<main class=main>
+<div class=container><div class=toc id=toc-auto>
+<div class=toc-title>Содержание</div>
+<div class=toc-content id=toc-content-auto></div>
+</div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","true")</script><article class="page single">
+<h1 class="single-title animate__animated animate__flipInX">Типы данных в языке Python</h1><div class=single-subtitle>Подробное описание</div><div class=post-meta>
+<div class=post-meta-line>&nbsp;<span class=post-category>included in </span>&nbsp;<span class=post-category>включен в <a href=/categories/python-interview/><i class="far fa-folder fa-fw"></i>Статьи для подготовки к собеседованию на Python разработчика</a></span></div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=11.12.2021>11.12.2021</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=27.01.2022>27.01.2022</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;646 слов&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;4 минут&nbsp;</div>
+</div><div class="details toc" id=toc-static kept>
+<div class="details-summary toc-title">
+<span>Содержание</span>
+<span><i class="details-icon fas fa-angle-right"></i></span>
+</div>
+<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
+<ul>
+<li><a href=#числовые-типы>Числовые типы</a>
+<ul>
+<li><a href=#integer>Integer</a></li>
+<li><a href=#float>Float</a></li>
+<li><a href=#complex>Complex</a></li>
+<li><a href=#long>Long</a></li>
+</ul>
+</li>
+<li><a href=#логический-тип-boolean-type>Логический тип (Boolean Type)</a></li>
+<li><a href=#итераторы-и-генераторы>Итераторы и генераторы</a></li>
+<li><a href=#типы-последовательностей-sequence-type>Типы последовательностей (Sequence Type)</a>
+<ul>
+<li><a href=#основные>Основные</a></li>
+<li><a href=#бинарные-binary-sequence-types>Бинарные (Binary Sequence Types)</a></li>
+<li><a href=#строка>Строка</a></li>
+</ul>
+</li>
+<li><a href=#множества-set-types>Множества (Set Types)</a>
+<ul>
+<li><a href=#set--множество>set – множество</a></li>
+<li><a href=#frozenset--неизменяемое-множество>frozenset – неизменяемое множество</a></li>
+</ul>
+</li>
+<li><a href=#dict---словарь-mapping-types>dict - словарь (Mapping Types)</a></li>
+<li><a href=#none---неопределенное-значение-переменной>None - неопределенное значение переменной</a></li>
+<li><a href=#преобразование-и-проверка-типов>Преобразование и проверка типов</a></li>
+</ul>
+</nav></div>
+</div><div class=content id=content><p><a id=linktest href=#test>Test</a></p>
+<p>Говоря о типах данных, стоит упомянуть, что Python - язык с неявной сильной динамической типизацией (<a href=/type-systems-in-programming-languages/ rel>подробнее о видах типизации в языках программирования</a>).</p>
+<div class="details admonition info open"><div class="details-summary admonition-title">
+<i class="icon fas fa-info-circle fa-fw"></i>Встроенные и не встроенные типы<i class="details-icon fas fa-angle-right fa-fw"></i>
+</div><div class=details-content>
+<div class=admonition-content>В Python типы данных можно разделить на встроенные в интерпретатор (built-in) и не встроенные, которые можно использовать при импортировании соответствующих модулей.</div>
+</div>
+</div>
+<div class="details admonition info open"><div class="details-summary admonition-title">
+<i class="icon fas fa-info-circle fa-fw"></i>Int - больше, чем просто int<i class="details-icon fas fa-angle-right fa-fw"></i>
+</div><div class=details-content>
+<div class=admonition-content>Стандартная реализация Python написана на C (CPython). Это означает, что каждый объект Python — это просто искусно замаскированная структура C, которая содержит не только его значение, но и другую информацию.</div>
+</div>
+</div>
+<p>Каждое значение в Python имеет тип данных. Поскольку в Python все является объектом, типы данных на самом деле являются классами, а переменные являются экземплярами (объектами) этих классов.</p>
+<p>На аппаратном уровне переменная — это ссылка на место в памяти.</p>
+<h2 id=числовые-типы>Числовые типы</h2>
+<p>Существует три базовых числовых типа: int, float, complex.</p>
+<h3 id=integer>Integer</h3>
+<p><strong>int</strong> - целые числа. Отрицательные и положительные числа любой длины (ограничением является только количество памяти).</p>
+<div class=highlight title=An open><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># integer</span>
+<span class=n>a</span> <span class=o>=</span> <span class=mi>1000</span>
+<span class=nb>type</span><span class=p>(</span><span class=n>a</span><span class=p>)</span>  <span class=c1># &lt;class &#39;int&#39;&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=float>Float</h3>
+<p><strong>float</strong> - числа с плавающей точкой, отрицательные или положительные, содержащие десятичную точку или символ экспоненты &ldquo;e&rdquo; (показатель возведения в степень 10: 35e3, 12E4). Точность до 15 знаков после запятой.</p>
+<p><strong>float</strong> может принимать значения <strong>nan</strong> и <strong>inf</strong>/<strong>-inf</strong>.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># float</span>
+<span class=n>b</span> <span class=o>=</span> <span class=mf>12.5634423</span>  <span class=c1># 35e3, 12E4, -87.7e100</span>
+<span class=nb>type</span><span class=p>(</span><span class=n>b</span><span class=p>)</span>  <span class=c1># &lt;class &#39;float&#39;&gt;</span>
+
+<span class=c1># Not A Number</span>
+<span class=n>x</span> <span class=o>=</span> <span class=nb>float</span><span class=p>(</span><span class=s2>&#34;nan&#34;</span><span class=p>)</span>
+<span class=nb>print</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>  <span class=c1># nan</span>
+<span class=nb>type</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>  <span class=c1># &lt;class &#39;float&#39;&gt;</span>
+
+<span class=c1># Аналогично с бесконечностью</span>
+<span class=n>y</span> <span class=o>=</span> <span class=nb>float</span><span class=p>(</span><span class=s2>&#34;inf&#34;</span><span class=p>)</span>  <span class=c1># inf</span>
+<span class=n>z</span> <span class=o>=</span> <span class=nb>float</span><span class=p>(</span><span class=s2>&#34;-inf&#34;</span><span class=p>)</span>  <span class=c1># -inf</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=complex>Complex</h3>
+<p><strong>complex</strong> - комплексные числа (<strong>x+yj</strong>, где <strong>x</strong> - действительная часть, <strong>y</strong> - мнимая часть, а <strong>j</strong> - мнимая единица).</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># complex</span>
+<span class=n>c</span> <span class=o>=</span> <span class=mi>3</span><span class=o>+</span><span class=mi>5</span><span class=n>j</span>  <span class=c1># 5j, -5j</span>
+<span class=nb>type</span><span class=p>(</span><span class=n>c</span><span class=p>)</span>  <span class=c1># &lt;class &#39;complex&#39;&gt;</span>
+<span class=nb>print</span><span class=p>(</span><span class=n>c</span><span class=o>.</span><span class=n>real</span><span class=p>)</span>  <span class=c1># 3.0</span>
+<span class=nb>print</span><span class=p>(</span><span class=n>c</span><span class=o>.</span><span class=n>imag</span><span class=p>)</span>  <span class=c1># 5.0</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=long><del>Long</del></h3>
+<a href=https://github.com/HEIGE-PCloud/DoIt/releases/tag/vPython3.x rel="noopener noreffer" target=_blank><img class="lazyload version" data-src=/svg/version/Python3.x-deleted.ru.min.svg data-srcset="/svg/version/Python3.x-deleted.ru.min.svg, /svg/version/Python3.x-deleted.ru.min.svg 1.5x, /svg/version/Python3.x-deleted.ru.min.svg 2x" data-sizes=auto alt="DoIt УДАЛЕНО | Python3.x" title="DoIt УДАЛЕНО | Python3.x"></a>
+<p><strong>long</strong> - использовался для представления больших целых чисел.</p>
+<blockquote>
+<p>Кроме того, <strong>boolean</strong> является подтипом <strong>int</strong>.</p>
+</blockquote>
+<h2 id=логический-тип-boolean-type>Логический тип (Boolean Type)</h2>
+<p>В булевом типе данных есть только два типа значений: <strong>True</strong> и <strong>False</strong> (встроенные константы чувствительные к регистру).
+Booleans represent one of two values: <strong>True</strong> or <strong>False</strong> (constant objects, case sensitive).</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=nb>type</span><span class=p>(</span><span class=kc>True</span><span class=p>)</span>  <span class=c1># &lt;class &#39;bool&#39;&gt;</span>
+<span class=nb>type</span><span class=p>(</span><span class=kc>False</span><span class=p>)</span>  <span class=c1># &lt;class &#39;bool&#39;&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>The bool() function allows you to evaluate any value, and give you <strong>True</strong> or <strong>False</strong> in return,
+Функция приведения типа <strong>bool()</strong> позволяет оценить любое значение и вернуть <strong>True</strong> или <strong>False</strong>.</p>
+<h2 id=итераторы-и-генераторы>Итераторы и генераторы</h2>
+<div id=test>jskjdfkjsdfkjsbdf</div>
+<h2 id=типы-последовательностей-sequence-type>Типы последовательностей (Sequence Type)</h2>
+<h3 id=основные>Основные</h3>
+<ul>
+<li><strong>list</strong> – список</li>
+<li><strong>tuple</strong> – кортеж</li>
+<li><strong>range</strong> – диапазон</li>
+</ul>
+<p><a href=/list-in-python/ rel>Подробнее о List</a>
+<a href=/tuple-in-python/ rel>Подробнее о Tuple</a>
+<a href=/range-in-python/ rel>Подробнее о range</a></p>
+<h3 id=бинарные-binary-sequence-types>Бинарные (Binary Sequence Types)</h3>
+<ul>
+<li><strong>bytes</strong> - байтовые строки</li>
+<li><strong>bytearray</strong> - байтовые массивы</li>
+<li><strong>memoryview</strong> – специальные объекты для доступа к внутренним данным объекта через protocol buffer</li>
+</ul>
+<h3 id=строка>Строка</h3>
+<ul>
+<li><strong>str</strong> - текстовые строки</li>
+</ul>
+<h2 id=множества-set-types>Множества (Set Types)</h2>
+<h3 id=set--множество>set – множество</h3>
+<h3 id=frozenset--неизменяемое-множество>frozenset – неизменяемое множество</h3>
+<h2 id=dict---словарь-mapping-types>dict - словарь (Mapping Types)</h2>
+<ul>
+<li><i class="far fa-square fa-fw"></i> <a href=/dict-in-python/ rel>Подробнее о Dict</a></li>
+</ul>
+<h2 id=none---неопределенное-значение-переменной>None - неопределенное значение переменной</h2>
+<p><a href=/none-type-in-python/ rel>Подробнее о None и NoneType</a></p>
+<p>Константа, представляющая отсутствие значения. Данная константа, является единственным значением для типа NoneType</p>
+<p>None это просто значение, которое обычно используется для обозначения «пусто» или «здесь нет значения». Это сигнальный объект ; это имеет смысл только потому, что в документации на Python сказано, что это имеет смысл.</p>
+<p>В данном сеансе интерпретатора Python имеется только одна копия этого объекта.</p>
+<p>Если вы пишете функцию, и эта функция не использует явный оператор return , вместо этого вместо него возвращается значение None . Таким образом, программирование с функциями значительно упрощается; функция всегда возвращает что-то , даже если это только один объект None .</p>
+<p>None – это экземпляр NoneType
+None не может иметь новые атрибуты
+Существующие атрибуты None не могут быть изменены.
+Мы не можем создавать другие экземпляры NoneType
+Мы даже не можем изменить ссылку на None , присвоив ей значения.
+Итак, как упоминалось в документации, None может действительно считаться true constant .</p>
+<h2 id=преобразование-и-проверка-типов>Преобразование и проверка типов</h2>
+<p>Источники:</p>
+<p><a href=https://docs.python.org/3/library/stdtypes.html target=_blank rel="noopener noreffer">Python documentation - Built-in Types</a></p>
+<p><a href=https://www.upgrad.com/blog/top-7-data-types-of-python-python-data-types/#1_Python_Numbers target=_blank rel="noopener noreffer">Top 7 Data Types of Python</a></p>
+<p><a href=https://www.w3schools.com/python/python_datatypes.asp target=_blank rel="noopener noreffer">Python Data Types</a></p>
+<p><a href="https://code.tutsplus.com/tutorials/understand-how-much-memory-your-python-objects-use--cms-25609?ec_unit=translation-info-language" target=_blank rel="noopener noreffer">Understand How Much Memory Your Python Objects Use</a></p>
+<p><a href=https://jakevdp.github.io/PythonDataScienceHandbook/02.01-understanding-data-types.html target=_blank rel="noopener noreffer">Understanding Data Types in Python</a></p></div>
+<div class=post-footer id=post-footer>
+<div class=post-info>
+<div class=post-info-line>
+<div class=post-info-mod>
+<span>Oбновлено 27.01.2022</span>
+</div>
+<div class=post-info-license></div>
+</div>
+<div class=post-info-line>
+<div class=post-info-md></div>
+<div class=post-info-share>
+<span><a href=# onclick=return!1 title="Поделиться Twitter" data-sharer=twitter data-url=https://baikov.dev/python-built-in-data-types/ data-title="Типы данных в Python - int, float, complex, list, tuple" data-hashtags=python,data-types><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться Facebook" data-sharer=facebook data-url=https://baikov.dev/python-built-in-data-types/ data-hashtag=python><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться Linkedin" data-sharer=linkedin data-url=https://baikov.dev/python-built-in-data-types/><i class="fab fa-linkedin fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться WhatsApp" data-sharer=whatsapp data-url=https://baikov.dev/python-built-in-data-types/ data-title="Типы данных в Python - int, float, complex, list, tuple" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться VK" data-sharer=vk data-url=https://baikov.dev/python-built-in-data-types/ data-title="Типы данных в Python - int, float, complex, list, tuple" data-caption="Встроенные типы данных языка Python"><i class="fab fa-vk fa-fw"></i></a></span>
+</div>
+</div>
+</div>
+<div class=post-info-more>
+<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/python/>Python</a>,&nbsp;<a href=/tags/data-types/>Типы данных в языках программирования</a></section>
+<section>
+<span><a href=javascript:void(0); onclick=window.history.back()>Назад</a></span>&nbsp;|&nbsp;<span><a href=/>Главная</a></span>
+</section>
+</div>
+<div class=post-nav></div>
+</div>
+</article></div>
+</main><footer class=footer>
+<div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2019 - 2022</span></div>
+</div></footer></div>
+<div id=fixed-buttons><a href=#back-to-top id=back-to-top-button class=fixed-button title=Наверх>
+<i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title="Посмотреть комментарии">
+<i class="fas fa-comment fa-fw"></i>
+</a>
+</div><div class=assets><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/topbar/topbar.min.js></script><script type=text/javascript src=/lib/pjax/pjax.min.js></script><script type=text/javascript src=/js/theme.min.js></script></div>
+<div class=pjax-assets><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/js/custom.js></script><script type=text/javascript>window.config={code:{copyTitle:"Копировать в буфер обмена",maxShownLines:20},comment:{},sharerjs:!0}</script></div>
+</body>
+</html>
