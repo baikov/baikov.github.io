@@ -8,7 +8,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://baikov.dev/en/python-built-in-data-types/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2021-12-11T00:00:00+00:00">
-<meta property="article:modified_time" content="2022-01-27T20:48:25+00:00"><meta property="og:site_name" content="baikov.dev">
+<meta property="article:modified_time" content="2022-02-03T12:20:45+00:00"><meta property="og:site_name" content="baikov.dev">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="Python data types">
 <meta name=twitter:description content="Python Built-in data types">
@@ -22,7 +22,7 @@
 <noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
 <noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><meta name=google-site-verification content="7PfgOufFiirb5fKc1Uc8iRsP2vqxwhsv6wkLbbQAbGo"><meta name=yandex-verification content="67a921f283ab1e01">
 <script>(function(b,d,e,a,g){b[a]=b[a]||[],b[a].push({'gtm.start':(new Date).getTime(),event:'gtm.js'});var f=d.getElementsByTagName(e)[0],c=d.createElement(e),h=a!='dataLayer'?'&l='+a:'';c.async=!0,c.src='https://www.googletagmanager.com/gtm.js?id='+g+h,f.parentNode.insertBefore(c,f)})(window,document,'script','dataLayer','GTM-T78LHF7')</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Python data types","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/baikov.dev\/en\/python-built-in-data-types\/"},"genre":"posts","keywords":"python, data-types","wordcount":457,"url":"https:\/\/baikov.dev\/en\/python-built-in-data-types\/","datePublished":"2021-12-11T00:00:00+00:00","dateModified":"2022-01-27T20:48:25+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Baikov"},"description":"Python Built-in data types"}</script></head>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Python data types","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/baikov.dev\/en\/python-built-in-data-types\/"},"genre":"posts","keywords":"python, data-types","wordcount":1292,"url":"https:\/\/baikov.dev\/en\/python-built-in-data-types\/","datePublished":"2021-12-11T00:00:00+00:00","dateModified":"2022-02-03T12:20:45+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Baikov"},"description":"Python Built-in data types"}</script></head>
 <body header-desktop=fixed header-mobile=auto><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T78LHF7" height=0 width=0 style=display:none;visibility:hidden></iframe></noscript><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let metaColors={light:'#f8f8f8',dark:'#252627',black:'#000000'};getMeta('theme-color').content=metaColors[document.body.getAttribute('theme')]</script>
 <div id=back-to-top></div>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
@@ -95,8 +95,8 @@ Cancel
 </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","true")</script><article class="page single">
 <h1 class="single-title animate__animated animate__flipInX">Python data types</h1><div class=post-meta>
 <div class=post-meta-line>&nbsp;<span class=post-category>included in </span>&nbsp;<span class=post-category>category <a href=/en/categories/python-interview/><i class="far fa-folder fa-fw"></i>Articles to preparing for a Python Developer interview</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=11.12.2021>11.12.2021</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=27.01.2022>27.01.2022</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;457 words&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=11.12.2021>11.12.2021</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=03.02.2022>03.02.2022</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1292 words&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;7 minutes&nbsp;</div>
 </div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
 <span>Contents</span>
@@ -115,26 +115,22 @@ Cancel
 <li><a href=#boolean-type>Boolean Type</a></li>
 <li><a href=#sequence-type>Sequence Type</a>
 <ul>
-<li><a href=#list--список>list – список</a></li>
-<li><a href=#tuple--кортеж>tuple – кортеж</a></li>
-<li><a href=#range--диапазон>range – диапазон</a></li>
+<li><a href=#string>String</a></li>
+<li><a href=#list>List</a></li>
+<li><a href=#tuple>Tuple</a></li>
+<li><a href=#range>Range</a></li>
+<li><a href=#bytes>Bytes</a></li>
+<li><a href=#bytearray>Bytearray</a></li>
+<li><a href=#memoryview>Memoryview</a></li>
 </ul>
 </li>
-<li><a href=#str---текстовый-тип-cтроки-text-sequence-type->str - текстовый тип (cтроки) (Text Sequence Type )</a></li>
-<li><a href=#бинарные-списки-binary-sequence-types>Бинарные списки (Binary Sequence Types)</a>
+<li><a href=#set-types>Set Types</a>
 <ul>
-<li><a href=#bytes--байты>bytes – байты</a></li>
-<li><a href=#bytearray--массивы-байт>bytearray – массивы байт</a></li>
-<li><a href=#memoryview--специальные-объекты-для-доступа-к-внутренним-данным-объекта-через-protocol-buffer>memoryview – специальные объекты для доступа к внутренним данным объекта через protocol buffer</a></li>
+<li><a href=#set>set</a></li>
+<li><a href=#frozenset>frozenset</a></li>
 </ul>
 </li>
-<li><a href=#множества-set-types>Множества (Set Types)</a>
-<ul>
-<li><a href=#set--множество>set – множество</a></li>
-<li><a href=#frozenset--неизменяемое-множество>frozenset – неизменяемое множество</a></li>
-</ul>
-</li>
-<li><a href=#dict---словарь-mapping-types>dict - словарь (Mapping Types)</a></li>
+<li><a href=#dictionary>Dictionary</a></li>
 <li><a href=#преобразование-и-проверка-типов>Преобразование и проверка типов</a></li>
 </ul>
 </nav></div>
@@ -221,7 +217,7 @@ Cancel
 </code></pre></td></tr></table>
 </div>
 </div><h3 id=long><del>Long</del></h3>
-<a href=https://github.com/HEIGE-PCloud/DoIt/releases/tag/vPython3.x rel="noopener noreffer" target=_blank><img class="lazyload version" data-src=/svg/version/Python3.x-deleted.en.min.svg data-srcset="/svg/version/Python3.x-deleted.en.min.svg, /svg/version/Python3.x-deleted.en.min.svg 1.5x, /svg/version/Python3.x-deleted.en.min.svg 2x" data-sizes=auto alt="DoIt DELETED | Python3.x" title="DoIt DELETED | Python3.x"></a>
+<img class="lazyload version" data-src=/svg/version/Python3.x-deleted.en.min.svg data-srcset="/svg/version/Python3.x-deleted.en.min.svg, /svg/version/Python3.x-deleted.en.min.svg 1.5x, /svg/version/Python3.x-deleted.en.min.svg 2x" data-sizes=auto alt=Python3.x title=Python3.x>
 <p><strong>long</strong> - it is used to hold longer integers.</p>
 <blockquote>
 <p>In addition, <strong>Booleans</strong> are a subtype of <strong>integers</strong>.</p>
@@ -239,19 +235,204 @@ Cancel
 </code></pre></td></tr></table>
 </div>
 </div><p>The <strong>bool()</strong> function allows you to evaluate any value, and return <strong>True</strong> or <strong>False</strong>.</p>
+<p>True and false value it&rsquo;s not only the <strong>True</strong> and <strong>False</strong>.</p>
+<p>True value is:</p>
+<ul>
+<li>any non-zero number</li>
+<li>any non-empty string</li>
+<li>any non-empty object</li>
+</ul>
+<p>False value is:</p>
+<ul>
+<li>0</li>
+<li>None</li>
+<li>empty string</li>
+<li>empty object</li>
+</ul>
 <h2 id=sequence-type>Sequence Type</h2>
-<h3 id=list--список>list – список</h3>
-<h3 id=tuple--кортеж>tuple – кортеж</h3>
-<h3 id=range--диапазон>range – диапазон</h3>
-<h2 id=str---текстовый-тип-cтроки-text-sequence-type->str - текстовый тип (cтроки) (Text Sequence Type )</h2>
-<h2 id=бинарные-списки-binary-sequence-types>Бинарные списки (Binary Sequence Types)</h2>
-<h3 id=bytes--байты>bytes – байты</h3>
-<h3 id=bytearray--массивы-байт>bytearray – массивы байт</h3>
-<h3 id=memoryview--специальные-объекты-для-доступа-к-внутренним-данным-объекта-через-protocol-buffer>memoryview – специальные объекты для доступа к внутренним данным объекта через protocol buffer</h3>
-<h2 id=множества-set-types>Множества (Set Types)</h2>
-<h3 id=set--множество>set – множество</h3>
-<h3 id=frozenset--неизменяемое-множество>frozenset – неизменяемое множество</h3>
-<h2 id=dict---словарь-mapping-types>dict - словарь (Mapping Types)</h2>
+<p>There are three <em>basic sequence types</em>: <strong>str</strong>, <strong>list</strong>, <strong>tuple</strong>, <strong>range</strong> and <em>binary sequence types</em>: <strong>bytes</strong>, <strong>bytearray</strong>, <strong>memoryview</strong>.</p>
+<p>Like all data types, sequences can be <em>mutable</em> or <em>immutable</em>.</p>
+<p>This operations are supported by most sequence types, both mutable and immutable.:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>x</span> <span class=ow>in</span> <span class=n>s</span>  <span class=c1># (x not in s) - containment testing</span>
+<span class=n>s</span> <span class=o>+</span> <span class=n>t</span>  <span class=c1># the concatenation of s and t</span>
+<span class=n>s</span> <span class=o>*</span> <span class=n>n</span>  <span class=c1># equivalent to adding s to itself n times</span>
+<span class=n>s</span><span class=p>[</span><span class=n>i</span><span class=p>]</span>  <span class=c1># get by index</span>
+<span class=n>s</span><span class=p>[</span><span class=n>i</span><span class=p>:</span><span class=n>j</span><span class=p>:</span><span class=n>k</span><span class=p>]</span>  <span class=c1># slices (start:stop:step)</span>
+<span class=nb>len</span><span class=p>(</span><span class=n>s</span><span class=p>)</span>  <span class=c1># length of s</span>
+<span class=nb>min</span><span class=p>(</span><span class=n>s</span><span class=p>)</span>  <span class=c1># smallest item of s</span>
+<span class=nb>max</span><span class=p>(</span><span class=n>s</span><span class=p>)</span>  <span class=c1># largest item of s</span>
+<span class=n>s</span><span class=o>.</span><span class=n>index</span><span class=p>(</span><span class=n>x</span><span class=p>[,</span> <span class=n>i</span><span class=p>[,</span> <span class=n>j</span><span class=p>]])</span>  <span class=c1># index of the first occurrence of x in s (at or after index i and before index j)</span>
+<span class=n>s</span><span class=o>.</span><span class=n>count</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>  <span class=c1># total number of occurrences of x in s</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>hash()</strong> - the only operation that immutable sequence types generally implement that is not also implemented by mutable sequence types. This support allows immutable sequences, such as tuple instances, to be used as dict keys and stored in set and frozenset instances.</p>
+<p><strong>Operations supported by mutable sequence types:</strong></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>s</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=n>x</span>
+<span class=n>s</span><span class=p>[</span><span class=n>i</span><span class=p>:</span><span class=n>j</span><span class=p>]</span> <span class=o>=</span> <span class=n>t</span>
+<span class=k>del</span> <span class=n>s</span><span class=p>[</span><span class=n>i</span><span class=p>:</span><span class=n>j</span><span class=p>]</span>
+<span class=n>s</span><span class=p>[</span><span class=n>i</span><span class=p>:</span><span class=n>j</span><span class=p>:</span><span class=n>k</span><span class=p>]</span> <span class=o>=</span> <span class=n>t</span>
+<span class=k>del</span> <span class=n>s</span><span class=p>[</span><span class=n>i</span><span class=p>:</span><span class=n>j</span><span class=p>:</span><span class=n>k</span><span class=p>]</span>
+<span class=n>s</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+<span class=n>s</span><span class=o>.</span><span class=n>clear</span><span class=p>()</span>
+<span class=n>s</span><span class=o>.</span><span class=n>copy</span><span class=p>()</span>
+<span class=n>s</span><span class=o>.</span><span class=n>extend</span><span class=p>(</span><span class=n>t</span><span class=p>)</span>  <span class=c1># or s += t</span>
+<span class=n>s</span> <span class=o>*=</span> <span class=n>n</span>
+<span class=n>s</span><span class=o>.</span><span class=n>insert</span><span class=p>(</span><span class=n>i</span><span class=p>,</span> <span class=n>x</span><span class=p>)</span>
+<span class=n>s</span><span class=o>.</span><span class=n>pop</span><span class=p>()</span>  <span class=c1># or s.pop(i)</span>
+<span class=n>s</span><span class=o>.</span><span class=n>remove</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+<span class=n>s</span><span class=o>.</span><span class=n>reverse</span><span class=p>()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=string>String</h3>
+<p>Strings are <strong>immutable ordered</strong> sequences of Unicode code points. In python there is no character data type (<strong>char</strong>), a character is a string of length one. String literals are written in a variety of ways:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># Single quotes</span>
+<span class=n>first_way</span> <span class=o>=</span> <span class=s1>&#39;This is a string&#39;</span>
+
+<span class=c1># Double quotes</span>
+<span class=n>second_way</span> <span class=o>=</span> <span class=s2>&#34;This is a string&#34;</span>
+
+<span class=c1># Triple quotes (single or double)</span>
+<span class=n>third_way_single</span> <span class=o>=</span> <span class=s1>&#39;&#39;&#39;This is a string&#39;&#39;&#39;</span>
+<span class=n>third_way_double</span> <span class=o>=</span> <span class=s2>&#34;&#34;&#34;This is a string&#34;&#34;&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Strings implement all of the common sequence operations, along with the additional methods of class <strong>str()</strong>.</p>
+<h3 id=list>List</h3>
+<p>Lists are <strong>mutable ordered</strong> sequences, typically used to store collections of homogeneous items.
+Since lists are indexed, lists can have items with the same value.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>list1</span> <span class=o>=</span> <span class=p>[</span><span class=mi>10</span><span class=p>,</span> <span class=mi>20</span><span class=p>,</span> <span class=mi>30</span><span class=p>,</span> <span class=mi>77</span><span class=p>,</span> <span class=mi>77</span><span class=p>]</span>
+<span class=n>list2</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;one&#39;</span><span class=p>,</span> <span class=s1>&#39;dog&#39;</span><span class=p>,</span> <span class=s1>&#39;seven&#39;</span><span class=p>]</span>
+<span class=n>list3</span> <span class=o>=</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>20</span><span class=p>,</span> <span class=mf>4.0</span><span class=p>,</span> <span class=s1>&#39;word&#39;</span><span class=p>]</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=tuple>Tuple</h3>
+<p>Tuples are <strong>immutable ordered</strong> sequences, typically used to store collections of heterogeneous data. Tuples are also used for cases where an immutable sequence of homogeneous data is needed (such as allowing storage in a <strong>set</strong> or <strong>dict</strong> instance).</p>
+<blockquote>
+<p>Tuples are generally faster than the list data type in Python.</p>
+</blockquote>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>tuple1</span> <span class=o>=</span> <span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=mi>6</span><span class=p>)</span>
+<span class=n>tuple2</span> <span class=o>=</span> <span class=nb>tuple</span><span class=p>(</span><span class=s1>&#39;a&#39;</span><span class=p>,</span> <span class=s1>&#39;b&#39;</span><span class=p>,</span> <span class=s1>&#39;c&#39;</span><span class=p>)</span>
+<span class=n>tuple3</span> <span class=o>=</span> <span class=p>()</span>  <span class=c1># empty tuple</span>
+<span class=n>tuple4</span> <span class=o>=</span> <span class=mi>23</span><span class=p>,</span> <span class=mi>13</span><span class=p>,</span> <span class=mi>100</span>
+<span class=n>tuple5</span> <span class=o>=</span> <span class=p>(</span><span class=s2>&#34;London&#34;</span><span class=p>,</span> <span class=s2>&#34;Tokyo&#34;</span><span class=p>,</span> <span class=s2>&#34;Korea&#34;</span><span class=p>,</span> <span class=mi>1986</span><span class=p>,</span> <span class=mi>1640</span><span class=p>,</span> <span class=mi>1948</span><span class=p>)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=range>Range</h3>
+<p>The <strong>range</strong> type represents an <strong>immutable ordered</strong> sequence of numbers and is commonly used for looping a specific number of times in <strong>for</strong> loops.</p>
+<p>Ranges implement all of the common sequence operations except concatenation and repetition.</p>
+<p>Testing range objects for equality with <strong>==</strong> and <strong>!=</strong> compares them as sequences.</p>
+<p><img class="lazyload version" data-src=/svg/version/Python%203.3-new.en.min.svg data-srcset="/svg/version/Python%203.3-new.en.min.svg, /svg/version/Python%203.3-new.en.min.svg 1.5x, /svg/version/Python%203.3-new.en.min.svg 2x" data-sizes=auto alt="Python 3.3" title="Python 3.3"> The start, stop and step attributes.</p>
+<h3 id=bytes>Bytes</h3>
+<p><strong>Bytes</strong> objects are <strong>immutable ordered</strong> sequences of single bytes. The syntax for <strong>bytes</strong> literals is largely the same as that for <strong>string</strong> literals, except that a <strong>b</strong> prefix is added.</p>
+<h3 id=bytearray>Bytearray</h3>
+<p><strong>Bytearray</strong> objects are a mutable counterpart to <strong>bytes</strong> objects.</p>
+<h3 id=memoryview>Memoryview</h3>
+<p><strong>Memoryview</strong> objects allow Python code to access the internal data of an object that supports the buffer protocol without copying.</p>
+<h2 id=set-types>Set Types</h2>
+<p>A set object is an <strong>unordered</strong> collection of distinct hashable objects. Common uses include membership testing, removing duplicates from a sequence, and computing mathematical operations such as intersection, union, difference, and symmetric difference.</p>
+<blockquote>
+<p>Being an unordered collection, sets do not record element position or order of insertion. Accordingly, sets do not support indexing, slicing, or other sequence-like behavior.</p>
+</blockquote>
+<p>There are currently two built-in set types, set and frozenset.</p>
+<h3 id=set>set</h3>
+<p>The <strong>set</strong> type is <strong>mutable</strong> — the contents can be changed using methods like <strong>add()</strong> and <strong>remove()</strong>. Since it is mutable, it has no hash value and cannot be used as either a dictionary key or as an element of another set.</p>
+<h3 id=frozenset>frozenset</h3>
+<p>The <strong>frozenset</strong> type is <strong>immutable and hashable</strong> — its contents cannot be altered after it is created. It can therefore be used as a dictionary key or as an element of another set.</p>
+<h2 id=dictionary>Dictionary</h2>
+<p>A dictionary is <strong>ordered, mutable</strong> collection of <em>key: value</em> pairs which do not allow key duplicates.</p>
+<ul>
+<li>Dictionary keys are arbitrary, <strong>immutable</strong> (hashable) values.</li>
+<li>The values in dictionary items can be of <strong>any</strong> data type.</li>
+</ul>
+<p><img class="lazyload version" data-src=/svg/version/Python%203.7-new.en.min.svg data-srcset="/svg/version/Python%203.7-new.en.min.svg, /svg/version/Python%203.7-new.en.min.svg 1.5x, /svg/version/Python%203.7-new.en.min.svg 2x" data-sizes=auto alt="Python 3.7" title="Python 3.7"> Dictionaries are ordered.</p>
+<p><img class="lazyload version" data-src=/svg/version/Python%203.8-new.en.min.svg data-srcset="/svg/version/Python%203.8-new.en.min.svg, /svg/version/Python%203.8-new.en.min.svg 1.5x, /svg/version/Python%203.8-new.en.min.svg 2x" data-sizes=auto alt="Python 3.8" title="Python 3.8"> Dictionaries and dictionary view objects (<strong>dict.keys(), dict.values(), dict.items()</strong>) are now reversible.</p>
+<p>Dictionaries can be created by several means:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># Use a comma-separated list of key: value pairs within braces</span>
+<span class=n>dict1</span> <span class=o>=</span> <span class=p>{</span><span class=s1>&#39;jack&#39;</span><span class=p>:</span> <span class=mi>4098</span><span class=p>,</span> <span class=s1>&#39;sjoerd&#39;</span><span class=p>:</span> <span class=mi>4127</span><span class=p>}</span> <span class=ow>or</span> <span class=p>{</span><span class=mi>4098</span><span class=p>:</span> <span class=s1>&#39;jack&#39;</span><span class=p>,</span> <span class=mi>4127</span><span class=p>:</span> <span class=s1>&#39;sjoerd&#39;</span><span class=p>}</span>
+
+<span class=c1># Use a dict comprehension</span>
+<span class=n>dict2</span> <span class=o>=</span> <span class=p>{</span><span class=n>x</span><span class=p>:</span> <span class=n>x</span> <span class=o>**</span> <span class=mi>2</span> <span class=k>for</span> <span class=n>x</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>10</span><span class=p>)}</span>
+
+<span class=c1># Use the type constructor</span>
+<span class=n>dict3</span> <span class=o>=</span> <span class=nb>dict</span><span class=p>([(</span><span class=s1>&#39;foo&#39;</span><span class=p>,</span> <span class=mi>100</span><span class=p>),</span> <span class=p>(</span><span class=s1>&#39;bar&#39;</span><span class=p>,</span> <span class=mi>200</span><span class=p>)]),</span> <span class=nb>dict</span><span class=p>(</span><span class=n>foo</span><span class=o>=</span><span class=mi>100</span><span class=p>,</span> <span class=n>bar</span><span class=o>=</span><span class=mi>200</span><span class=p>)</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>In other programming languages, a dictionary-like data type might be called an associative array, hash, or hash table.</p>
+</blockquote>
 <h2 id=преобразование-и-проверка-типов>Преобразование и проверка типов</h2>
 <p>Источники:</p>
 <p><a href=https://docs.python.org/3/library/stdtypes.html target=_blank rel="noopener noreffer">Python documentation - Built-in Types</a></p>
@@ -263,7 +444,7 @@ Cancel
 <div class=post-info>
 <div class=post-info-line>
 <div class=post-info-mod>
-<span>Updated on 27.01.2022</span>
+<span>Updated on 03.02.2022</span>
 </div>
 <div class=post-info-license></div>
 </div>
