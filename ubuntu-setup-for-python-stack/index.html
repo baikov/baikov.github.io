@@ -1,0 +1,326 @@
+<!doctype html><html lang=ru>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="all">
+<title class=pjax-title>Настройка Ubuntu 20.04 для развертывания проекта в Docker</title><meta name=Description content="Основные шаги по настройке VPS с Ubuntu 20.04 для деплоя проекта. Установка Docker и Docker Compose, настройка UFW."><meta property="og:title" content="Настройка Ubuntu 20.04 для развертывания проекта в Docker">
+<meta property="og:description" content="Основные шаги по настройке VPS с Ubuntu 20.04 для деплоя проекта. Установка Docker и Docker Compose, настройка UFW.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://baikov.dev/ubuntu-setup-for-python-stack/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2020-04-11T00:00:00+00:00">
+<meta property="article:modified_time" content="2022-04-13T11:56:49+00:00"><meta property="og:site_name" content="baikov.dev">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Настройка Ubuntu 20.04 для развертывания проекта в Docker">
+<meta name=twitter:description content="Основные шаги по настройке VPS с Ubuntu 20.04 для деплоя проекта. Установка Docker и Docker Compose, настройка UFW.">
+<meta name=application-name content="baikov.dev">
+<meta name=apple-mobile-web-app-title content="baikov.dev">
+<meta name=theme-color content="#f8f8f8"><meta name=msapplication-TileColor content="#ffffff"><link rel=icon href=/favicon.svg><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#e31e25><link rel=canonical href=https://baikov.dev/ubuntu-setup-for-python-stack/><link rel=prev href=https://baikov.dev/github-badges/><link rel=next href=https://baikov.dev/python-scope-of-variables/>
+<link rel=alternate hreflang=ru href=https://baikov.dev/ubuntu-setup-for-python-stack/>
+<link rel=alternate hreflang=en href=https://baikov.dev/en/ubuntu-setup-for-python-stack/>
+<link rel=alternate hreflang=x-default href=https://baikov.dev/ubuntu-setup-for-python-stack/>
+<link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
+<noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
+<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><meta name=google-site-verification content="7PfgOufFiirb5fKc1Uc8iRsP2vqxwhsv6wkLbbQAbGo"><meta name=yandex-verification content="67a921f283ab1e01">
+<script>(function(b,d,e,a,g){b[a]=b[a]||[],b[a].push({'gtm.start':(new Date).getTime(),event:'gtm.js'});var f=d.getElementsByTagName(e)[0],c=d.createElement(e),h=a!='dataLayer'?'&l='+a:'';c.async=!0,c.src='https://www.googletagmanager.com/gtm.js?id='+g+h,f.parentNode.insertBefore(c,f)})(window,document,'script','dataLayer','GTM-T78LHF7')</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Настройка Ubuntu 20.04 для развертывания проекта в Docker","inLanguage":"ru","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/baikov.dev\/ubuntu-setup-for-python-stack\/"},"genre":"posts","keywords":"linux","wordcount":333,"url":"https:\/\/baikov.dev\/ubuntu-setup-for-python-stack\/","datePublished":"2020-04-11T00:00:00+00:00","dateModified":"2022-04-13T11:56:49+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Baikov"},"description":"Основные шаги по настройке VPS с Ubuntu 20.04 для деплоя проекта. Установка Docker и Docker Compose, настройка UFW."}</script></head>
+<body header-desktop=fixed header-mobile=auto><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T78LHF7" height=0 width=0 style=display:none;visibility:hidden></iframe></noscript><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let metaColors={light:'#f8f8f8',dark:'#252627',black:'#000000'};getMeta('theme-color').content=metaColors[document.body.getAttribute('theme')]</script>
+<div id=back-to-top></div>
+<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title=baikov.dev><span class=header-title-pre><i class="fas fa-laptop-code"></i></span>baikov<span class=header-title-post>.dev</span></a>
+</div>
+<div class=menu>
+<div class=menu-inner><a class=menu-item href=/about/> Обо мне </a><a class=menu-item href=/posts/> Блог </a><a class=menu-item href=/tags/> Тэги </a><a class=menu-item href=/cv/> Резюме </a><span class="menu-item delimiter"></span><a href=# onclick=return!1 class="menu-item language" title="Выбор Языка">Русский<i class="fas fa-chevron-right fa-fw"></i>
+<select class=language-select title="Select Language" id=language-select-desktop onchange="location=this.value"><option value=/ubuntu-setup-for-python-stack/ selected>Русский</option><option value=/en/ubuntu-setup-for-python-stack/>English</option></select>
+</a><span class="menu-item search" id=search-desktop>
+<input type=text placeholder="Поиск заголовков или содержимого..." id=search-input-desktop>
+<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-desktop title=Поиск>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-desktop title=Очистить>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-desktop>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</span><a href=# onclick=return!1 class="menu-item theme-switch" title="Сменить Тему">
+<i class="fas fa-adjust fa-fw"></i>
+</a></div>
+</div>
+</div>
+</header><header class=mobile id=header-mobile>
+<div class=header-container>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title=baikov.dev><span class=header-title-pre><i class="fas fa-laptop-code"></i></span>baikov<span class=header-title-post>.dev</span></a>
+</div>
+<div class=menu-toggle id=menu-toggle-mobile>
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class=menu id=menu-mobile><div class=search-wrapper>
+<div class="search mobile" id=search-mobile>
+<input type=text placeholder="Поиск заголовков или содержимого..." id=search-input-mobile>
+<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-mobile title=Поиск>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-mobile title=Очистить>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-mobile>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</div>
+<a href=# onclick=return!1 class=search-cancel id=search-cancel-mobile>
+Отменить
+</a>
+</div><a class=menu-item href=/about/ title>Обо мне</a><a class=menu-item href=/posts/ title>Блог</a><a class=menu-item href=/tags/ title>Тэги</a><a class=menu-item href=/cv/ title>Резюме</a><a href=# onclick=return!1 class="menu-item theme-switch" title="Сменить Тему">
+<i class="fas fa-adjust fa-fw"></i>
+</a><a href=# onclick=return!1 class=menu-item title="Выбор Языка">Русский<i class="fas fa-chevron-right fa-fw"></i>
+<select class=language-select title="Select Language" onchange="location=this.value"><option value=/ubuntu-setup-for-python-stack/ selected>Русский</option><option value=/en/ubuntu-setup-for-python-stack/>English</option></select>
+</a></div>
+</div>
+</header>
+<div class="search-dropdown desktop">
+<div id=search-dropdown-desktop></div>
+</div>
+<div class="search-dropdown mobile">
+<div id=search-dropdown-mobile></div>
+</div>
+<main class=main>
+<div class=container><div class=toc id=toc-auto>
+<div class=toc-title>Содержание</div>
+<div class=toc-content id=toc-content-auto></div>
+</div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","true")</script><article class="page single">
+<h1 class="single-title animate__animated animate__flipInX">Настройка Ubuntu 20.04</h1><div class=post-meta>
+<div class=post-meta-line></div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=11.04.2020>11.04.2020</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=13.04.2022>13.04.2022</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;333 слов&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;2 минут&nbsp;</div>
+</div><div class="details toc" id=toc-static kept>
+<div class="details-summary toc-title">
+<span>Содержание</span>
+<span><i class="details-icon fas fa-angle-right"></i></span>
+</div>
+<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
+<ul>
+<li><a href=#первые-шаги>Первые шаги</a></li>
+<li><a href=#настройка-ufw>Настройка UFW</a></li>
+<li><a href=#zsh--oh-my-zsh>zsh + Oh-My-zsh</a></li>
+<li><a href=#установка-docker-и-docker-compose>Установка Docker и Docker Compose</a></li>
+<li><a href=#полезные-утилиты>Полезные утилиты</a></li>
+</ul>
+</nav></div>
+</div><div class=content id=content><p>У нас имеется VPS с Ubuntu 20.04, нужно настроить его для развертывания проекта.</p>
+<h2 id=первые-шаги>Первые шаги</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=c1># Обновим</span>
+apt update <span class=o>&amp;&amp;</span> sudo apt upgrade -y
+
+<span class=c1># Создаем нового юзера</span>
+adduser www <span class=o>&amp;&amp;</span> usermod -aG sudo www
+
+<span class=c1># password for sudo - off</span>
+sudo visudo
+<span class=c1># %sudo ALL=(ALL:ALL) NOPASSWD:ALL</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Выходим с сервера и копируем <strong>ssh-key</strong></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>ssh-copy-id www@ip
+</code></pre></td></tr></table>
+</div>
+</div><p>Заходим под пользователем <strong>www</strong> и продолжаем настройку.</p>
+<p>Отключим возможность заходить под <strong>root</strong>, а так же возможность логиниться по паролю:<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo vim /etc/ssh/sshd_config
+<span class=c1># Ищем и исправляем следующие строки:</span>
+<span class=c1># AllowUsers www</span>
+<span class=c1># PermitRootLogin no</span>
+<span class=c1># PasswordAuthentication no</span>
+sudo systemctl restart sshd
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=настройка-ufw>Настройка UFW</h2>
+<p>Настроим фаервол UFW:<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo ufw allow OpenSSH <span class=o>&amp;&amp;</span> sudo ufw allow http <span class=o>&amp;&amp;</span> sudo ufw allow https
+sudo ufw <span class=nb>enable</span>
+sudo ufw status
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=zsh--oh-my-zsh>zsh + Oh-My-zsh</h2>
+<p>Установим zsh и Oh-My-zsh и настроим тему powerlevel10k:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo apt install zsh -y
+<span class=c1># reconnect</span>
+sh -c <span class=s2>&#34;</span><span class=k>$(</span>wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class=k>)</span><span class=s2>&#34;</span>
+git clone --depth<span class=o>=</span><span class=m>1</span> https://github.com/romkatv/powerlevel10k.git <span class=si>${</span><span class=nv>ZSH_CUSTOM</span><span class=k>:-</span><span class=p>~/.oh-my-zsh/custom</span><span class=si>}</span>/themes/powerlevel10k
+vim ~/.zshrc
+<span class=c1># ZSH_THEME=&#34;powerlevel10k/powerlevel10k&#34;</span>
+<span class=c1># alias cls=&#34;clear&#34;</span>
+<span class=nb>source</span> ~/.zshrc
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=установка-docker-и-docker-compose>Установка Docker и Docker Compose</h2>
+<p>Следующий шаг - установка Docker и Docker Compose<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg <span class=p>|</span> sudo apt-key add -
+sudo add-apt-repository <span class=s2>&#34;deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable&#34;</span>
+sudo apt update
+apt-cache policy docker-ce
+sudo apt install docker-ce -y
+sudo systemctl status docker
+sudo usermod -aG docker <span class=si>${</span><span class=nv>USER</span><span class=si>}</span>
+<span class=c1># Релогин</span>
+id -nG
+</code></pre></td></tr></table>
+</div>
+</div><p>Установка Docker Compose<sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup></p>
+<p><a href=https://github.com/docker/compose/releases target=_blank rel="noopener noreffer">Свежий релиз Docker Compose</a></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo curl -L <span class=s2>&#34;https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-</span><span class=k>$(</span>uname -s<span class=k>)</span><span class=s2>-</span><span class=k>$(</span>uname -m<span class=k>)</span><span class=s2>&#34;</span> -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=полезные-утилиты>Полезные утилиты</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=c1># Free disk space</span>
+df -h -t ext4
+
+<span class=c1># process</span>
+top
+
+<span class=c1># free memory</span>
+free -h
+</code></pre></td></tr></table>
+</div>
+</div><section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p><a href=https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04-ru target=_blank rel="noopener noreffer">Настройка ключей SSH в Ubuntu 20.04</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:2 role=doc-endnote>
+<p><a href=https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands target=_blank rel="noopener noreffer">UFW Essentials: Common Firewall Rules and Commands</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:3 role=doc-endnote>
+<p><a href=https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04 target=_blank rel="noopener noreffer">Установка и использование Docker в Ubuntu 20.04</a>&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:4 role=doc-endnote>
+<p><a href=https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04 target=_blank rel="noopener noreffer">Установка и использование Docker Compose в Ubuntu 20.04</a>&#160;<a href=#fnref:4 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</div>
+<div class=post-footer id=post-footer>
+<div class=post-info>
+<div class=post-info-line>
+<div class=post-info-mod>
+<span>Oбновлено 13.04.2022</span>
+</div>
+<div class=post-info-license></div>
+</div>
+<div class=post-info-line>
+<div class=post-info-md></div>
+<div class=post-info-share>
+<span><a href=# onclick=return!1 title="Поделиться Twitter" data-sharer=twitter data-url=https://baikov.dev/ubuntu-setup-for-python-stack/ data-title="Настройка Ubuntu 20.04 для развертывания проекта в Docker" data-hashtags=linux><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться Facebook" data-sharer=facebook data-url=https://baikov.dev/ubuntu-setup-for-python-stack/ data-hashtag=linux><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться Linkedin" data-sharer=linkedin data-url=https://baikov.dev/ubuntu-setup-for-python-stack/><i class="fab fa-linkedin fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться WhatsApp" data-sharer=whatsapp data-url=https://baikov.dev/ubuntu-setup-for-python-stack/ data-title="Настройка Ubuntu 20.04 для развертывания проекта в Docker" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться VK" data-sharer=vk data-url=https://baikov.dev/ubuntu-setup-for-python-stack/ data-title="Настройка Ubuntu 20.04 для развертывания проекта в Docker" data-caption="Основные шаги по настройке VPS с Ubuntu 20.04 для деплоя проекта. Установка Docker и Docker Compose, настройка UFW."><i class="fab fa-vk fa-fw"></i></a></span>
+</div>
+</div>
+</div>
+<div class=post-info-more>
+<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/linux/>linux</a></section>
+<section>
+<span><a href=javascript:void(0); onclick=window.history.back()>Назад</a></span>&nbsp;|&nbsp;<span><a href=/>Главная</a></span>
+</section>
+</div>
+<div class=post-nav><a href=/github-badges/ class=prev rel=prev title="GitHub badges"><i class="fas fa-angle-left fa-fw"></i>GitHub badges</a>
+<a href=/python-scope-of-variables/ class=next rel=next title="Область видимости переменных в Python">Область видимости переменных в Python<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+</main><footer class=footer>
+<div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2019 - 2022</span></div>
+</div></footer></div>
+<div id=fixed-buttons><a href=#back-to-top id=back-to-top-button class=fixed-button title=Наверх>
+<i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title="Посмотреть комментарии">
+<i class="fas fa-comment fa-fw"></i>
+</a>
+</div><div class=assets><script type=text/javascript src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.fill%2CArray.prototype.find%2CArray.from%2CIntersectionObserver%2CMath.sign%2CObject.assign%2CPromise%2CObject.entries%2Chtml5shiv%2CObject.values%2Cfetch%2CElement.prototype.after"></script><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/fuse/fuse.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/topbar/topbar.min.js></script><script type=text/javascript src=/lib/pjax/pjax.min.js></script><script type=text/javascript src=/js/theme.min.js></script></div>
+<div class=pjax-assets><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/js/custom.js></script><script type=text/javascript>window.config={code:{copyTitle:"Копировать в буфер обмена",maxShownLines:20},comment:{},search:{distance:100,findAllMatches:!1,fuseIndexURL:"/index.json",highlightTag:"em",ignoreFieldNorm:!1,ignoreLocation:!0,isCaseSensitive:!1,location:0,maxResultLength:10,minMatchCharLength:3,noResultsFound:"Результатов не найдено",snippetLength:300,threshold:.1,type:"fuse",useExtendedSearch:!1},sharerjs:!0}</script></div>
+</body>
+</html>
