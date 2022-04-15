@@ -1,0 +1,181 @@
+<!doctype html><html lang=ru>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="noindex, follow">
+<title class=pjax-title>PostgresSQL CLI command cheatsheet</title><meta name=Description content="PostgresSQL CLI command cheatsheet"><meta property="og:title" content="PostgresSQL CLI command cheatsheet">
+<meta property="og:description" content="PostgresSQL CLI command cheatsheet">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://baikov.dev/postgres-cli-commands/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-05-21T00:00:00+00:00">
+<meta property="article:modified_time" content="2022-04-15T11:19:58+00:00"><meta property="og:site_name" content="baikov.dev">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="PostgresSQL CLI command cheatsheet">
+<meta name=twitter:description content="PostgresSQL CLI command cheatsheet">
+<meta name=application-name content="baikov.dev">
+<meta name=apple-mobile-web-app-title content="baikov.dev">
+<meta name=theme-color content="#f8f8f8"><meta name=msapplication-TileColor content="#ffffff"><link rel=icon href=/favicon.svg><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#e31e25><link rel=canonical href=https://baikov.dev/postgres-cli-commands/><link rel=prev href=https://baikov.dev/github-badges/><link rel=next href=https://baikov.dev/ubuntu-setup-for-python-stack/>
+<link rel=alternate hreflang=ru href=https://baikov.dev/postgres-cli-commands/>
+<link rel=alternate hreflang=en href=https://baikov.dev/en/postgres-cli-commands/>
+<link rel=alternate hreflang=x-default href=https://baikov.dev/postgres-cli-commands/>
+<link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
+<noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
+<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><meta name=google-site-verification content="7PfgOufFiirb5fKc1Uc8iRsP2vqxwhsv6wkLbbQAbGo"><meta name=yandex-verification content="67a921f283ab1e01">
+<script>(function(b,d,e,a,g){b[a]=b[a]||[],b[a].push({'gtm.start':(new Date).getTime(),event:'gtm.js'});var f=d.getElementsByTagName(e)[0],c=d.createElement(e),h=a!='dataLayer'?'&l='+a:'';c.async=!0,c.src='https://www.googletagmanager.com/gtm.js?id='+g+h,f.parentNode.insertBefore(c,f)})(window,document,'script','dataLayer','GTM-T78LHF7')</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"PostgresSQL CLI command cheatsheet","inLanguage":"ru","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/baikov.dev\/postgres-cli-commands\/"},"genre":"posts","keywords":"postgres, db","wordcount":216,"url":"https:\/\/baikov.dev\/postgres-cli-commands\/","datePublished":"2021-05-21T00:00:00+00:00","dateModified":"2022-04-15T11:19:58+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Baikov"},"description":"PostgresSQL CLI command cheatsheet"}</script></head>
+<body header-desktop=fixed header-mobile=auto><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T78LHF7" height=0 width=0 style=display:none;visibility:hidden></iframe></noscript><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let metaColors={light:'#f8f8f8',dark:'#252627',black:'#000000'};getMeta('theme-color').content=metaColors[document.body.getAttribute('theme')]</script>
+<div id=back-to-top></div>
+<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title=baikov.dev><span class=header-title-pre><i class="fas fa-laptop-code"></i></span>baikov<span class=header-title-post>.dev</span></a>
+</div>
+<div class=menu>
+<div class=menu-inner><a class=menu-item href=/about/> Обо мне </a><a class=menu-item href=/posts/> Блог </a><a class=menu-item href=/tags/> Тэги </a><a class=menu-item href=/cv/> Резюме </a><span class="menu-item delimiter"></span><a href=# onclick=return!1 class="menu-item language" title="Выбор Языка">Русский<i class="fas fa-chevron-right fa-fw"></i>
+<select class=language-select title="Select Language" id=language-select-desktop onchange="location=this.value"><option value=/postgres-cli-commands/ selected>Русский</option><option value=/en/postgres-cli-commands/>English</option></select>
+</a><span class="menu-item search" id=search-desktop>
+<input type=text placeholder="Поиск заголовков или содержимого..." id=search-input-desktop>
+<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-desktop title=Поиск>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-desktop title=Очистить>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-desktop>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</span><a href=# onclick=return!1 class="menu-item theme-switch" title="Сменить Тему">
+<i class="fas fa-adjust fa-fw"></i>
+</a></div>
+</div>
+</div>
+</header><header class=mobile id=header-mobile>
+<div class=header-container>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title=baikov.dev><span class=header-title-pre><i class="fas fa-laptop-code"></i></span>baikov<span class=header-title-post>.dev</span></a>
+</div>
+<div class=menu-toggle id=menu-toggle-mobile>
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class=menu id=menu-mobile><div class=search-wrapper>
+<div class="search mobile" id=search-mobile>
+<input type=text placeholder="Поиск заголовков или содержимого..." id=search-input-mobile>
+<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-mobile title=Поиск>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-mobile title=Очистить>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-mobile>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</div>
+<a href=# onclick=return!1 class=search-cancel id=search-cancel-mobile>
+Отменить
+</a>
+</div><a class=menu-item href=/about/ title>Обо мне</a><a class=menu-item href=/posts/ title>Блог</a><a class=menu-item href=/tags/ title>Тэги</a><a class=menu-item href=/cv/ title>Резюме</a><a href=# onclick=return!1 class="menu-item theme-switch" title="Сменить Тему">
+<i class="fas fa-adjust fa-fw"></i>
+</a><a href=# onclick=return!1 class=menu-item title="Выбор Языка">Русский<i class="fas fa-chevron-right fa-fw"></i>
+<select class=language-select title="Select Language" onchange="location=this.value"><option value=/postgres-cli-commands/ selected>Русский</option><option value=/en/postgres-cli-commands/>English</option></select>
+</a></div>
+</div>
+</header>
+<div class="search-dropdown desktop">
+<div id=search-dropdown-desktop></div>
+</div>
+<div class="search-dropdown mobile">
+<div id=search-dropdown-mobile></div>
+</div>
+<main class=main>
+<div class=container><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","false")</script><article class="page single">
+<h1 class="single-title animate__animated animate__flipInX">PostgresSQL CLI command cheatsheet</h1><div class=post-meta>
+<div class=post-meta-line>&nbsp;<span class=post-category>Размещено в</span>&nbsp;<span class=post-category>категории <a href=/categories/notes/><i class="far fa-folder fa-fw"></i>notes</a></span></div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=21.05.2021>21.05.2021</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=15.04.2022>15.04.2022</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;216 слов&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;2 минут&nbsp;</div>
+</div><div class=content id=content>
+<p>Connect to PostgreSQL database</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=c1># connects to a database under a specific user</span>
+psql -d database -U  user -W
+
+<span class=c1># connect to a database that resides on another host</span>
+psql -h host -d database -U user -W
+
+<span class=c1># use SSL mode for the connection</span>
+psql -U user -h host <span class=s2>&#34;dbname=db sslmode=require&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>\du</strong> – список пользователей</p>
+<p><strong>\dp (или \z)</strong> – список таблиц, представлений, последовательностей, прав доступа к ним</p>
+<p><strong>\di</strong> – индексы</p>
+<p><strong>\ds</strong> – последовательности</p>
+<p><strong>\dt</strong> – список таблиц</p>
+<p><strong>\dt+</strong> — список всех таблиц с описанием</p>
+<p><strong>\dt <em>s</em></strong> — список всех таблиц, содержащих s в имени</p>
+<p><strong>\dv</strong> – представления</p>
+<p><strong>\dS</strong> – системные таблицы</p>
+<p><strong>\d+</strong> – описание таблицы</p>
+<p><strong>\o</strong> – пересылка результатов запроса в файл</p>
+<p><strong>\l</strong> – список баз данных</p>
+<p><strong>\i</strong> – читать входящие данные из файла</p>
+<p><strong>\e</strong> – открывает текущее содержимое буфера запроса в редакторе (если иное не указано в окружении переменной EDITOR, то будет использоваться по умолчанию vi)</p>
+<p><strong>\d &ldquo;table_name&rdquo;</strong> – описание таблицы</p>
+<p><strong>\i</strong> запуск команды из внешнего файла, например <em>\i /my/directory/my.sql</em></p>
+<p><strong>\pset</strong> – команда настройки параметров форматирования</p>
+<p><strong>\echo</strong> – выводит сообщение</p>
+<p><strong>\set</strong> – устанавливает значение переменной среды. Без параметров выводит список текущих переменных (\unset – удаляет)</p>
+<p><strong>?</strong> – справочник psql</p>
+<p><strong>\help</strong> – справочник SQL</p>
+<p><strong>\q (или Ctrl+D)</strong> – выход из программы</p>
+<p><strong>\timing</strong> - Turn on query execution time</p>
+</div>
+<div class=post-footer id=post-footer>
+<div class=post-info>
+<div class=post-info-line>
+<div class=post-info-mod>
+<span>Oбновлено 15.04.2022</span>
+</div>
+<div class=post-info-license></div>
+</div>
+<div class=post-info-line>
+<div class=post-info-md></div>
+<div class=post-info-share>
+<span><a href=# onclick=return!1 title="Поделиться Twitter" data-sharer=twitter data-url=https://baikov.dev/postgres-cli-commands/ data-title="PostgresSQL CLI command cheatsheet" data-hashtags=postgres,db><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться Facebook" data-sharer=facebook data-url=https://baikov.dev/postgres-cli-commands/ data-hashtag=postgres><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться Linkedin" data-sharer=linkedin data-url=https://baikov.dev/postgres-cli-commands/><i class="fab fa-linkedin fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться WhatsApp" data-sharer=whatsapp data-url=https://baikov.dev/postgres-cli-commands/ data-title="PostgresSQL CLI command cheatsheet" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться VK" data-sharer=vk data-url=https://baikov.dev/postgres-cli-commands/ data-title="PostgresSQL CLI command cheatsheet" data-caption="PostgresSQL CLI command cheatsheet"><i class="fab fa-vk fa-fw"></i></a></span>
+</div>
+</div>
+</div>
+<div class=post-info-more>
+<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/postgres/>postgres</a>,&nbsp;<a href=/tags/db/>db</a></section>
+<section>
+<span><a href=javascript:void(0); onclick=window.history.back()>Назад</a></span>&nbsp;|&nbsp;<span><a href=/>Главная</a></span>
+</section>
+</div>
+<div class=post-nav><a href=/github-badges/ class=prev rel=prev title="GitHub badges"><i class="fas fa-angle-left fa-fw"></i>GitHub badges</a>
+<a href=/ubuntu-setup-for-python-stack/ class=next rel=next title="Настройка Ubuntu 20.04 для развертывания проекта в Docker">Настройка Ubuntu 20.04 для развертывания проекта в Docker<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+</main><footer class=footer>
+<div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2019 - 2022</span></div>
+</div></footer></div>
+<div id=fixed-buttons><a href=#back-to-top id=back-to-top-button class=fixed-button title=Наверх>
+<i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title="Посмотреть комментарии">
+<i class="fas fa-comment fa-fw"></i>
+</a>
+</div><div class=assets><script type=text/javascript src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.fill%2CArray.prototype.find%2CArray.from%2CIntersectionObserver%2CMath.sign%2CObject.assign%2CPromise%2CObject.entries%2Chtml5shiv%2CObject.values%2Cfetch%2CElement.prototype.after"></script><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/fuse/fuse.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/topbar/topbar.min.js></script><script type=text/javascript src=/lib/pjax/pjax.min.js></script><script type=text/javascript src=/js/theme.min.js></script></div>
+<div class=pjax-assets><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/js/custom.js></script><script type=text/javascript>window.config={code:{copyTitle:"Копировать в буфер обмена",maxShownLines:20},comment:{},search:{distance:100,findAllMatches:!1,fuseIndexURL:"/index.json",highlightTag:"em",ignoreFieldNorm:!1,ignoreLocation:!0,isCaseSensitive:!1,location:0,maxResultLength:10,minMatchCharLength:3,noResultsFound:"Результатов не найдено",snippetLength:300,threshold:.1,type:"fuse",useExtendedSearch:!1},sharerjs:!0}</script></div>
+</body>
+</html>

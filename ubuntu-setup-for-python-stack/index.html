@@ -7,14 +7,14 @@
 <meta property="og:description" content="Основные шаги по настройке VPS с Ubuntu 20.04 для деплоя проекта. Установка Docker и Docker Compose, настройка UFW.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://baikov.dev/ubuntu-setup-for-python-stack/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2020-04-11T00:00:00+00:00">
-<meta property="article:modified_time" content="2022-04-13T11:56:49+00:00"><meta property="og:site_name" content="baikov.dev">
+<meta property="article:published_time" content="2021-06-07T00:00:00+00:00">
+<meta property="article:modified_time" content="2022-04-15T11:21:24+00:00"><meta property="og:site_name" content="baikov.dev">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="Настройка Ubuntu 20.04 для развертывания проекта в Docker">
 <meta name=twitter:description content="Основные шаги по настройке VPS с Ubuntu 20.04 для деплоя проекта. Установка Docker и Docker Compose, настройка UFW.">
 <meta name=application-name content="baikov.dev">
 <meta name=apple-mobile-web-app-title content="baikov.dev">
-<meta name=theme-color content="#f8f8f8"><meta name=msapplication-TileColor content="#ffffff"><link rel=icon href=/favicon.svg><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#e31e25><link rel=canonical href=https://baikov.dev/ubuntu-setup-for-python-stack/><link rel=prev href=https://baikov.dev/cookiecutter-commands/><link rel=next href=https://baikov.dev/python-scope-of-variables/>
+<meta name=theme-color content="#f8f8f8"><meta name=msapplication-TileColor content="#ffffff"><link rel=icon href=/favicon.svg><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#e31e25><link rel=canonical href=https://baikov.dev/ubuntu-setup-for-python-stack/><link rel=prev href=https://baikov.dev/postgres-cli-commands/><link rel=next href=https://baikov.dev/python-scope-of-variables/>
 <link rel=alternate hreflang=ru href=https://baikov.dev/ubuntu-setup-for-python-stack/>
 <link rel=alternate hreflang=en href=https://baikov.dev/en/ubuntu-setup-for-python-stack/>
 <link rel=alternate hreflang=x-default href=https://baikov.dev/ubuntu-setup-for-python-stack/>
@@ -22,7 +22,7 @@
 <noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
 <noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><meta name=google-site-verification content="7PfgOufFiirb5fKc1Uc8iRsP2vqxwhsv6wkLbbQAbGo"><meta name=yandex-verification content="67a921f283ab1e01">
 <script>(function(b,d,e,a,g){b[a]=b[a]||[],b[a].push({'gtm.start':(new Date).getTime(),event:'gtm.js'});var f=d.getElementsByTagName(e)[0],c=d.createElement(e),h=a!='dataLayer'?'&l='+a:'';c.async=!0,c.src='https://www.googletagmanager.com/gtm.js?id='+g+h,f.parentNode.insertBefore(c,f)})(window,document,'script','dataLayer','GTM-T78LHF7')</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Настройка Ubuntu 20.04 для развертывания проекта в Docker","inLanguage":"ru","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/baikov.dev\/ubuntu-setup-for-python-stack\/"},"genre":"posts","keywords":"linux","wordcount":333,"url":"https:\/\/baikov.dev\/ubuntu-setup-for-python-stack\/","datePublished":"2020-04-11T00:00:00+00:00","dateModified":"2022-04-13T11:56:49+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Baikov"},"description":"Основные шаги по настройке VPS с Ubuntu 20.04 для деплоя проекта. Установка Docker и Docker Compose, настройка UFW."}</script></head>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Настройка Ubuntu 20.04 для развертывания проекта в Docker","inLanguage":"ru","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/baikov.dev\/ubuntu-setup-for-python-stack\/"},"genre":"posts","keywords":"linux","wordcount":333,"url":"https:\/\/baikov.dev\/ubuntu-setup-for-python-stack\/","datePublished":"2021-06-07T00:00:00+00:00","dateModified":"2022-04-15T11:21:24+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Baikov"},"description":"Основные шаги по настройке VPS с Ubuntu 20.04 для деплоя проекта. Установка Docker и Docker Compose, настройка UFW."}</script></head>
 <body header-desktop=fixed header-mobile=auto><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T78LHF7" height=0 width=0 style=display:none;visibility:hidden></iframe></noscript><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let metaColors={light:'#f8f8f8',dark:'#252627',black:'#000000'};getMeta('theme-color').content=metaColors[document.body.getAttribute('theme')]</script>
 <div id=back-to-top></div>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
@@ -95,7 +95,7 @@
 </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","true")</script><article class="page single">
 <h1 class="single-title animate__animated animate__flipInX">Настройка Ubuntu 20.04</h1><div class=post-meta>
 <div class=post-meta-line></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=11.04.2020>11.04.2020</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=13.04.2022>13.04.2022</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;333 слов&nbsp;
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=07.06.2021>07.06.2021</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=15.04.2022>15.04.2022</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;333 слов&nbsp;
 <i class="far fa-clock fa-fw"></i>&nbsp;2 минут&nbsp;</div>
 </div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
@@ -291,7 +291,7 @@ free -h
 <div class=post-info>
 <div class=post-info-line>
 <div class=post-info-mod>
-<span>Oбновлено 13.04.2022</span>
+<span>Oбновлено 15.04.2022</span>
 </div>
 <div class=post-info-license></div>
 </div>
@@ -308,7 +308,7 @@ free -h
 <span><a href=javascript:void(0); onclick=window.history.back()>Назад</a></span>&nbsp;|&nbsp;<span><a href=/>Главная</a></span>
 </section>
 </div>
-<div class=post-nav><a href=/cookiecutter-commands/ class=prev rel=prev title="Django Cookiecutter commands"><i class="fas fa-angle-left fa-fw"></i>Django Cookiecutter commands</a>
+<div class=post-nav><a href=/postgres-cli-commands/ class=prev rel=prev title="PostgresSQL CLI command cheatsheet"><i class="fas fa-angle-left fa-fw"></i>PostgresSQL CLI command cheatsheet</a>
 <a href=/python-scope-of-variables/ class=next rel=next title="Область видимости переменных в Python">Область видимости переменных в Python<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 </article></div>
