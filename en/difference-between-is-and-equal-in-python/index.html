@@ -8,7 +8,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://baikov.dev/en/difference-between-is-and-equal-in-python/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2020-10-01T00:00:00+00:00">
-<meta property="article:modified_time" content="2022-04-18T14:18:46+00:00"><meta property="og:site_name" content="baikov.dev">
+<meta property="article:modified_time" content="2022-04-18T14:42:47+00:00"><meta property="og:site_name" content="baikov.dev">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="Difference between &#34;is&#34; and &#34;==&#34; in Python">
 <meta name=twitter:description content="What difference between comparison operators &#34;is&#34; and &#34;==&#34; (equal) in Python.">
@@ -22,7 +22,7 @@
 <noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
 <noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><meta name=google-site-verification content="7PfgOufFiirb5fKc1Uc8iRsP2vqxwhsv6wkLbbQAbGo"><meta name=yandex-verification content="67a921f283ab1e01">
 <script>(function(b,d,e,a,g){b[a]=b[a]||[],b[a].push({'gtm.start':(new Date).getTime(),event:'gtm.js'});var f=d.getElementsByTagName(e)[0],c=d.createElement(e),h=a!='dataLayer'?'&l='+a:'';c.async=!0,c.src='https://www.googletagmanager.com/gtm.js?id='+g+h,f.parentNode.insertBefore(c,f)})(window,document,'script','dataLayer','GTM-T78LHF7')</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Difference between \"is\" and \"==\" in Python","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/baikov.dev\/en\/difference-between-is-and-equal-in-python\/"},"genre":"posts","keywords":"python","wordcount":345,"url":"https:\/\/baikov.dev\/en\/difference-between-is-and-equal-in-python\/","datePublished":"2020-10-01T00:00:00+00:00","dateModified":"2022-04-18T14:18:46+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Baikov"},"description":"What difference between comparison operators \"is\" and \"==\" (equal) in Python."}</script></head>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Difference between \"is\" and \"==\" in Python","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/baikov.dev\/en\/difference-between-is-and-equal-in-python\/"},"genre":"posts","keywords":"python","wordcount":403,"url":"https:\/\/baikov.dev\/en\/difference-between-is-and-equal-in-python\/","datePublished":"2020-10-01T00:00:00+00:00","dateModified":"2022-04-18T14:42:47+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Baikov"},"description":"What difference between comparison operators \"is\" and \"==\" (equal) in Python."}</script></head>
 <body header-desktop=fixed header-mobile=auto><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T78LHF7" height=0 width=0 style=display:none;visibility:hidden></iframe></noscript><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let metaColors={light:'#f8f8f8',dark:'#252627',black:'#000000'};getMeta('theme-color').content=metaColors[document.body.getAttribute('theme')]</script>
 <div id=back-to-top></div>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
@@ -95,7 +95,7 @@ Cancel
 </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","true")</script><article class="page single">
 <h1 class="single-title animate__animated animate__flipInX">Difference between "is" and "==" in Python</h1><div class=post-meta>
 <div class=post-meta-line>&nbsp;<span class=post-category>Included in </span>&nbsp;<span class=post-category>category <a href=/en/categories/python-interview/><i class="far fa-folder fa-fw"></i>Articles to preparing for a Python Developer interview</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=01.10.2020>01.10.2020</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=18.04.2022>18.04.2022</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;345 words&nbsp;
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=01.10.2020>01.10.2020</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=18.04.2022>18.04.2022</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;403 words&nbsp;
 <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
 </div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
@@ -150,8 +150,11 @@ Cancel
 <h2 id=what-does-pep8-say-about-this>What does PEP8 say about this?</h2>
 <p>Comparisons to singletons like <strong>None</strong> should always be done with <strong>&ldquo;is&rdquo;</strong> or <strong>&ldquo;is not&rdquo;</strong>, never the equality operators (<strong>"=="</strong> and <strong>"!="</strong>).</p>
 <p>Also, beware of writing <strong>if x</strong> when you really mean <strong>if x is not None</strong> — e.g. when testing whether a variable or argument that defaults to <strong>None</strong> was set to some other value. The other value might have a type (such as a container) that could be <strong>false</strong> in a boolean context!<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup></p>
+<blockquote>
+<p><strong>&ldquo;is&rdquo;</strong> is faster than <strong>"=="</strong>. After all, <strong>&ldquo;is&rdquo;</strong> is implemented in C, and is a simple comparison of the IDs of the two objects. No function call is needed, and we certainly don’t need to compare the values of the two objects, which can also take some time.<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup></p>
+</blockquote>
 <h2 id=usecases-for-is-and->Usecases for &ldquo;is&rdquo; and &ldquo;==&rdquo;</h2>
-<p>Use cases for <strong>is</strong> include:</p>
+<p>Use cases for <strong>is</strong> include:<sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup></p>
 <ul>
 <li>None</li>
 <li>enum values (when using Enums from the enum module)</li>
@@ -179,6 +182,12 @@ Cancel
 </li>
 <li id=fn:2 role=doc-endnote>
 <p><a href=https://www.python.org/dev/peps/pep-0008/#programming-recommendations target=_blank rel="noopener noreffer">PEP8</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:3 role=doc-endnote>
+<p><a href=https://lerner.co.il/2015/06/16/why-you-should-almost-never-use-is-in-python/ target=_blank rel="noopener noreffer">Why you should almost never use “is” in Python</a>&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:4 role=doc-endnote>
+<p><a href=https://stackoverflow.com/questions/132988/is-there-a-difference-between-and-is target=_blank rel="noopener noreffer">stackoverflow</a>&#160;<a href=#fnref:4 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
