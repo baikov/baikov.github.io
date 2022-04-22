@@ -8,7 +8,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://baikov.dev/iterators-and-generators-python/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2022-03-02T00:00:00+00:00">
-<meta property="article:modified_time" content="2022-04-22T14:13:04+00:00"><meta property="og:site_name" content="baikov.dev">
+<meta property="article:modified_time" content="2022-04-22T14:18:18+00:00"><meta property="og:site_name" content="baikov.dev">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="Итераторы, генераторы и итерируемые объекты в Python">
 <meta name=twitter:description content="Разбираемся в различиях между понятиями итератора (iterator), итерируемого объекта (iterable) и генератора. Реализация итераторов на языке Python и преимущества их использования.">
@@ -22,7 +22,7 @@
 <noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
 <noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><meta name=google-site-verification content="7PfgOufFiirb5fKc1Uc8iRsP2vqxwhsv6wkLbbQAbGo"><meta name=yandex-verification content="67a921f283ab1e01">
 <script>(function(b,d,e,a,g){b[a]=b[a]||[],b[a].push({'gtm.start':(new Date).getTime(),event:'gtm.js'});var f=d.getElementsByTagName(e)[0],c=d.createElement(e),h=a!='dataLayer'?'&l='+a:'';c.async=!0,c.src='https://www.googletagmanager.com/gtm.js?id='+g+h,f.parentNode.insertBefore(c,f)})(window,document,'script','dataLayer','GTM-T78LHF7')</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Итераторы, генераторы и итерируемые объекты в Python","inLanguage":"ru","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/baikov.dev\/iterators-and-generators-python\/"},"genre":"posts","keywords":"python","wordcount":1169,"url":"https:\/\/baikov.dev\/iterators-and-generators-python\/","datePublished":"2022-03-02T00:00:00+00:00","dateModified":"2022-04-22T14:13:04+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Baikov"},"description":"Разбираемся в различиях между понятиями итератора (iterator), итерируемого объекта (iterable) и генератора. Реализация итераторов на языке Python и преимущества их использования."}</script></head>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Итераторы, генераторы и итерируемые объекты в Python","inLanguage":"ru","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/baikov.dev\/iterators-and-generators-python\/"},"genre":"posts","keywords":"python","wordcount":1169,"url":"https:\/\/baikov.dev\/iterators-and-generators-python\/","datePublished":"2022-03-02T00:00:00+00:00","dateModified":"2022-04-22T14:18:18+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Baikov"},"description":"Разбираемся в различиях между понятиями итератора (iterator), итерируемого объекта (iterable) и генератора. Реализация итераторов на языке Python и преимущества их использования."}</script></head>
 <body header-desktop=fixed header-mobile=auto><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T78LHF7" height=0 width=0 style=display:none;visibility:hidden></iframe></noscript><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let metaColors={light:'#f8f8f8',dark:'#252627',black:'#000000'};getMeta('theme-color').content=metaColors[document.body.getAttribute('theme')]</script>
 <div id=back-to-top></div>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
@@ -116,7 +116,7 @@
 <li><a href=#модуль-itertools>Модуль itertools</a></li>
 <li><a href=#рекурсивные-генераторы>Рекурсивные генераторы</a></li>
 <li><a href=#разница-между-yield-и-return>Разница между yield и return</a></li>
-<li><a href=#класс-поточных-алгоритмов>класс «поточных» алгоритмов</a></li>
+<li><a href=#ппоточные-алгоритмы>Ппоточные алгоритмы</a></li>
 </ul>
 </nav></div>
 </div><div class=content id=content><p><a href=/python-interview-questions/ rel>Список вопросов к Python собеседованию</a></p>
@@ -362,7 +362,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id=класс-поточных-алгоритмов>класс «поточных» алгоритмов</h2>
+<h2 id=ппоточные-алгоритмы>Ппоточные алгоритмы</h2>
+<p><a href=https://ru.wikipedia.org/wiki/%d0%9f%d0%be%d1%82%d0%be%d1%87%d0%bd%d1%8b%d0%b9_%d0%b0%d0%bb%d0%b3%d0%be%d1%80%d0%b8%d1%82%d0%bc target=_blank rel="noopener noreffer">Подробнее</a></p>
 <section class=footnotes role=doc-endnotes>
 <hr>
 <ol>
