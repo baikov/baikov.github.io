@@ -8,7 +8,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://baikov.dev/iterators-and-generators-python/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2022-03-02T00:00:00+00:00">
-<meta property="article:modified_time" content="2022-04-22T14:18:18+00:00"><meta property="og:site_name" content="baikov.dev">
+<meta property="article:modified_time" content="2022-04-25T09:20:02+00:00"><meta property="og:site_name" content="baikov.dev">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="Итераторы, генераторы и итерируемые объекты в Python">
 <meta name=twitter:description content="Разбираемся в различиях между понятиями итератора (iterator), итерируемого объекта (iterable) и генератора. Реализация итераторов на языке Python и преимущества их использования.">
@@ -22,7 +22,7 @@
 <noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
 <noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><meta name=google-site-verification content="7PfgOufFiirb5fKc1Uc8iRsP2vqxwhsv6wkLbbQAbGo"><meta name=yandex-verification content="67a921f283ab1e01">
 <script>(function(b,d,e,a,g){b[a]=b[a]||[],b[a].push({'gtm.start':(new Date).getTime(),event:'gtm.js'});var f=d.getElementsByTagName(e)[0],c=d.createElement(e),h=a!='dataLayer'?'&l='+a:'';c.async=!0,c.src='https://www.googletagmanager.com/gtm.js?id='+g+h,f.parentNode.insertBefore(c,f)})(window,document,'script','dataLayer','GTM-T78LHF7')</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Итераторы, генераторы и итерируемые объекты в Python","inLanguage":"ru","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/baikov.dev\/iterators-and-generators-python\/"},"genre":"posts","keywords":"python","wordcount":1169,"url":"https:\/\/baikov.dev\/iterators-and-generators-python\/","datePublished":"2022-03-02T00:00:00+00:00","dateModified":"2022-04-22T14:18:18+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Baikov"},"description":"Разбираемся в различиях между понятиями итератора (iterator), итерируемого объекта (iterable) и генератора. Реализация итераторов на языке Python и преимущества их использования."}</script></head>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Итераторы, генераторы и итерируемые объекты в Python","inLanguage":"ru","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/baikov.dev\/iterators-and-generators-python\/"},"genre":"posts","keywords":"python","wordcount":1139,"url":"https:\/\/baikov.dev\/iterators-and-generators-python\/","datePublished":"2022-03-02T00:00:00+00:00","dateModified":"2022-04-25T09:20:02+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Baikov"},"description":"Разбираемся в различиях между понятиями итератора (iterator), итерируемого объекта (iterable) и генератора. Реализация итераторов на языке Python и преимущества их использования."}</script></head>
 <body header-desktop=fixed header-mobile=auto><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T78LHF7" height=0 width=0 style=display:none;visibility:hidden></iframe></noscript><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let metaColors={light:'#f8f8f8',dark:'#252627',black:'#000000'};getMeta('theme-color').content=metaColors[document.body.getAttribute('theme')]</script>
 <div id=back-to-top></div>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
@@ -95,7 +95,7 @@
 </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","true")</script><article class="page single">
 <h1 class="single-title animate__animated animate__flipInX">Итераторы и генераторы в Python</h1><div class=post-meta>
 <div class=post-meta-line>&nbsp;<span class=post-category>Размещено в</span>&nbsp;<span class=post-category>категории <a href=/categories/python-interview/><i class="far fa-folder fa-fw"></i>Python собеседование</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=02.03.2022>02.03.2022</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=22.04.2022>22.04.2022</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1169 слов&nbsp;
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=02.03.2022>02.03.2022</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=25.04.2022>25.04.2022</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1139 слов&nbsp;
 <i class="far fa-clock fa-fw"></i>&nbsp;6 минут&nbsp;</div>
 </div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
@@ -125,22 +125,22 @@
 </a><figcaption class=image-caption>Схема для понимания итераторов и генераторов</figcaption>
 </figure>
 <h2 id=итератор>Итератор</h2>
-<p>Итератор — это интерфейс, предоставляющий доступ к элементам коллекции (массива или контейнера). Коллекции не должны обязательно существовать в памяти и быть конечными.</p>
+<p>Итератор — это:</p>
 <ul>
+<li>интерфейс, предоставляющий доступ к элементам коллекции (массива или контейнера). Коллекции не должны обязательно существовать в памяти и быть конечными.</li>
 <li>объект, в котором есть два метода: <code>__iter__</code> (возвращает сам объект итератора) и <code>__next__</code> (возвращает следующее значение из итератора)</li>
+</ul>
+<p>Особенности итератора:</p>
+<ul>
 <li>при запросе каждого следующего значения, итератор знает, как его вычислить</li>
 <li>хранит информацию о текущем состоянии итерируемого объекта, над которым он работает</li>
-<li>почти всегда возвращает себя из метода <code>__iter__</code>, так как выступает итераторами для самого себя (есть исключения).</li>
-<li>В Python за получение итератора отвечает функция <code>iter()</code>. Она отработает на любом объекте, у которого есть метод <code>__iter__</code> (возвращает итератор) или метод <code>__getitem__</code> (позволяет получать элементы по индексу)</li>
-<li><code>iter()</code> можно вызывать с двумя аргументами. Первый аргумент должен быть вызываемым объектом, а второй — неким ограничителем. Итерирование завершается, когда возбуждается исключение <code>StopIteration</code> или возвращается значения ограничителя</li>
-<li>не должен иметь и часто не имеет определённой длины. Поэтому зачастую не имеет имплементации <code>__len__</code></li>
+<li>почти всегда возвращает себя из метода <code>__iter__</code>, так как выступает итераторами для самого себя (есть исключения)</li>
+<li>итератор не должен иметь и часто не имеет определённой длины. Поэтому зачастую не имеет имплементации <code>__len__</code></li>
 <li>чтобы подсчитать количество элементов в итераторе, приходится делать это вручную или использовать <code>sum</code></li>
 <li>когда итератор завершает работу, интерпретатор Python ожидает возбуждения исключения <code>StopIteration</code> (в случаях работы с бесконечными множествами программист должен позаботиться о выходе из цикла самостоятельно)<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup></li>
+<li>любой итератор является итерируемым объектом<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup></li>
 </ul>
-<div class="details admonition note open"><div class="details-summary admonition-title">
-<i class="icon fas fa-pencil-alt fa-fw"></i>Метод __getitem__ вместо __iter__<i class="details-icon fas fa-angle-right fa-fw"></i>
-</div><div class=details-content>
-<div class=admonition-content><p>Если у объекта нет метода <code>__iter__</code>, его можно обойти, если определить метод <code>__getitem__</code>. В этом случае встроенная функция <code>iter()</code> возвращает итератор с типом <code>iterator</code>, который использует <code>__getitem__</code> для обхода элементов списка. Этот метод возвращает <code>StopIteration</code> или <code>IndexError</code>, когда обход завершается.</p>
+<p>В Python за получение итератора отвечает функция <code>iter()</code>. Она отработает на любом объекте, у которого есть метод <code>__iter__</code> или метод <code>__getitem__</code> (позволяет получать элементы по индексу). <code>iter()</code> можно вызывать с двумя аргументами. Первый аргумент должен быть вызываемым объектом, а второй — неким ограничителем. Итерирование завершается, когда возбуждается исключение <code>StopIteration</code> (<code>IndexError</code> для метода <code>__getitem__</code>) или возвращается значение ограничителя.</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -159,29 +159,20 @@
     <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=n>items</span><span class=p>[</span><span class=n>i</span><span class=p>]</span>
 </code></pre></td></tr></table>
 </div>
-</div></div>
-</div>
 </div>
 <blockquote>
-<p>Итераторы помогают создавать более чистый код, потому что позволяют нам работать с бесконечными последовательностями без необходимости перераспределения ресурсов для каждой возможной последовательности, что также экономит ресурсы.<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup></p>
-</blockquote>
-<blockquote>
-<p>Любой итератор является итерируемым объектом.<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup></p>
+<p>Итераторы помогают создавать более чистый код, потому что позволяют работать с бесконечными последовательностями без необходимости перераспределения ресурсов для каждой возможной последовательности, что также экономит ресурсы.<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup></p>
 </blockquote>
 <div class="details admonition info"><div class="details-summary admonition-title">
 <i class="icon fas fa-info-circle fa-fw"></i>О реализации итератора в книге «банды четырех»<i class="details-icon fas fa-angle-right fa-fw"></i>
 </div><div class=details-content>
-<div class=admonition-content><blockquote>
-<p>Минимальный интерфейс класса <code>Iterator</code> состоит из операций <code>First</code>, <code>Next</code>, <code>IsDone</code> и <code>CurrentItem</code>. <del>Но если очень хочется, то</del> этот интерфейс можно упростить, объединив операции <code>Next</code>, <code>IsDone</code> и <code>CurrentItem</code> в одну, которая будет переходить к следующему объекту и возвращать его. Если обход завершен, то эта операция вернет специальное значение (например, 0), обозначающее конец итерации.</p>
-</blockquote>
-<p>Именно так и реализовано в Python, но вместо специального значения, о конце итерации говорит исключение <code>StopIteration</code>.</p>
-</div>
+<div class=admonition-content>Минимальный интерфейс класса <code>Iterator</code> состоит из операций <code>First</code>, <code>Next</code>, <code>IsDone</code> и <code>CurrentItem</code>. Этот интерфейс можно упростить, объединив операции <code>Next</code>, <code>IsDone</code> и <code>CurrentItem</code> в одну, которая будет переходить к следующему объекту и возвращать его. Если обход завершен, то эта операция вернет специальное значение (например, 0), обозначающее конец итерации. Именно так и реализовано в Python, но вместо специального значения, о конце итерации говорит исключение <code>StopIteration</code>.</div>
 </div>
 </div>
 <h2 id=итерируемый-объект>Итерируемый объект</h2>
 <ul>
 <li>это контейнер, который может служить источником данных для итератора</li>
-<li>это любой объект (не обязательно структура данных), способный возвращать итератор[^sourse-3]</li>
+<li>это любой объект (не обязательно структура данных), способный возвращать итератор<sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup></li>
 <li>объект, в котором есть метод <code>__iter__</code></li>
 <li>итерируемые объекты могут представлять как конечный, так и бесконечный источник данных</li>
 <li>некоторые итерируемые объекты не являются итераторами, но используют другие объекты как итераторы.</li>
@@ -202,7 +193,7 @@
 <p>Генератор (функция-генератор) - это итератор, определение которого выглядит как определение функции.</p>
 <ul>
 <li>генераторы — функции (специальный класс функций), которые внутри используют выражение <code>yield</code></li>
-<li>использование <code>yield</code> превращает обычную функцию в генератор<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup></li>
+<li>использование <code>yield</code> превращает обычную функцию в генератор<sup id=fnref:5><a href=#fn:5 class=footnote-ref role=doc-noteref>5</a></sup></li>
 <li><code>yield</code> служит разделителем блоков кода, которые исполняет генератор на каждом обращении к нему, то есть на каждой итерации (цикл вовсе не обязателен)</li>
 <li>в результате вызова функции-генератора или вычисления генераторного выражения, получаем <strong>объект-генератор</strong> типа <code>types.GeneratorType</code></li>
 <li>генераторы не могут возвращать значения, вместо этого они возвращают итератор, который отдает элементы по одному</li>
@@ -239,7 +230,7 @@
 </div><h3 id=генераторные-выражения>Генераторные выражения</h3>
 <p>Генераторное выражение - это еще один синтаксический сахар в Python, простейший способ создать объект с интерфейсом итератора, при этом не загружая всех элементов в память.</p>
 <ul>
-<li>результатами генераторных выражений являются объекты с типом generator</li>
+<li>результатами генераторных выражений являются объекты с типом <code>generator</code></li>
 <li>генераторное выражение использует такой же синтаксис, как list comprehensions, но возвращает итератор, а не список</li>
 <li>выглядит точно так же, как list comprehensions, но используются круглые скобки</li>
 <li>оно полезно в том случае, когда надо работать с большим итерируемым объектом или бесконечным итератором</li>
@@ -303,7 +294,7 @@
 <p>Эти методы в совокупности с выражением <code>yield from</code> превратили генераторы в <a href=/coroutines-in-python/ rel>сопрограммы (coroutine)</a>.</p>
 <h2 id=модуль-itertools>Модуль itertools</h2>
 <p><strong>Itertools</strong> — это встроенный модуль в Python, который содержит функции для создания итераторов для эффективных циклов.</p>
-<p>В модуле <code>itertools</code> есть набор итераторов, которые упрощают работу с перестановками, комбинациями, декартовыми произведениями и другими комбинаторными структурами.<sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup></p>
+<p>В модуле <code>itertools</code> есть набор итераторов, которые упрощают работу с перестановками, комбинациями, декартовыми произведениями и другими комбинаторными структурами.<sup id=fnref:6><a href=#fn:6 class=footnote-ref role=doc-noteref>6</a></sup></p>
 <h2 id=рекурсивные-генераторы>Рекурсивные генераторы</h2>
 <p>Как и любая другая функция, генераторы могут быть рекурсивными.</p>
 <p>Пример: генератор перестановок элементов в списке</p>
@@ -371,13 +362,19 @@
 <p><a href=https://ru.hexlet.io/blog/posts/znakomimsya-s-prodvinutymi-vozmozhnostyami-python-iteratory-generatory-itertools target=_blank rel="noopener noreffer">Python: итераторы, генераторы, itertools</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
 </li>
 <li id=fn:2 role=doc-endnote>
-<p><a href=https://pythonist.ru/iteratory-i-generatory-v-python/ target=_blank rel="noopener noreffer">Итераторы и генераторы в Python</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+<p><a href=https://pyneng.readthedocs.io/ru/latest/book/13_iterator_generator/iterator.html target=_blank rel="noopener noreffer">Python для сетевых инженеров</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
 </li>
 <li id=fn:3 role=doc-endnote>
-<p><a href=https://pyneng.readthedocs.io/ru/latest/book/13_iterator_generator/iterator.html target=_blank rel="noopener noreffer">Python для сетевых инженеров</a>&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+<p><a href=https://pythonist.ru/iteratory-i-generatory-v-python/ target=_blank rel="noopener noreffer">Итераторы и генераторы в Python</a>&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
 </li>
 <li id=fn:4 role=doc-endnote>
-<p><a href=https://docs.python.org/3/library/itertools.html target=_blank rel="noopener noreffer">docs.python.org - itertools</a>&#160;<a href=#fnref:4 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+<p><a href=https://nvie.com/posts/iterators-vs-generators/ target=_blank rel="noopener noreffer">Iterables vs. Iterators vs. Generators</a>&#160;<a href=#fnref:4 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:5 role=doc-endnote>
+<p><a href=https://xakep.ru/2014/10/06/generatora-iteratory-python/ target=_blank rel="noopener noreffer">xakep.ru - генераторы и итераторы</a>&#160;<a href=#fnref:5 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:6 role=doc-endnote>
+<p><a href=https://docs.python.org/3/library/itertools.html target=_blank rel="noopener noreffer">docs.python.org - itertools</a>&#160;<a href=#fnref:6 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
@@ -386,7 +383,7 @@
 <div class=post-info>
 <div class=post-info-line>
 <div class=post-info-mod>
-<span>Oбновлено 22.04.2022</span>
+<span>Oбновлено 25.04.2022</span>
 </div>
 <div class=post-info-license></div>
 </div>
