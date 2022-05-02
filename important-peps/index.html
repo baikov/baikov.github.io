@@ -3,22 +3,22 @@
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=robots content="index, follow">
-<title class=pjax-title>Сопрограммы (corutines) в Python</title><meta name=Description content="Сопрограммы (corutines) в Python"><meta property="og:title" content="Сопрограммы (corutines) в Python">
-<meta property="og:description" content="Сопрограммы (corutines) в Python">
+<title class=pjax-title>Важные разделы PEP</title><meta name=Description content="ИМХО"><meta property="og:title" content="Важные разделы PEP">
+<meta property="og:description" content="ИМХО">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://baikov.dev/coroutines-in-python/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2022-03-12T00:00:00+00:00">
-<meta property="article:modified_time" content="2022-04-27T13:42:15+00:00"><meta property="og:site_name" content="baikov.dev">
+<meta property="og:url" content="https://baikov.dev/important-peps/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2022-02-18T00:00:00+00:00">
+<meta property="article:modified_time" content="2022-05-02T19:48:21+00:00"><meta property="og:site_name" content="baikov.dev">
 <meta name=twitter:card content="summary">
-<meta name=twitter:title content="Сопрограммы (corutines) в Python">
-<meta name=twitter:description content="Сопрограммы (corutines) в Python">
+<meta name=twitter:title content="Важные разделы PEP">
+<meta name=twitter:description content="ИМХО">
 <meta name=application-name content="baikov.dev">
 <meta name=apple-mobile-web-app-title content="baikov.dev">
-<meta name=theme-color content="#f8f8f8"><meta name=msapplication-TileColor content="#ffffff"><link rel=icon href=/favicon.svg><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#e31e25><link rel=canonical href=https://baikov.dev/coroutines-in-python/><link rel=prev href=https://baikov.dev/iterators-and-generators-python/><link rel=next href=https://baikov.dev/decorators-in-python/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
+<meta name=theme-color content="#f8f8f8"><meta name=msapplication-TileColor content="#ffffff"><link rel=icon href=/favicon.svg><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#e31e25><link rel=canonical href=https://baikov.dev/important-peps/><link rel=prev href=https://baikov.dev/context-managers-python/><link rel=next href=https://baikov.dev/iterators-and-generators-python/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
 <noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
 <noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><meta name=google-site-verification content="7PfgOufFiirb5fKc1Uc8iRsP2vqxwhsv6wkLbbQAbGo"><meta name=yandex-verification content="67a921f283ab1e01">
 <script>(function(b,d,e,a,g){b[a]=b[a]||[],b[a].push({'gtm.start':(new Date).getTime(),event:'gtm.js'});var f=d.getElementsByTagName(e)[0],c=d.createElement(e),h=a!='dataLayer'?'&l='+a:'';c.async=!0,c.src='https://www.googletagmanager.com/gtm.js?id='+g+h,f.parentNode.insertBefore(c,f)})(window,document,'script','dataLayer','GTM-T78LHF7')</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Сопрограммы (corutines) в Python","inLanguage":"ru","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/baikov.dev\/coroutines-in-python\/"},"genre":"posts","keywords":"python","wordcount":107,"url":"https:\/\/baikov.dev\/coroutines-in-python\/","datePublished":"2022-03-12T00:00:00+00:00","dateModified":"2022-04-27T13:42:15+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Baikov"},"description":"Сопрограммы (corutines) в Python"}</script></head>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Важные разделы PEP","inLanguage":"ru","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/baikov.dev\/important-peps\/"},"genre":"posts","keywords":"python","wordcount":37,"url":"https:\/\/baikov.dev\/important-peps\/","datePublished":"2022-02-18T00:00:00+00:00","dateModified":"2022-05-02T19:48:21+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Baikov"},"description":"ИМХО"}</script></head>
 <body header-desktop=fixed header-mobile=auto><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T78LHF7" height=0 width=0 style=display:none;visibility:hidden></iframe></noscript><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let metaColors={light:'#f8f8f8',dark:'#252627',black:'#000000'};getMeta('theme-color').content=metaColors[document.body.getAttribute('theme')]</script>
 <div id=back-to-top></div>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
@@ -28,7 +28,7 @@
 </div>
 <div class=menu>
 <div class=menu-inner><a class=menu-item href=/about/> Обо мне </a><a class=menu-item href=/posts/> Блог </a><a class=menu-item href=/categories/> Категории </a><a class=menu-item href=/tags/> Тэги </a><a class=menu-item href=/cv/> Резюме </a><span class="menu-item delimiter"></span><a href=# onclick=return!1 class="menu-item language" title="Выбор Языка">Русский<i class="fas fa-chevron-right fa-fw"></i>
-<select class=language-select title="Select Language" id=language-select-desktop onchange="location=this.value"><option value=/coroutines-in-python/ selected>Русский</option></select>
+<select class=language-select title="Select Language" id=language-select-desktop onchange="location=this.value"><option value=/important-peps/ selected>Русский</option></select>
 </a><span class="menu-item search" id=search-desktop>
 <input type=text placeholder="Поиск заголовков или содержимого..." id=search-input-desktop>
 <a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-desktop title=Поиск>
@@ -74,7 +74,7 @@
 </div><a class=menu-item href=/about/ title>Обо мне</a><a class=menu-item href=/posts/ title>Блог</a><a class=menu-item href=/categories/ title>Категории</a><a class=menu-item href=/tags/ title>Тэги</a><a class=menu-item href=/cv/ title>Резюме</a><a href=# onclick=return!1 class="menu-item theme-switch" title="Сменить Тему">
 <i class="fas fa-adjust fa-fw"></i>
 </a><a href=# onclick=return!1 class=menu-item title="Выбор Языка">Русский<i class="fas fa-chevron-right fa-fw"></i>
-<select class=language-select title="Select Language" onchange="location=this.value"><option value=/coroutines-in-python/ selected>Русский</option></select>
+<select class=language-select title="Select Language" onchange="location=this.value"><option value=/important-peps/ selected>Русский</option></select>
 </a></div>
 </div>
 </header>
@@ -89,9 +89,9 @@
 <div class=toc-title>Содержание</div>
 <div class=toc-content id=toc-content-auto></div>
 </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","true")</script><article class="page single">
-<h1 class="single-title animate__animated animate__flipInX">Сопрограммы (corutines) в Python</h1><div class=post-meta>
+<h1 class="single-title animate__animated animate__flipInX">Какие PEP'ы прочитать в первую очередь?</h1><div class=post-meta>
 <div class=post-meta-line>&nbsp;<span class=post-category>Размещено в</span>&nbsp;<span class=post-category>категории <a href=/categories/python-interview/><i class="far fa-folder fa-fw"></i>Python собеседование</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=12.03.2022>12.03.2022</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=27.04.2022>27.04.2022</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;107 слов&nbsp;
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=18.02.2022>18.02.2022</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=02.05.2022>02.05.2022</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;37 слов&nbsp;
 <i class="far fa-clock fa-fw"></i>&nbsp;Одна минута&nbsp;</div>
 </div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
@@ -100,27 +100,44 @@
 </div>
 <div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents></nav></div>
 </div><div class=content id=content><p><a href=/python-interview-questions/ rel>Список вопросов к Python собеседованию</a></p>
-<p>Сопрограммы – это особый тип функций, которые сознательно передают управление вызывающему объекту, но они не заканчивают свой контекст в процессе, поддерживая его в состоянии ожидания.</p>
-<p>Сопрограмма сама решает, когда перенаправить flow в другое место (например, в другую сопрограмму). И это позволяет строить красивые разветвленные деревья обработки потоков данных, реализовывать <code>MapReduce</code>, возможно прокидывать текущие байты через сокет на другую ноду. Более того, сопрограммы могут быть фактически реализованы абсолютно на любом языке.</p>
-<p><a href=https://pythobyte.com/coroutines-in-python-92659/ target=_blank rel="noopener noreffer">Сопрограммы в Python</a></p>
-<p><a href=https://dvmn.org/encyclopedia/async_python/coroutines/ target=_blank rel="noopener noreffer">Корутины в Python</a></p>
-<p><a href=https://habr.com/ru/post/196918/ target=_blank rel="noopener noreffer">Хабр - Сопрограммы в Python</a></p>
-<p><a href=https://kirill-sklyarenko.ru/lenta/coroutines-in-python target=_blank rel="noopener noreffer">What is a Coroutine Anyway? (перевод)</a></p>
-<p><a href=https://docs-python.ru/tutorial/generatory-python/ispolzovanie-send-throw-close/ target=_blank rel="noopener noreffer">Использование send(), throw() и close() в генераторах Python</a></p>
-<p>О стандарте можно почитать тут - <a href=https://peps.python.org/pep-0342/ target=_blank rel="noopener noreffer">PEP342</a></p>
+<ul>
+<li>PEP 8 - <a href=https://pythonworld.ru/osnovy/pep-8-rukovodstvo-po-napisaniyu-koda-na-python.html target=_blank rel="noopener noreffer">рус</a></li>
+<li>PEP 257</li>
+<li>PEP 20</li>
+<li>PEP 557</li>
+<li>PEP 435</li>
+<li>PEP 435</li>
+<li>PEP 3156</li>
+<li>PEP 484</li>
+<li>PEP 572</li>
+<li>PEP 404</li>
+<li>PEP 343</li>
+</ul>
+<p>Источники<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup><sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup></p>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p><a href=https://peps.python.org/pep-0000/ target=_blank rel="noopener noreffer">PEP 0</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:2 role=doc-endnote>
+<p><a href=https://book.pythontips.com/en/latest/context_managers.html target=_blank rel="noopener noreffer">Python Tips - Context Managers</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
 </div>
 <div class=post-footer id=post-footer>
 <div class=post-info>
 <div class=post-info-line>
 <div class=post-info-mod>
-<span>Oбновлено 27.04.2022</span>
+<span>Oбновлено 02.05.2022</span>
 </div>
 <div class=post-info-license></div>
 </div>
 <div class=post-info-line>
 <div class=post-info-md></div>
 <div class=post-info-share>
-<span><a href=# onclick=return!1 title="Поделиться Twitter" data-sharer=twitter data-url=https://baikov.dev/coroutines-in-python/ data-title="Сопрограммы (corutines) в Python" data-hashtags=python><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться Facebook" data-sharer=facebook data-url=https://baikov.dev/coroutines-in-python/ data-hashtag=python><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться Linkedin" data-sharer=linkedin data-url=https://baikov.dev/coroutines-in-python/><i class="fab fa-linkedin fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться WhatsApp" data-sharer=whatsapp data-url=https://baikov.dev/coroutines-in-python/ data-title="Сопрограммы (corutines) в Python" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться VK" data-sharer=vk data-url=https://baikov.dev/coroutines-in-python/ data-title="Сопрограммы (corutines) в Python" data-caption="Сопрограммы (corutines) в Python"><i class="fab fa-vk fa-fw"></i></a></span>
+<span><a href=# onclick=return!1 title="Поделиться Twitter" data-sharer=twitter data-url=https://baikov.dev/important-peps/ data-title="Важные разделы PEP" data-hashtags=python><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться Facebook" data-sharer=facebook data-url=https://baikov.dev/important-peps/ data-hashtag=python><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться Linkedin" data-sharer=linkedin data-url=https://baikov.dev/important-peps/><i class="fab fa-linkedin fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться WhatsApp" data-sharer=whatsapp data-url=https://baikov.dev/important-peps/ data-title="Важные разделы PEP" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться VK" data-sharer=vk data-url=https://baikov.dev/important-peps/ data-title="Важные разделы PEP" data-caption=ИМХО><i class="fab fa-vk fa-fw"></i></a></span>
 </div>
 </div>
 </div>
@@ -130,8 +147,8 @@
 <span><a href=javascript:void(0); onclick=window.history.back()>Назад</a></span>&nbsp;|&nbsp;<span><a href=/>Главная</a></span>
 </section>
 </div>
-<div class=post-nav><a href=/iterators-and-generators-python/ class=prev rel=prev title="Итераторы, генераторы и итерируемые объекты в Python"><i class="fas fa-angle-left fa-fw"></i>Итераторы, генераторы и итерируемые объекты в Python</a>
-<a href=/decorators-in-python/ class=next rel=next title="Декораторы в Python: определение, особенности, примеры декораторов">Декораторы в Python: определение, особенности, примеры декораторов<i class="fas fa-angle-right fa-fw"></i></a></div>
+<div class=post-nav><a href=/context-managers-python/ class=prev rel=prev title="Контекстные менеджеры в Python"><i class="fas fa-angle-left fa-fw"></i>Контекстные менеджеры в Python</a>
+<a href=/iterators-and-generators-python/ class=next rel=next title="Итераторы, генераторы и итерируемые объекты в Python">Итераторы, генераторы и итерируемые объекты в Python<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 </article></div>
 </main><footer class=footer>
@@ -143,7 +160,6 @@
 <i class="fas fa-comment fa-fw"></i>
 </a>
 </div><div class=assets><script type=text/javascript src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.fill%2CArray.prototype.find%2CArray.from%2CIntersectionObserver%2CMath.sign%2CObject.assign%2CPromise%2CObject.entries%2Chtml5shiv%2CObject.values%2Cfetch%2CElement.prototype.after"></script><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/fuse/fuse.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/topbar/topbar.min.js></script><script type=text/javascript src=/lib/pjax/pjax.min.js></script><script type=text/javascript src=/js/theme.min.js></script></div>
-<div class=pjax-assets><script type=text/javascript src=/lib/lightgallery/lightgallery.min.js></script><script type=text/javascript src=/lib/lightgallery/lg-thumbnail.min.js></script><script type=text/javascript src=/lib/lightgallery/lg-zoom.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/js/custom.js></script><script type=text/javascript>window.config={code:{copyTitle:"Копировать в буфер обмена",maxShownLines:20},comment:{},lightGallery:{actualSize:!1,exThumbImage:"data-thumbnail",hideBarsDelay:2e3,selector:".lightgallery",speed:400,thumbContHeight:80,thumbWidth:80,thumbnail:!0},search:{distance:100,findAllMatches:!1,fuseIndexURL:"/index.json",highlightTag:"em",ignoreFieldNorm:!1,ignoreLocation:!0,isCaseSensitive:!1,location:0,maxResultLength:10,minMatchCharLength:3,noResultsFound:"Результатов не найдено",snippetLength:300,threshold:.1,type:"fuse",useExtendedSearch:!1},sharerjs:!0}</script><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/lightgallery/lightgallery.min.css>
-<noscript><link rel=stylesheet href=/lib/lightgallery/lightgallery.min.css></noscript></div>
+<div class=pjax-assets><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/js/custom.js></script><script type=text/javascript>window.config={code:{copyTitle:"Копировать в буфер обмена",maxShownLines:20},comment:{},search:{distance:100,findAllMatches:!1,fuseIndexURL:"/index.json",highlightTag:"em",ignoreFieldNorm:!1,ignoreLocation:!0,isCaseSensitive:!1,location:0,maxResultLength:10,minMatchCharLength:3,noResultsFound:"Результатов не найдено",snippetLength:300,threshold:.1,type:"fuse",useExtendedSearch:!1},sharerjs:!0}</script></div>
 </body>
 </html>

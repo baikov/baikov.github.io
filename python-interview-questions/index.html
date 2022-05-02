@@ -8,7 +8,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://baikov.dev/python-interview-questions/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2021-12-11T00:00:00+00:00">
-<meta property="article:modified_time" content="2022-04-27T14:40:24+00:00"><meta property="og:site_name" content="baikov.dev">
+<meta property="article:modified_time" content="2022-05-02T19:52:01+00:00"><meta property="og:site_name" content="baikov.dev">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="Вопросы с ответами к собеседованию по Python">
 <meta name=twitter:description content="Вопросы на собеседование по Python">
@@ -22,7 +22,7 @@
 <noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
 <noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><meta name=google-site-verification content="7PfgOufFiirb5fKc1Uc8iRsP2vqxwhsv6wkLbbQAbGo"><meta name=yandex-verification content="67a921f283ab1e01">
 <script>(function(b,d,e,a,g){b[a]=b[a]||[],b[a].push({'gtm.start':(new Date).getTime(),event:'gtm.js'});var f=d.getElementsByTagName(e)[0],c=d.createElement(e),h=a!='dataLayer'?'&l='+a:'';c.async=!0,c.src='https://www.googletagmanager.com/gtm.js?id='+g+h,f.parentNode.insertBefore(c,f)})(window,document,'script','dataLayer','GTM-T78LHF7')</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Вопросы с ответами к собеседованию по Python","inLanguage":"ru","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/baikov.dev\/python-interview-questions\/"},"genre":"posts","keywords":"python","wordcount":698,"url":"https:\/\/baikov.dev\/python-interview-questions\/","datePublished":"2021-12-11T00:00:00+00:00","dateModified":"2022-04-27T14:40:24+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Baikov"},"description":"Вопросы на собеседование по Python"}</script></head>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Вопросы с ответами к собеседованию по Python","inLanguage":"ru","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/baikov.dev\/python-interview-questions\/"},"genre":"posts","keywords":"python","wordcount":712,"url":"https:\/\/baikov.dev\/python-interview-questions\/","datePublished":"2021-12-11T00:00:00+00:00","dateModified":"2022-05-02T19:52:01+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Baikov"},"description":"Вопросы на собеседование по Python"}</script></head>
 <body header-desktop=fixed header-mobile=auto><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T78LHF7" height=0 width=0 style=display:none;visibility:hidden></iframe></noscript><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let metaColors={light:'#f8f8f8',dark:'#252627',black:'#000000'};getMeta('theme-color').content=metaColors[document.body.getAttribute('theme')]</script>
 <div id=back-to-top></div>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
@@ -95,7 +95,7 @@
 </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","true")</script><article class="page single">
 <h1 class="single-title animate__animated animate__flipInX">Python: вопросы и ответы с собеседований</h1><div class=single-subtitle>100+ вопросов</div><div class=post-meta>
 <div class=post-meta-line>&nbsp;<span class=post-category>Размещено в</span>&nbsp;<span class=post-category>категории <a href=/categories/python-interview/><i class="far fa-folder fa-fw"></i>Python собеседование</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=11.12.2021>11.12.2021</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=27.04.2022>27.04.2022</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;698 слов&nbsp;
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=11.12.2021>11.12.2021</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=02.05.2022>02.05.2022</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;712 слов&nbsp;
 <i class="far fa-clock fa-fw"></i>&nbsp;4 минут&nbsp;</div>
 </div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
@@ -106,7 +106,10 @@
 <ul>
 <li><a href=#общие-вопросы>Общие вопросы</a></li>
 <li><a href=#python>Python</a></li>
+<li><a href=#django>Django</a></li>
 <li><a href=#базы-данных>Базы данных</a></li>
+<li><a href=#devops>DevOps</a></li>
+<li><a href=#data-science>Data Science</a></li>
 <li><a href=#алгоритмы>Алгоритмы</a></li>
 </ul>
 </nav></div>
@@ -116,7 +119,7 @@
 <li><a href=/programming-paradigms/ rel>Отличия процедурной и объектно-ориентированной парадигмы программирования?</a></li>
 <li><a href=/python-oop/ rel>Основные принципы ООП?</a></li>
 <li><a href=/python-oop/ rel>Что такое множественное наследование?</a></li>
-<li>Что такое @property?</li>
+<li><a href=/python-oop/#%d1%81%d0%b2%d0%be%d0%b9%d1%81%d1%82%d0%b2%d0%b0-%d0%ba%d0%bb%d0%b0%d1%81%d1%81%d0%b0-property rel>Что такое @property?</a></li>
 <li><a href=/software-engineering-and-development-process/ rel>Что такое инженерия и процесс разработки в целом?</a></li>
 <li>Основные методологии разработки (жизненный цикл продукта)?</li>
 <li>Методология Agile. Различия Kanban и Scrum подходов.</li>
@@ -151,14 +154,9 @@
 <li>Как работать с stdlib?</li>
 <li>Какие задачи решали с помощью метаклассов?</li>
 <li>Что такое дескрипторы?</li>
-<li>Знания других языков, кроме Python (опыт).</li>
 </ol>
 <h2 id=python>Python</h2>
 <ol>
-<li>Python - интерпретируемый язык или компилируемый?</li>
-</ol>
-<p>Интерпретируемый.</p>
-<ol start=2>
 <li><a href=/python-built-in-data-types/ rel>Какие есть изменяемые и постоянные типы данных?</a></li>
 <li>Какие есть типы данных и какая разница между list и tuple, зачем они?</li>
 <li>Как использовать встроенные коллекции (<code>list</code>, <code>set</code>, <code>dict</code>)?</li>
@@ -182,16 +180,12 @@
 <li>Что такое lambda-функции?</li>
 <li>Что означает <code>*args</code>, <code>**kwargs</code> и как они используются?</li>
 <li>Что такое exceptions, <code>&lt;try-except></code>?</li>
-<li>Что такое PEP (Python Enhancement Proposal), какие из них знаете (PEP8, PEP484)?</li>
-<li>Напишите hello-world сервис, используя один из фреймворков.</li>
+<li><a href=/important-peps/ rel>Что такое PEP (Python Enhancement Proposal), какие из них знаете (PEP8, PEP484)?</a></li>
 <li>Что знаете из модуля <code>collections</code>, какими еще built-in модулями пользовались?</li>
-<li>Что такое шаблонизатор и как в нем выполнять базовые операции (объединять участки шаблона, выводить дату, выводить данные с серверной стороны)?</li>
 <li>Как Python работает с HTTP-сервером?</li>
 <li>Что происходит, когда создается виртуальная среда?</li>
 <li>Async Python: как работает, зачем, что под капотом?</li>
-<li>Сравнить асинхронные web-фреймворки.</li>
 <li>Что такое модель памяти Python?</li>
-<li>Что такое SQLAlchemy (Core и ORM частей) и какие есть альтернативы?</li>
 <li>Принципы работы и механизм Garbage collection, reference counting?</li>
 <li>Как работает thread locals?</li>
 <li>Что такое <code>__slots__</code>?</li>
@@ -200,6 +194,20 @@
 <li>Для чего используют нижние подчеркивания в именах классов?</li>
 <li>Статические анализаторы: Flake8, Pylint, Radon.</li>
 </ol>
+<h2 id=django>Django</h2>
+<ol>
+<li>N+1 проблема и как решить?</li>
+<li>Что такое SQLAlchemy (Core и ORM частей) и какие есть альтернативы?</li>
+<li>Что такое шаблонизатор и как в нем выполнять базовые операции (объединять участки шаблона, выводить дату, выводить данные с серверной стороны)?</li>
+<li>Что такое миксины?</li>
+<li>Как провалидировать данные в сериализаторе?</li>
+<li>Методы <code>create</code>, <code>update</code> в серилизаторе.</li>
+<li>Как передать в запросе лист <code>id</code> так, чтобы создался объект сразу с <code>m2m</code> связими?</li>
+<li>Что такое <code>lt</code>, <code>gt</code>, <code>gte</code>, <code>lte</code> в ORM?</li>
+<li><code>or</code> в Django ORM.</li>
+<li>Напишите <code>hello-world</code> сервис, используя один из фреймворков.</li>
+<li>Сравнить асинхронные web-фреймворки.</li>
+</ol>
 <h2 id=базы-данных>Базы данных</h2>
 <ol>
 <li>Какие есть базовые методы работы с SQL-базой данных в Python?</li>
@@ -207,20 +215,26 @@
 <li>Как сделать выборку из SQL-базы с простой агрегацией?</li>
 <li>Как выглядит запрос, который выполняет JOIN между таблицами и к самим себе?</li>
 <li>Как отправлять запросы в SQL-базу данных без ORM?</li>
+<li>Индексация в базе данных sql</li>
 <li>Разница между SQL и NoSQL?</li>
 <li>Как оптимизировать SQL-запросы?</li>
 <li>Какие есть уровни изоляции транзакций?</li>
 <li>Какие есть виды индексов?</li>
-<li>Точечные вопросы по выбору БД, движков БД?</li>
-<li>Front-end: есть ли опыт работы с «современным» JS (Babel, Webpack, TS, ES)?</li>
-<li>DevOps: работали ли с Docker-контейнерами, объяснить основные термины K8s (кластер, pod, node, deployment, service), что такое Kibana?</li>
-<li>Алгоритмы: что такое временная сложность алгоритма (time complexity)?</li>
-<li>Углубленные знания Linux: как зайти на внешний сервер, работать с пакетами, настроить среду и выполнять операции?</li>
-<li>Специфично для Data Science: как работать с пакетами для обработки и визуализации данных (NumPy, Pandas и другие)?</li>
+</ol>
+<h2 id=devops>DevOps</h2>
+<ol>
+<li>Рассказать про Docker, Docker Compose и Docker Swarm</li>
+<li>Объяснить основные термины K8s (кластер, pod, node, deployment, service), что такое Kibana?</li>
+<li>Как зайти на внешний сервер, работать с пакетами, настроить среду и выполнять операции?</li>
+</ol>
+<h2 id=data-science>Data Science</h2>
+<ol>
+<li>Как работать с пакетами для обработки и визуализации данных (NumPy, Pandas и другие)?</li>
 </ol>
 <h2 id=алгоритмы>Алгоритмы</h2>
 <ol>
-<li>Что такое алгоритмы (например, Big-O notation)?</li>
+<li>Что такое временная сложность алгоритма (time complexity)?</li>
+<li>Что такое Big-O notation?</li>
 <li>Какие есть базовые алгоритмы сортировки?</li>
 <li>Что такое Bubble Sort и как это работает?</li>
 <li>Что такое линейная сложность сортировки?</li>
@@ -230,7 +244,7 @@
 <div class=post-info>
 <div class=post-info-line>
 <div class=post-info-mod>
-<span>Oбновлено 27.04.2022</span>
+<span>Oбновлено 02.05.2022</span>
 </div>
 <div class=post-info-license></div>
 </div>
