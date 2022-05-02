@@ -1,0 +1,289 @@
+<!doctype html><html lang=ru>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="all">
+<title class=pjax-title>15 принципов разработки ПО - аббревиатуры и расшифровка</title><meta name=Description content="Давайте создавать надежные и хорошо реализованные системы, а не каких-то быстрорастущих монстров. Этому поможет следование указанным здесь принципам проектирования и разработки программного обеспечения."><meta property="og:title" content="15 принципов разработки ПО - аббревиатуры и расшифровка">
+<meta property="og:description" content="Давайте создавать надежные и хорошо реализованные системы, а не каких-то быстрорастущих монстров. Этому поможет следование указанным здесь принципам проектирования и разработки программного обеспечения.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://baikov.dev/coding-principles/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-12-14T00:00:00+00:00">
+<meta property="article:modified_time" content="2022-05-02T20:31:25+00:00"><meta property="og:site_name" content="baikov.dev">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="15 принципов разработки ПО - аббревиатуры и расшифровка">
+<meta name=twitter:description content="Давайте создавать надежные и хорошо реализованные системы, а не каких-то быстрорастущих монстров. Этому поможет следование указанным здесь принципам проектирования и разработки программного обеспечения.">
+<meta name=application-name content="baikov.dev">
+<meta name=apple-mobile-web-app-title content="baikov.dev">
+<meta name=theme-color content="#f8f8f8"><meta name=msapplication-TileColor content="#ffffff"><link rel=icon href=/favicon.svg><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#e31e25><link rel=canonical href=https://baikov.dev/coding-principles/><link rel=prev href=https://baikov.dev/python-built-in-data-types/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
+<noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
+<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><meta name=google-site-verification content="7PfgOufFiirb5fKc1Uc8iRsP2vqxwhsv6wkLbbQAbGo"><meta name=yandex-verification content="67a921f283ab1e01">
+<script>(function(b,d,e,a,g){b[a]=b[a]||[],b[a].push({'gtm.start':(new Date).getTime(),event:'gtm.js'});var f=d.getElementsByTagName(e)[0],c=d.createElement(e),h=a!='dataLayer'?'&l='+a:'';c.async=!0,c.src='https://www.googletagmanager.com/gtm.js?id='+g+h,f.parentNode.insertBefore(c,f)})(window,document,'script','dataLayer','GTM-T78LHF7')</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"15 принципов разработки ПО - аббревиатуры и расшифровка","inLanguage":"ru","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/baikov.dev\/coding-principles\/"},"genre":"posts","wordcount":1059,"url":"https:\/\/baikov.dev\/coding-principles\/","datePublished":"2021-12-14T00:00:00+00:00","dateModified":"2022-05-02T20:31:25+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Baikov"},"description":"Давайте создавать надежные и хорошо реализованные системы, а не каких-то быстрорастущих монстров. Этому поможет следование указанным здесь принципам проектирования и разработки программного обеспечения."}</script></head>
+<body header-desktop=fixed header-mobile=auto><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T78LHF7" height=0 width=0 style=display:none;visibility:hidden></iframe></noscript><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let metaColors={light:'#f8f8f8',dark:'#252627',black:'#000000'};getMeta('theme-color').content=metaColors[document.body.getAttribute('theme')]</script>
+<div id=back-to-top></div>
+<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title=baikov.dev><span class=header-title-pre><i class="fas fa-laptop-code"></i></span>baikov<span class=header-title-post>.dev</span></a>
+</div>
+<div class=menu>
+<div class=menu-inner><a class=menu-item href=/about/> Обо мне </a><a class=menu-item href=/posts/> Блог </a><a class=menu-item href=/categories/> Категории </a><a class=menu-item href=/tags/> Тэги </a><a class=menu-item href=/cv/> Резюме </a><span class="menu-item delimiter"></span><a href=# onclick=return!1 class="menu-item language" title="Выбор Языка">Русский<i class="fas fa-chevron-right fa-fw"></i>
+<select class=language-select title="Select Language" id=language-select-desktop onchange="location=this.value"><option value=/coding-principles/ selected>Русский</option></select>
+</a><span class="menu-item search" id=search-desktop>
+<input type=text placeholder="Поиск заголовков или содержимого..." id=search-input-desktop>
+<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-desktop title=Поиск>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-desktop title=Очистить>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-desktop>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</span><a href=# onclick=return!1 class="menu-item theme-switch" title="Сменить Тему">
+<i class="fas fa-adjust fa-fw"></i>
+</a></div>
+</div>
+</div>
+</header><header class=mobile id=header-mobile>
+<div class=header-container>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title=baikov.dev><span class=header-title-pre><i class="fas fa-laptop-code"></i></span>baikov<span class=header-title-post>.dev</span></a>
+</div>
+<div class=menu-toggle id=menu-toggle-mobile>
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class=menu id=menu-mobile><div class=search-wrapper>
+<div class="search mobile" id=search-mobile>
+<input type=text placeholder="Поиск заголовков или содержимого..." id=search-input-mobile>
+<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-mobile title=Поиск>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-mobile title=Очистить>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-mobile>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</div>
+<a href=# onclick=return!1 class=search-cancel id=search-cancel-mobile>
+Отменить
+</a>
+</div><a class=menu-item href=/about/ title>Обо мне</a><a class=menu-item href=/posts/ title>Блог</a><a class=menu-item href=/categories/ title>Категории</a><a class=menu-item href=/tags/ title>Тэги</a><a class=menu-item href=/cv/ title>Резюме</a><a href=# onclick=return!1 class="menu-item theme-switch" title="Сменить Тему">
+<i class="fas fa-adjust fa-fw"></i>
+</a><a href=# onclick=return!1 class=menu-item title="Выбор Языка">Русский<i class="fas fa-chevron-right fa-fw"></i>
+<select class=language-select title="Select Language" onchange="location=this.value"><option value=/coding-principles/ selected>Русский</option></select>
+</a></div>
+</div>
+</header>
+<div class="search-dropdown desktop">
+<div id=search-dropdown-desktop></div>
+</div>
+<div class="search-dropdown mobile">
+<div id=search-dropdown-mobile></div>
+</div>
+<main class=main>
+<div class=container><div class=toc id=toc-auto>
+<div class=toc-title>Содержание</div>
+<div class=toc-content id=toc-content-auto></div>
+</div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","true")</script><article class="page single">
+<h1 class="single-title animate__animated animate__flipInX">Принципы проектирования</h1><div class=single-subtitle>Аббревиатуры и расшифровка</div><div class=post-meta>
+<div class=post-meta-line>&nbsp;<span class=post-category>Размещено в</span>&nbsp;<span class=post-category>категории <a href=/categories/python-interview/><i class="far fa-folder fa-fw"></i>Python собеседование</a></span></div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=14.12.2021>14.12.2021</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=02.05.2022>02.05.2022</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1059 слов&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;5 минут&nbsp;</div>
+</div><div class="details toc" id=toc-static kept>
+<div class="details-summary toc-title">
+<span>Содержание</span>
+<span><i class="details-icon fas fa-angle-right"></i></span>
+</div>
+<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
+<ul>
+<li><a href=#yagni>YAGNI</a></li>
+<li><a href=#dry>DRY</a></li>
+<li><a href=#kiss>KISS</a></li>
+<li><a href=#slap>SLAP</a></li>
+<li><a href=#solid>SOLID</a>
+<ul>
+<li><a href=#srp>SRP</a></li>
+<li><a href=#ocp>OCP</a></li>
+<li><a href=#lsp>LSP</a></li>
+<li><a href=#isp>ISP</a></li>
+<li><a href=#dip>DIP</a></li>
+</ul>
+</li>
+<li><a href=#cqs>CQS</a></li>
+<li><a href=#lod>LoD</a></li>
+<li><a href=#ioc>IoC</a>
+<ul>
+<li><a href=#di>DI</a></li>
+</ul>
+</li>
+<li><a href=#damp>DAMP</a></li>
+<li><a href=#aaa-3a>AAA (3A)</a></li>
+<li><a href=#grasp>GRASP</a>
+<ul>
+<li><a href=#information-expert>Information Expert</a></li>
+<li><a href=#creator-создатель>Creator (Создатель)</a></li>
+<li><a href=#controller-контроллер>Controller (Контроллер)</a></li>
+<li><a href=#low-coupling-низкая-связанность>Low Coupling (Низкая связанность)</a></li>
+<li><a href=#high-cohesion-высокое-сцепление>High Cohesion (Высокое сцепление)</a></li>
+<li><a href=#pure-fabrication-чистая-выдумка>Pure Fabrication (Чистая выдумка)</a></li>
+<li><a href=#indirection-посредник>Indirection (Посредник)</a></li>
+<li><a href=#protected-variations-защищенные-изменения>Protected Variations (Защищенные изменения)</a></li>
+<li><a href=#polymorphism-полиморфизм>Polymorphism (Полиморфизм)</a></li>
+</ul>
+</li>
+<li><a href=#or>OR</a></li>
+<li><a href=#bduf>BDUF</a></li>
+<li><a href=#apo>APO</a></li>
+<li><a href=#pola>POLA</a></li>
+</ul>
+</nav></div>
+</div><div class=content id=content><h2 id=yagni>YAGNI</h2>
+<p><strong>«You Ain’t Gonna Need It» — «Вам это не понадобится»</strong></p>
+<blockquote>
+<p>Процесс и принцип проектирования ПО, при котором в качестве основной цели и/или ценности декларируется отказ от избыточной функциональности, — то есть отказ добавления функциональности, в которой нет непосредственной надобности.</p>
+</blockquote>
+<h2 id=dry>DRY</h2>
+<p><strong>Don’t repeat yourself - не повторяйте себя</strong></p>
+<blockquote>
+<p>Это принцип разработки программного обеспечения, нацеленный на снижение повторения информации различного рода, особенно в системах со множеством слоёв абстрагирования. Принцип DRY формулируется как: <em>«Каждая часть знания должна иметь единственное, непротиворечивое и авторитетное представление в рамках системы»</em>. Он был сформулирован Энди Хантом и Дэйвом Томасом в их книге The Pragmatic Programmer.</p>
+</blockquote>
+<h2 id=kiss>KISS</h2>
+<p><strong>Keep It Stupid Simple (Keep it short and simple / Keep it simple, stupid) - Придерживайся простоты</strong></p>
+<blockquote>
+<p>Принцип KISS утверждает, что большинство систем работают лучше всего, если они остаются простыми, а не усложняются. Поэтому в области проектирования простота должна быть одной из ключевых целей, и следует избегать ненужной сложности.</p>
+</blockquote>
+<h2 id=slap>SLAP</h2>
+<p><strong>Single Level of Abstraction Principle - «Принцип единого уровня абстракций»</strong></p>
+<p>Диктует нам, как мы должны организовывать свой код (в частности, функции), чтобы он оставался поддерживаемым.</p>
+<h2 id=solid>SOLID</h2>
+<p><strong>SOLID</strong> это аббревиатура пяти основных принципов проектирования в объектно-ориентированном программировании, предложенных Робертом Мартином:</p>
+<ul>
+<li><strong>Single responsibility</strong> — принцип единственной ответственности</li>
+<li><strong>Open-closed</strong> — принцип открытости / закрытости</li>
+<li><strong>Liskov substitution</strong> — принцип подстановки Барбары Лисков</li>
+<li><strong>Interface segregation</strong> — принцип разделения интерфейса</li>
+<li><strong>Dependency inversion</strong> — принцип инверсии зависимостей</li>
+</ul>
+<h3 id=srp>SRP</h3>
+<p><strong>Single Responsibility Principle - «Принцип единой ответственности», SRP</strong></p>
+<p>В чем-то похож на SLAP, но направлен на объектно-ориентированное программирование. Этот принцип гласит, что объекты и классы (а также функции и методы) нужно организовывать так, чтобы каждый из них имел только одну зону ответственности.</p>
+<h3 id=ocp>OCP</h3>
+<p><strong>Open-Closed Principle - «Принцип открытости-закрытости»</strong></p>
+<p>Требует, чтобы код был открыт для новых, будущих дополнений, и чтобы при их добавлении не приходилось изменять уже написанный код. Этот принцип в большей степени затрагивает вопросы архитектуры, чем кода как такового.</p>
+<h3 id=lsp>LSP</h3>
+<p><strong>Liskov Substitution Principle - «Принцип подстановки Барбары Лисков»</strong></p>
+<p>Назван в честь его автора, Барбары Лисков. Суть его в том, что каждый подтип должен дополнять, а не заменять базовый тип.</p>
+<h3 id=isp>ISP</h3>
+<p><strong>Interface Segregation Principle - «Принцип разделения интерфейса»</strong></p>
+<p>Это еще один принцип, затрагивающий тему организации кода.</p>
+<h3 id=dip>DIP</h3>
+<p><strong>Dependency Inversion Principle - «Принцип инверсии зависимостей»</strong></p>
+<p>Как и OCP, DIP, в большей степени касается общей архитектуры кода. Фактически, это один из самых важных принципов проектирования архитектуры кода.</p>
+<ol>
+<li>
+<p>код должен быть написан так, чтобы детали реализации (например, пользовательский интерфейс или база данных) зависели от основной логики (правил бизнеса), а не наоборот.</p>
+</li>
+<li>
+<p>все эти зависимости не должны быть прямыми. Их нужно абстрагировать при помощи интерфейсов, чтобы основная логика работала со всем, что бы ей ни передали, требуя для этого только какой-нибудь простой «мост».</p>
+</li>
+</ol>
+<h2 id=cqs>CQS</h2>
+<p><strong>Command-Query Separation - разделения команд и запросов</strong></p>
+<p>Все функции некоторого интерфейса должны быть или некоторыми запросами, возвращающими ответ, или командами, изменяющими состояние системы, но не одновременно. Никогда функция не должна возвращать ответ и изменять состояние системы одновременно.</p>
+<h2 id=lod>LoD</h2>
+<p><strong>Law of Demeter - закон Деметры</strong></p>
+<p>Говорит нам примерно следующее: «не разговаривай с незнакомцами и не создавайте ненужных зависимостей». Закон Деметры — это, скорее, рекомендация, о которой стоит помнить.</p>
+<h2 id=ioc>IoC</h2>
+<p><strong>Inversion of Control - Инверсия управления</strong></p>
+<p>Важный принцип объектно-ориентированного программирования, используемый для уменьшения зацепления (связанности) в компьютерных программах. Он подразумевает что ходом программы управляет внешний, по отношению к ней, фреймворк. Dependency Injection (DI) является частью IoC.</p>
+<h3 id=di>DI</h3>
+<p><strong>Dependency Injection - Внедрение зависимости</strong></p>
+<p>Стиль разработки программного кода, когда в зависимости класса не создаются им напрямую, а внедряются из вне. При этом уменьшается связанность кода, но теряется контроль над созданием и временем жизни объектов, от которых зависит класс.</p>
+<h2 id=damp>DAMP</h2>
+<p><strong>Descriptive And Meaningful Phrases - Описательные и значимые фразы</strong></p>
+<p>Принцип написания модульных тестов таким образом, чтобы происходящее в них можно было понять без дополнительных комментариев и документации. Достигается использованием описательных имен и допускает небольшие нарушения принципа DRY при необходимости.</p>
+<h2 id=aaa-3a>AAA (3A)</h2>
+<p><strong>Arrange Act Assert - Условие, Действие, Проверка</strong></p>
+<p>Это шаблон для форматирования Unit тестов. Обозначающий разделения теста на 3 части</p>
+<ul>
+<li><strong>Arrange</strong> - все необходимые подготовки и входные данные</li>
+<li><strong>Act</strong> - собственно, вызов того метода который вы тестируете</li>
+<li><strong>Assert</strong> - проверка, что метод делает то что надо</li>
+</ul>
+<h2 id=grasp>GRASP</h2>
+<p><strong>General Responsibility Assignment Software Patterns - общие шаблоны распределения ответственностей</strong></p>
+<p>Это набор шаблонов, используемых в объектно-ориентированном проектировании для решения общих задач по назначению ответственностей классам и объектам.</p>
+<h3 id=information-expert>Information Expert</h3>
+<p>Информационный эксперт – класс, сосредотачивающий информацию о конкретной предметной области. Операции над ней также передаются в его ответственность. Например, Aсcount хранит информацию о счете и может предоставить выписку с него.</p>
+<h3 id=creator-создатель>Creator (Создатель)</h3>
+<p>Классы, создающие другие классы. Это может быть фабрика, пул и т.д.</p>
+<h3 id=controller-контроллер>Controller (Контроллер)</h3>
+<p>Объект, который несет в себе управляющие функции (не путать с бизнес-логикой приложения). Яркий пример - Контроллер в шаблоне MVC.</p>
+<h3 id=low-coupling-низкая-связанность>Low Coupling (Низкая связанность)</h3>
+<p>Данный принцип декларирует программирование на основе интерфейсов и абстракций, а не конкретных реализаций. Это способствует упрощению повторного использования кода, его поддержки, модификации, тестированию.</p>
+<h3 id=high-cohesion-высокое-сцепление>High Cohesion (Высокое сцепление)</h3>
+<p>Методы внутри классы должны быть тесно связаны между собой. Это еще одна гарантия, того что класс обеспечивается реализацию четко определенной единственной ответственности. Классы с низким сцеплением легко можно разделить на несколько.</p>
+<h3 id=pure-fabrication-чистая-выдумка>Pure Fabrication (Чистая выдумка)</h3>
+<p>Представляет собой классы, которые не отображают реальных объектов из предметной области приложения. Например, репозиторий, используемый для сохранения и загрузки объектов из хранилища.</p>
+<h3 id=indirection-посредник>Indirection (Посредник)</h3>
+<p>Необходим для устранения сильной связанности нескольких классов. На него ложится ответственность организации взаимодействия между ними. К слову, Контроллер в MVC является также посредником между Моделью и Представлением.</p>
+<h3 id=protected-variations-защищенные-изменения>Protected Variations (Защищенные изменения)</h3>
+<p>Данный принцип предполагает определение объектов, которые наиболее вероятно будут подвержены изменениям, и применение мер, по минимизации влияний этих изменений на остальные части приложения.</p>
+<h3 id=polymorphism-полиморфизм>Polymorphism (Полиморфизм)</h3>
+<p>Возможность объектов с одинаковой спецификацией иметь различную реализацию.</p>
+<h2 id=or>OR</h2>
+<p><strong>Occam&rsquo;s Razor - Бритва Оккама</strong></p>
+<p>Суть в том, что не нужно создавать лишние методы, классы и переменные, если в них нет нужды.</p>
+<h2 id=bduf>BDUF</h2>
+<p><strong>Big Design Up Front - Глобальное проектирование прежде всего</strong></p>
+<p>Этот подход к разработке программного обеспечения очень важен, и его часто игнорируют. Прежде чем переходить к реализации, убедитесь, что все хорошо продумано.</p>
+<h2 id=apo>APO</h2>
+<p><strong>Avoid Premature Optimization - Избегайте преждевременной оптимизации</strong></p>
+<p>Преждевременная оптимизация может привести к задержкам в коде и, следовательно, увеличит затраты времени на вывод функций на рынок.</p>
+<p>Многие считают преждевременную оптимизацию корнем всех зол.</p>
+<h2 id=pola>POLA</h2>
+<p><strong>Principle Of Least Astonishment - Принцип наименьшего удивления</strong></p>
+<p>Не заставляйте удивляться других программистов вашему коду. Нужно программировать просто, понятно и очевидно, чтобы любой другой специалист мог прочитать ваше творение. Имена и названия методов и классов должны нести информативность и быть лаконичными. Вызываемый метод должен соответствовать тому, для чего он вызывается и как он называется.</p>
+<p>Источники:</p>
+<p><a href=https://areknawo.com/10-coding-principles-and-acronyms-demystified/ target=_blank rel="noopener noreffer">10 Coding principles and acronyms demystified!</a></p>
+</div>
+<div class=post-footer id=post-footer>
+<div class=post-info>
+<div class=post-info-line>
+<div class=post-info-mod>
+<span>Oбновлено 02.05.2022</span>
+</div>
+<div class=post-info-license></div>
+</div>
+<div class=post-info-line>
+<div class=post-info-md></div>
+<div class=post-info-share>
+<span><a href=# onclick=return!1 title="Поделиться Twitter" data-sharer=twitter data-url=https://baikov.dev/coding-principles/ data-title="15 принципов разработки ПО - аббревиатуры и расшифровка"><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться Facebook" data-sharer=facebook data-url=https://baikov.dev/coding-principles/><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться Linkedin" data-sharer=linkedin data-url=https://baikov.dev/coding-principles/><i class="fab fa-linkedin fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться WhatsApp" data-sharer=whatsapp data-url=https://baikov.dev/coding-principles/ data-title="15 принципов разработки ПО - аббревиатуры и расшифровка" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться VK" data-sharer=vk data-url=https://baikov.dev/coding-principles/ data-title="15 принципов разработки ПО - аббревиатуры и расшифровка" data-caption="Давайте создавать надежные и хорошо реализованные системы, а не каких-то быстрорастущих монстров. Этому поможет следование указанным здесь принципам проектирования и разработки программного обеспечения."><i class="fab fa-vk fa-fw"></i></a></span>
+</div>
+</div>
+</div>
+<div class=post-info-more>
+<section class=post-tags></section>
+<section>
+<span><a href=javascript:void(0); onclick=window.history.back()>Назад</a></span>&nbsp;|&nbsp;<span><a href=/>Главная</a></span>
+</section>
+</div>
+<div class=post-nav><a href=/python-built-in-data-types/ class=prev rel=prev title="Встроенные типы данных в Python 3"><i class="fas fa-angle-left fa-fw"></i>Встроенные типы данных в Python 3</a></div>
+</div>
+</article></div>
+</main><footer class=footer>
+<div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2019 - 2022</span></div>
+</div></footer></div>
+<div id=fixed-buttons><a href=#back-to-top id=back-to-top-button class=fixed-button title=Наверх>
+<i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title="Посмотреть комментарии">
+<i class="fas fa-comment fa-fw"></i>
+</a>
+</div><div class=assets><script type=text/javascript src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.fill%2CArray.prototype.find%2CArray.from%2CIntersectionObserver%2CMath.sign%2CObject.assign%2CPromise%2CObject.entries%2Chtml5shiv%2CObject.values%2Cfetch%2CElement.prototype.after"></script><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/fuse/fuse.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/topbar/topbar.min.js></script><script type=text/javascript src=/lib/pjax/pjax.min.js></script><script type=text/javascript src=/js/theme.min.js></script></div>
+<div class=pjax-assets><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/js/custom.js></script><script type=text/javascript>window.config={code:{copyTitle:"Копировать в буфер обмена",maxShownLines:20},comment:{},search:{distance:100,findAllMatches:!1,fuseIndexURL:"/index.json",highlightTag:"em",ignoreFieldNorm:!1,ignoreLocation:!0,isCaseSensitive:!1,location:0,maxResultLength:10,minMatchCharLength:3,noResultsFound:"Результатов не найдено",snippetLength:300,threshold:.1,type:"fuse",useExtendedSearch:!1},sharerjs:!0}</script></div>
+</body>
+</html>
