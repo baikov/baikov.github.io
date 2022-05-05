@@ -8,7 +8,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://baikov.dev/decorators-in-python/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2022-04-05T00:00:00+00:00">
-<meta property="article:modified_time" content="2022-04-26T19:40:25+00:00"><meta property="og:site_name" content="baikov.dev">
+<meta property="article:modified_time" content="2022-05-05T11:11:45+00:00"><meta property="og:site_name" content="baikov.dev">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="Декораторы в Python: определение, особенности, примеры декораторов">
 <meta name=twitter:description content="Декораторы позволяют менять поведение функции не изменяя ее кода. Это становится возможным благодаря тому, что функции в Python могут принимать и возвращать функции. Декоратор в Python - это реализация структурного шаблона проектирования «Декоратор».">
@@ -18,7 +18,7 @@
 <noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
 <noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><meta name=google-site-verification content="7PfgOufFiirb5fKc1Uc8iRsP2vqxwhsv6wkLbbQAbGo"><meta name=yandex-verification content="67a921f283ab1e01">
 <script>(function(b,d,e,a,g){b[a]=b[a]||[],b[a].push({'gtm.start':(new Date).getTime(),event:'gtm.js'});var f=d.getElementsByTagName(e)[0],c=d.createElement(e),h=a!='dataLayer'?'&l='+a:'';c.async=!0,c.src='https://www.googletagmanager.com/gtm.js?id='+g+h,f.parentNode.insertBefore(c,f)})(window,document,'script','dataLayer','GTM-T78LHF7')</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Декораторы в Python: определение, особенности, примеры декораторов","inLanguage":"ru","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/baikov.dev\/decorators-in-python\/"},"genre":"posts","keywords":"python","wordcount":1309,"url":"https:\/\/baikov.dev\/decorators-in-python\/","datePublished":"2022-04-05T00:00:00+00:00","dateModified":"2022-04-26T19:40:25+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Baikov"},"description":"Декораторы позволяют менять поведение функции не изменяя ее кода. Это становится возможным благодаря тому, что функции в Python могут принимать и возвращать функции. Декоратор в Python - это реализация структурного шаблона проектирования «Декоратор»."}</script></head>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Декораторы в Python: определение, особенности, примеры декораторов","inLanguage":"ru","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/baikov.dev\/decorators-in-python\/"},"genre":"posts","keywords":"python","wordcount":1535,"url":"https:\/\/baikov.dev\/decorators-in-python\/","datePublished":"2022-04-05T00:00:00+00:00","dateModified":"2022-05-05T11:11:45+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Baikov"},"description":"Декораторы позволяют менять поведение функции не изменяя ее кода. Это становится возможным благодаря тому, что функции в Python могут принимать и возвращать функции. Декоратор в Python - это реализация структурного шаблона проектирования «Декоратор»."}</script></head>
 <body header-desktop=fixed header-mobile=auto><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T78LHF7" height=0 width=0 style=display:none;visibility:hidden></iframe></noscript><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let metaColors={light:'#f8f8f8',dark:'#252627',black:'#000000'};getMeta('theme-color').content=metaColors[document.body.getAttribute('theme')]</script>
 <div id=back-to-top></div>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
@@ -27,7 +27,7 @@
 <a href=/ title=baikov.dev><span class=header-title-pre><i class="fas fa-laptop-code"></i></span>baikov<span class=header-title-post>.dev</span></a>
 </div>
 <div class=menu>
-<div class=menu-inner><a class=menu-item href=/about/> Обо мне </a><a class=menu-item href=/posts/> Блог </a><a class=menu-item href=/categories/> Категории </a><a class=menu-item href=/tags/> Тэги </a><a class=menu-item href=/cv/> Резюме </a><span class="menu-item delimiter"></span><a href=# onclick=return!1 class="menu-item language" title="Выбор Языка">Русский<i class="fas fa-chevron-right fa-fw"></i>
+<div class=menu-inner><a class=menu-item href=/about/> Обо мне </a><a class=menu-item href=/posts/> Блог </a><a class=menu-item href=/categories/> Категории </a><a class=menu-item href=/cv/> Резюме </a><span class="menu-item delimiter"></span><a href=# onclick=return!1 class="menu-item language" title="Выбор Языка">Русский<i class="fas fa-chevron-right fa-fw"></i>
 <select class=language-select title="Select Language" id=language-select-desktop onchange="location=this.value"><option value=/decorators-in-python/ selected>Русский</option></select>
 </a><span class="menu-item search" id=search-desktop>
 <input type=text placeholder="Поиск заголовков или содержимого..." id=search-input-desktop>
@@ -71,7 +71,7 @@
 <a href=# onclick=return!1 class=search-cancel id=search-cancel-mobile>
 Отменить
 </a>
-</div><a class=menu-item href=/about/ title>Обо мне</a><a class=menu-item href=/posts/ title>Блог</a><a class=menu-item href=/categories/ title>Категории</a><a class=menu-item href=/tags/ title>Тэги</a><a class=menu-item href=/cv/ title>Резюме</a><a href=# onclick=return!1 class="menu-item theme-switch" title="Сменить Тему">
+</div><a class=menu-item href=/about/ title>Обо мне</a><a class=menu-item href=/posts/ title>Блог</a><a class=menu-item href=/categories/ title>Категории</a><a class=menu-item href=/cv/ title>Резюме</a><a href=# onclick=return!1 class="menu-item theme-switch" title="Сменить Тему">
 <i class="fas fa-adjust fa-fw"></i>
 </a><a href=# onclick=return!1 class=menu-item title="Выбор Языка">Русский<i class="fas fa-chevron-right fa-fw"></i>
 <select class=language-select title="Select Language" onchange="location=this.value"><option value=/decorators-in-python/ selected>Русский</option></select>
@@ -91,8 +91,8 @@
 </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","true")</script><article class="page single">
 <h1 class="single-title animate__animated animate__flipInX">Декораторы в Python</h1><div class=post-meta>
 <div class=post-meta-line>&nbsp;<span class=post-category>Размещено в</span>&nbsp;<span class=post-category>категории <a href=/categories/python-interview/><i class="far fa-folder fa-fw"></i>Python собеседование</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=05.04.2022>05.04.2022</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=26.04.2022>26.04.2022</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1309 слов&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;7 минут&nbsp;</div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=05.04.2022>05.04.2022</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=05.05.2022>05.05.2022</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1535 слов&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;8 минут&nbsp;</div>
 </div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
 <span>Содержание</span>
@@ -111,12 +111,9 @@
 <li><a href=#встроенные-декораторы>Встроенные декораторы</a></li>
 <li><a href=#примеры-декораторов-код>Примеры декораторов (код)</a>
 <ul>
+<li><a href=#конвертер>Конвертер</a></li>
 <li><a href=#таймер>Таймер</a></li>
-<li><a href=#логирование>Логирование</a></li>
 <li><a href=#счетчик-вызовов>Счетчик вызовов</a></li>
-<li><a href=#функция-обратного-вызова>Функция обратного вызова</a></li>
-<li><a href=#проверка-состояний>Проверка состояний</a></li>
-<li><a href=#обработка-ошибок>Обработка ошибок</a></li>
 </ul>
 </li>
 </ul>
@@ -605,13 +602,142 @@ Inside wrapper - After func <span class=nb>exec</span>
 </ul>
 <p>Подробнее тут.<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup></p>
 <h2 id=примеры-декораторов-код>Примеры декораторов (код)</h2>
-<h3 id=таймер>Таймер</h3>
-<h3 id=логирование>Логирование</h3>
-<h3 id=счетчик-вызовов>Счетчик вызовов</h3>
-<h3 id=функция-обратного-вызова>Функция обратного вызова</h3>
-<h3 id=проверка-состояний>Проверка состояний</h3>
-<h3 id=обработка-ошибок>Обработка ошибок</h3>
-<p>Источники<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup><sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup><sup id=fnref:5><a href=#fn:5 class=footnote-ref role=doc-noteref>5</a></sup><sup id=fnref:6><a href=#fn:6 class=footnote-ref role=doc-noteref>6</a></sup></p>
+<h3 id=конвертер>Конвертер</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>functools</span>
+<span class=k>def</span> <span class=nf>convert</span><span class=p>(</span><span class=n>func</span><span class=o>=</span><span class=kc>None</span><span class=p>,</span> <span class=n>convert_to</span><span class=o>=</span><span class=kc>None</span><span class=p>):</span>
+    <span class=s2>&#34;&#34;&#34;Этот код конвертирует единицы измерения из одного типа в другой.&#34;&#34;&#34;</span>
+    <span class=k>if</span> <span class=n>func</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+        <span class=k>return</span> <span class=n>functools</span><span class=o>.</span><span class=n>partial</span><span class=p>(</span><span class=n>convert</span><span class=p>,</span> <span class=n>convert_to</span><span class=o>=</span><span class=n>convert_to</span><span class=p>)</span>
+    <span class=nd>@functools</span><span class=o>.</span><span class=n>wraps</span><span class=p>(</span><span class=n>func</span><span class=p>)</span>
+    <span class=k>def</span> <span class=nf>wrapper</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
+        <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;Conversion unit: </span><span class=si>{</span><span class=n>convert_to</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+        <span class=n>val</span> <span class=o>=</span> <span class=n>func</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span>
+        <span class=c1># Добавим правила для преобразования</span>
+        <span class=k>if</span> <span class=n>convert_to</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+            <span class=k>return</span> <span class=n>val</span>
+        <span class=k>elif</span> <span class=n>convert_to</span> <span class=o>==</span> <span class=s2>&#34;km&#34;</span><span class=p>:</span>
+            <span class=k>return</span> <span class=n>val</span> <span class=o>/</span> <span class=mi>1000</span>
+        <span class=k>elif</span> <span class=n>convert_to</span> <span class=o>==</span> <span class=s2>&#34;mile&#34;</span><span class=p>:</span>
+            <span class=k>return</span> <span class=n>val</span> <span class=o>*</span> <span class=mf>0.000621371</span>
+        <span class=k>elif</span> <span class=n>convert_to</span> <span class=o>==</span> <span class=s2>&#34;cm&#34;</span><span class=p>:</span>
+            <span class=k>return</span> <span class=n>val</span> <span class=o>*</span> <span class=mi>100</span>
+        <span class=k>elif</span> <span class=n>convert_to</span> <span class=o>==</span> <span class=s2>&#34;mm&#34;</span><span class=p>:</span>
+            <span class=k>return</span> <span class=n>val</span> <span class=o>*</span> <span class=mi>1000</span>
+        <span class=k>else</span><span class=p>:</span>
+            <span class=k>raise</span> <span class=ne>ValueError</span><span class=p>(</span><span class=s2>&#34;Conversion unit is not supported.&#34;</span><span class=p>)</span> <span class=c1># этот тип единиц не поддерживается</span>
+    <span class=k>return</span> <span class=n>wrapper</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=таймер>Таймер</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>time</span>
+
+<span class=k>def</span> <span class=nf>exec_time</span><span class=p>(</span><span class=nb>type</span><span class=p>:</span> <span class=nb>str</span> <span class=o>=</span> <span class=s2>&#34;sec&#34;</span><span class=p>,</span> <span class=n>iters</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>1</span><span class=p>):</span>
+
+    <span class=k>def</span> <span class=nf>exec_time_decorator</span><span class=p>(</span><span class=n>func</span><span class=p>):</span>
+        <span class=nd>@wraps</span><span class=p>(</span><span class=n>func</span><span class=p>)</span>
+        <span class=k>def</span> <span class=nf>wrapper</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
+            <span class=s2>&#34;&#34;&#34;Docstring wrapper&#34;&#34;&#34;</span>
+            <span class=n>start_time</span> <span class=o>=</span> <span class=n>time</span><span class=o>.</span><span class=n>time</span><span class=p>()</span>
+            <span class=k>for</span> <span class=n>_</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>iters</span><span class=p>):</span>
+                <span class=n>result</span> <span class=o>=</span> <span class=n>func</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span>
+            <span class=n>end_time</span> <span class=o>=</span> <span class=n>time</span><span class=o>.</span><span class=n>time</span><span class=p>()</span>
+            <span class=k>if</span> <span class=nb>type</span> <span class=o>==</span> <span class=s2>&#34;ms&#34;</span><span class=p>:</span>
+                <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;Execution time of </span><span class=si>{</span><span class=n>func</span><span class=o>.</span><span class=vm>__name__</span><span class=si>}</span><span class=s2> x</span><span class=si>{</span><span class=n>iters</span><span class=si>}</span><span class=s2> is </span><span class=si>{</span><span class=p>(</span><span class=n>end_time</span> <span class=o>-</span> <span class=n>start_time</span><span class=p>)</span><span class=o>*</span><span class=mi>1000</span><span class=si>}</span><span class=s2> ms&#34;</span><span class=p>)</span>
+            <span class=k>else</span><span class=p>:</span>
+                <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;Execution time of </span><span class=si>{</span><span class=n>func</span><span class=o>.</span><span class=vm>__name__</span><span class=si>}</span><span class=s2> x</span><span class=si>{</span><span class=n>iters</span><span class=si>}</span><span class=s2> is </span><span class=si>{</span><span class=n>end_time</span> <span class=o>-</span> <span class=n>start_time</span><span class=si>}</span><span class=s2> s&#34;</span><span class=p>)</span>
+            <span class=k>return</span> <span class=n>result</span>
+
+        <span class=k>return</span> <span class=n>wrapper</span>
+
+    <span class=k>return</span> <span class=n>exec_time_decorator</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=счетчик-вызовов>Счетчик вызовов</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>counter</span><span class=p>(</span><span class=n>func</span><span class=p>):</span>
+    <span class=n>count</span> <span class=o>=</span> <span class=mi>0</span>
+
+    <span class=nd>@wraps</span><span class=p>(</span><span class=n>func</span><span class=p>)</span>
+    <span class=k>def</span> <span class=nf>wrapper</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
+        <span class=s2>&#34;&#34;&#34;Docstring wrapper&#34;&#34;&#34;</span>
+        <span class=k>nonlocal</span> <span class=n>count</span>
+        <span class=n>count</span> <span class=o>+=</span> <span class=mi>1</span>
+        <span class=n>res</span> <span class=o>=</span> <span class=n>func</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span>
+        <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>func</span><span class=o>.</span><span class=vm>__name__</span><span class=si>}</span><span class=s2> была вызвана: </span><span class=si>{</span><span class=n>count</span><span class=si>}</span><span class=s2>x&#34;</span><span class=p>)</span>
+        <span class=k>return</span> <span class=n>res</span>
+
+    <span class=k>return</span> <span class=n>wrapper</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Источники<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup><sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup><sup id=fnref:5><a href=#fn:5 class=footnote-ref role=doc-noteref>5</a></sup><sup id=fnref:6><a href=#fn:6 class=footnote-ref role=doc-noteref>6</a></sup></p>
 <section class=footnotes role=doc-endnotes>
 <hr>
 <ol>
@@ -640,7 +766,7 @@ Inside wrapper - After func <span class=nb>exec</span>
 <div class=post-info>
 <div class=post-info-line>
 <div class=post-info-mod>
-<span>Oбновлено 26.04.2022</span>
+<span>Oбновлено 05.05.2022</span>
 </div>
 <div class=post-info-license></div>
 </div>
