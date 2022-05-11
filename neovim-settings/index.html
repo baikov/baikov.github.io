@@ -1,0 +1,744 @@
+<!doctype html><html lang=ru>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="noindex, follow">
+<title class=pjax-title>Установка и настройка Neovim</title><meta name=Description content="Установка и настройка Neovim"><meta property="og:title" content="Установка и настройка Neovim">
+<meta property="og:description" content="Установка и настройка Neovim">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://baikov.dev/neovim-settings/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2020-12-21T00:00:00+00:00">
+<meta property="article:modified_time" content="2022-05-11T16:58:20+00:00"><meta property="og:site_name" content="baikov.dev">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Установка и настройка Neovim">
+<meta name=twitter:description content="Установка и настройка Neovim">
+<meta name=application-name content="baikov.dev">
+<meta name=apple-mobile-web-app-title content="baikov.dev">
+<meta name=theme-color content="#f8f8f8"><meta name=msapplication-TileColor content="#ffffff"><link rel=icon href=/favicon.svg><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#e31e25><link rel=canonical href=https://baikov.dev/neovim-settings/><link rel=prev href=https://baikov.dev/decorators-in-python/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
+<noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
+<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><meta name=google-site-verification content="7PfgOufFiirb5fKc1Uc8iRsP2vqxwhsv6wkLbbQAbGo"><meta name=yandex-verification content="67a921f283ab1e01">
+<script>(function(b,d,e,a,g){b[a]=b[a]||[],b[a].push({'gtm.start':(new Date).getTime(),event:'gtm.js'});var f=d.getElementsByTagName(e)[0],c=d.createElement(e),h=a!='dataLayer'?'&l='+a:'';c.async=!0,c.src='https://www.googletagmanager.com/gtm.js?id='+g+h,f.parentNode.insertBefore(c,f)})(window,document,'script','dataLayer','GTM-T78LHF7')</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Установка и настройка Neovim","inLanguage":"ru","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/baikov.dev\/neovim-settings\/"},"genre":"posts","keywords":"vim","wordcount":1155,"url":"https:\/\/baikov.dev\/neovim-settings\/","datePublished":"2020-12-21T00:00:00+00:00","dateModified":"2022-05-11T16:58:20+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Baikov"},"description":"Установка и настройка Neovim"}</script></head>
+<body header-desktop=fixed header-mobile=auto><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T78LHF7" height=0 width=0 style=display:none;visibility:hidden></iframe></noscript><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let metaColors={light:'#f8f8f8',dark:'#252627',black:'#000000'};getMeta('theme-color').content=metaColors[document.body.getAttribute('theme')]</script>
+<div id=back-to-top></div>
+<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title=baikov.dev><span class=header-title-pre><i class="fas fa-laptop-code"></i></span>baikov<span class=header-title-post>.dev</span></a>
+</div>
+<div class=menu>
+<div class=menu-inner><a class=menu-item href=/about/> Обо мне </a><a class=menu-item href=/posts/> Блог </a><a class=menu-item href=/categories/> Категории </a><a class=menu-item href=/cv/> Резюме </a><span class="menu-item delimiter"></span><a href=# onclick=return!1 class="menu-item language" title="Выбор Языка">Русский<i class="fas fa-chevron-right fa-fw"></i>
+<select class=language-select title="Select Language" id=language-select-desktop onchange="location=this.value"><option value=/neovim-settings/ selected>Русский</option></select>
+</a><span class="menu-item search" id=search-desktop>
+<input type=text placeholder="Поиск заголовков или содержимого..." id=search-input-desktop>
+<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-desktop title=Поиск>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-desktop title=Очистить>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-desktop>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</span><a href=# onclick=return!1 class="menu-item theme-switch" title="Сменить Тему">
+<i class="fas fa-adjust fa-fw"></i>
+</a></div>
+</div>
+</div>
+</header><header class=mobile id=header-mobile>
+<div class=header-container>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title=baikov.dev><span class=header-title-pre><i class="fas fa-laptop-code"></i></span>baikov<span class=header-title-post>.dev</span></a>
+</div>
+<div class=menu-toggle id=menu-toggle-mobile>
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class=menu id=menu-mobile><div class=search-wrapper>
+<div class="search mobile" id=search-mobile>
+<input type=text placeholder="Поиск заголовков или содержимого..." id=search-input-mobile>
+<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-mobile title=Поиск>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-mobile title=Очистить>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-mobile>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</div>
+<a href=# onclick=return!1 class=search-cancel id=search-cancel-mobile>
+Отменить
+</a>
+</div><a class=menu-item href=/about/ title>Обо мне</a><a class=menu-item href=/posts/ title>Блог</a><a class=menu-item href=/categories/ title>Категории</a><a class=menu-item href=/cv/ title>Резюме</a><a href=# onclick=return!1 class="menu-item theme-switch" title="Сменить Тему">
+<i class="fas fa-adjust fa-fw"></i>
+</a><a href=# onclick=return!1 class=menu-item title="Выбор Языка">Русский<i class="fas fa-chevron-right fa-fw"></i>
+<select class=language-select title="Select Language" onchange="location=this.value"><option value=/neovim-settings/ selected>Русский</option></select>
+</a></div>
+</div>
+</header>
+<div class="search-dropdown desktop">
+<div id=search-dropdown-desktop></div>
+</div>
+<div class="search-dropdown mobile">
+<div id=search-dropdown-mobile></div>
+</div>
+<main class=main>
+<div class=container><div class=toc id=toc-auto>
+<div class=toc-title>Содержание</div>
+<div class=toc-content id=toc-content-auto></div>
+</div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","true")</script><article class="page single">
+<h1 class="single-title animate__animated animate__flipInX">Установка и настройка Neovim</h1><div class=post-meta>
+<div class=post-meta-line>&nbsp;<span class=post-category>Размещено в</span>&nbsp;<span class=post-category>категории <a href=/categories/notes/><i class="far fa-folder fa-fw"></i>Заметки и шпаргалки</a></span></div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=21.12.2020>21.12.2020</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=11.05.2022>11.05.2022</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1155 слов&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;6 минут&nbsp;</div>
+</div><div class="details toc" id=toc-static kept>
+<div class="details-summary toc-title">
+<span>Содержание</span>
+<span><i class="details-icon fas fa-angle-right"></i></span>
+</div>
+<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
+<ul>
+<li><a href=#установка-neovim>Установка Neovim</a></li>
+<li><a href=#установка-vim-plug>Установка vim-plug</a></li>
+<li><a href=#файл-конфигурации-neovim-для-mac>Файл конфигурации Neovim для Mac</a></li>
+<li><a href=#установка-плагинов>Установка плагинов</a></li>
+</ul>
+</nav></div>
+</div><div class=content id=content><h2 id=установка-neovim>Установка Neovim</h2>
+<blockquote>
+<p>Сверхрасширяемый текстовый редактор на основе Vim<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup></p>
+</blockquote>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>brew install neovim
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=установка-vim-plug>Установка vim-plug</h2>
+<p>Минималистичный менеджер плагинов Vim.<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup></p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=файл-конфигурации-neovim-для-mac>Файл конфигурации Neovim для Mac</h2>
+<p>Создаем файл <code>~/.comfig/nvim/init.vim</code> со следующим содержимым:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span><span class=lnt>123
+</span><span class=lnt>124
+</span><span class=lnt>125
+</span><span class=lnt>126
+</span><span class=lnt>127
+</span><span class=lnt>128
+</span><span class=lnt>129
+</span><span class=lnt>130
+</span><span class=lnt>131
+</span><span class=lnt>132
+</span><span class=lnt>133
+</span><span class=lnt>134
+</span><span class=lnt>135
+</span><span class=lnt>136
+</span><span class=lnt>137
+</span><span class=lnt>138
+</span><span class=lnt>139
+</span><span class=lnt>140
+</span><span class=lnt>141
+</span><span class=lnt>142
+</span><span class=lnt>143
+</span><span class=lnt>144
+</span><span class=lnt>145
+</span><span class=lnt>146
+</span><span class=lnt>147
+</span><span class=lnt>148
+</span><span class=lnt>149
+</span><span class=lnt>150
+</span><span class=lnt>151
+</span><span class=lnt>152
+</span><span class=lnt>153
+</span><span class=lnt>154
+</span><span class=lnt>155
+</span><span class=lnt>156
+</span><span class=lnt>157
+</span><span class=lnt>158
+</span><span class=lnt>159
+</span><span class=lnt>160
+</span><span class=lnt>161
+</span><span class=lnt>162
+</span><span class=lnt>163
+</span><span class=lnt>164
+</span><span class=lnt>165
+</span><span class=lnt>166
+</span><span class=lnt>167
+</span><span class=lnt>168
+</span><span class=lnt>169
+</span><span class=lnt>170
+</span><span class=lnt>171
+</span><span class=lnt>172
+</span><span class=lnt>173
+</span><span class=lnt>174
+</span><span class=lnt>175
+</span><span class=lnt>176
+</span><span class=lnt>177
+</span><span class=lnt>178
+</span><span class=lnt>179
+</span><span class=lnt>180
+</span><span class=lnt>181
+</span><span class=lnt>182
+</span><span class=lnt>183
+</span><span class=lnt>184
+</span><span class=lnt>185
+</span><span class=lnt>186
+</span><span class=lnt>187
+</span><span class=lnt>188
+</span><span class=lnt>189
+</span><span class=lnt>190
+</span><span class=lnt>191
+</span><span class=lnt>192
+</span><span class=lnt>193
+</span><span class=lnt>194
+</span><span class=lnt>195
+</span><span class=lnt>196
+</span><span class=lnt>197
+</span><span class=lnt>198
+</span><span class=lnt>199
+</span><span class=lnt>200
+</span><span class=lnt>201
+</span><span class=lnt>202
+</span><span class=lnt>203
+</span><span class=lnt>204
+</span><span class=lnt>205
+</span><span class=lnt>206
+</span><span class=lnt>207
+</span><span class=lnt>208
+</span><span class=lnt>209
+</span><span class=lnt>210
+</span><span class=lnt>211
+</span><span class=lnt>212
+</span><span class=lnt>213
+</span><span class=lnt>214
+</span><span class=lnt>215
+</span><span class=lnt>216
+</span><span class=lnt>217
+</span><span class=lnt>218
+</span><span class=lnt>219
+</span><span class=lnt>220
+</span><span class=lnt>221
+</span><span class=lnt>222
+</span><span class=lnt>223
+</span><span class=lnt>224
+</span><span class=lnt>225
+</span><span class=lnt>226
+</span><span class=lnt>227
+</span><span class=lnt>228
+</span><span class=lnt>229
+</span><span class=lnt>230
+</span><span class=lnt>231
+</span><span class=lnt>232
+</span><span class=lnt>233
+</span><span class=lnt>234
+</span><span class=lnt>235
+</span><span class=lnt>236
+</span><span class=lnt>237
+</span><span class=lnt>238
+</span><span class=lnt>239
+</span><span class=lnt>240
+</span><span class=lnt>241
+</span><span class=lnt>242
+</span><span class=lnt>243
+</span><span class=lnt>244
+</span><span class=lnt>245
+</span><span class=lnt>246
+</span><span class=lnt>247
+</span><span class=lnt>248
+</span><span class=lnt>249
+</span><span class=lnt>250
+</span><span class=lnt>251
+</span><span class=lnt>252
+</span><span class=lnt>253
+</span><span class=lnt>254
+</span><span class=lnt>255
+</span><span class=lnt>256
+</span><span class=lnt>257
+</span><span class=lnt>258
+</span><span class=lnt>259
+</span><span class=lnt>260
+</span><span class=lnt>261
+</span><span class=lnt>262
+</span><span class=lnt>263
+</span><span class=lnt>264
+</span><span class=lnt>265
+</span><span class=lnt>266
+</span><span class=lnt>267
+</span><span class=lnt>268
+</span><span class=lnt>269
+</span><span class=lnt>270
+</span><span class=lnt>271
+</span><span class=lnt>272
+</span><span class=lnt>273
+</span><span class=lnt>274
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=c>&#34; Base</span><span class=err>
+</span><span class=err></span><span class=nx>set</span> <span class=nx>mouse</span><span class=p>=</span><span class=nx>a</span><span class=err>
+</span><span class=err></span><span class=nx>set</span> <span class=nx>encoding</span><span class=p>=</span><span class=nx>utf</span><span class=m>-8</span><span class=err>
+</span><span class=err></span><span class=nx>set</span> <span class=nx>number</span><span class=err>
+</span><span class=err></span><span class=nx>set</span> <span class=nx>noswapfile</span><span class=err>
+</span><span class=err></span><span class=nx>set</span> <span class=nx>scrolloff</span><span class=p>=</span><span class=m>7</span><span class=err>
+</span><span class=err></span><span class=nx>set</span> <span class=nx>tabstop</span><span class=p>=</span><span class=m>4</span><span class=err>
+</span><span class=err></span><span class=nx>set</span> <span class=nx>softtabstop</span><span class=p>=</span><span class=m>4</span><span class=err>
+</span><span class=err></span><span class=nx>set</span> <span class=nx>shiftwidth</span><span class=p>=</span><span class=m>4</span><span class=err>
+</span><span class=err></span><span class=nx>set</span> <span class=nx>expandtab</span><span class=err>
+</span><span class=err></span><span class=nx>set</span> <span class=nx>autoindent</span><span class=err>
+</span><span class=err></span><span class=nx>set</span> <span class=nx>fileformat</span><span class=p>=</span><span class=nx>unix</span><span class=err>
+</span><span class=err></span><span class=nx>set</span> <span class=nx>t_Co</span><span class=p>=</span><span class=m>256</span><span class=err>
+</span><span class=err></span><span class=nx>set</span> <span class=nx>guifont</span><span class=p>=</span><span class=nx>Monaco</span>:<span class=nx>h18</span><span class=err>
+</span><span class=err></span><span class=nx>set</span> <span class=nx>colorcolumn</span><span class=p>=</span><span class=m>120</span><span class=err>
+</span><span class=err></span><span class=c>
+</span><span class=c>&#34; load filetype-specific indent files</span><span class=err>
+</span><span class=err></span><span class=nx>filetype</span> <span class=nx>indent</span> <span class=nx>on</span><span class=err>
+</span><span class=err></span><span class=c>
+</span><span class=c>&#34; Plugins</span><span class=err>
+</span><span class=err></span><span class=nx>call</span> <span class=nx>plug</span>#<span class=nx>begin</span><span class=p>(</span><span class=s1>&#39;~/.config/nvim/plugged&#39;</span><span class=p>)</span><span class=err>
+</span><span class=err>
+</span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;neovim/nvim-lspconfig&#39;</span><span class=err>
+</span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;hrsh7th/nvim-cmp&#39;</span><span class=err>
+</span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;hrsh7th/cmp-nvim-lsp&#39;</span><span class=err>
+</span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;saadparwaiz1/cmp_luasnip&#39;</span><span class=err>
+</span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;L3MON4D3/LuaSnip&#39;</span><span class=err>
+</span><span class=err></span><span class=c>
+</span><span class=c>&#34; color schemas</span><span class=err>
+</span><span class=err></span><span class=c>&#34;Plug &#39;morhetz/gruvbox&#39;  &#34; colorscheme gruvbox</span><span class=err>
+</span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;mhartington/oceanic-next&#39;</span>  <span class=c>&#34; colorscheme OceanicNext</span><span class=err>
+</span><span class=err></span><span class=c>&#34;Plug &#39;kaicataldo/material.vim&#39;, { &#39;branch&#39;: &#39;main&#39; }</span><span class=err>
+</span><span class=err></span><span class=c>&#34;Plug &#39;ayu-theme/ayu-vim&#39;</span><span class=err>
+</span><span class=err></span><span class=c>
+</span><span class=c>&#34; For JS/JSX</span><span class=err>
+</span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;yuezk/vim-js&#39;</span><span class=err>
+</span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;maxmellon/vim-jsx-pretty&#39;</span><span class=err>
+</span><span class=err>
+</span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;scrooloose/nerdtree&#39;</span><span class=err>
+</span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;tpope/vim-surround&#39;</span><span class=err>
+</span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;tpope/vim-fugitive&#39;</span><span class=err>
+</span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;tpope/vim-commentary&#39;</span><span class=err>
+</span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;mattn/emmet-vim&#39;</span><span class=err>
+</span><span class=err></span><span class=c>&#34;Plug &#39;davidhalter/jedi-vim&#39;</span><span class=err>
+</span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;klen/python-mode&#39;</span><span class=err>
+</span><span class=err></span><span class=c>&#34;Plug &#39;ambv/black&#39;</span><span class=err>
+</span><span class=err></span><span class=c>&#34;Plug &#39;nvie/vim-flake8&#39;</span><span class=err>
+</span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;mitsuhiko/vim-jinja&#39;</span><span class=err>
+</span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;git://git.wincent.com/command-t.git&#39;</span><span class=err>
+</span><span class=err></span><span class=c>&#34;Plugin &#39;flazz/vim-colorschemes&#39;</span><span class=err>
+</span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;alvan/vim-closetag&#39;</span><span class=err>
+</span><span class=err>
+</span><span class=err></span><span class=nx>call</span> <span class=nx>plug</span>#<span class=nx>end</span><span class=p>()</span><span class=err>
+</span><span class=err></span><span class=c>
+</span><span class=c>
+</span><span class=c>&#34;colorscheme gruvbox</span><span class=err>
+</span><span class=err></span><span class=nx>colorscheme</span> <span class=nx>OceanicNext</span><span class=err>
+</span><span class=err></span><span class=c>&#34;let g:material_terminal_italics = 1</span><span class=err>
+</span><span class=err></span><span class=c>&#34; variants: default, palenight, ocean, lighter, darker, default-community,</span><span class=err>
+</span><span class=err></span><span class=c>&#34;           palenight-community, ocean-community, lighter-community,</span><span class=err>
+</span><span class=err></span><span class=c>&#34;           darker-community</span><span class=err>
+</span><span class=err></span><span class=c>&#34;let g:material_theme_style = &#39;darker&#39;</span><span class=err>
+</span><span class=err></span><span class=c>&#34;colorscheme material</span><span class=err>
+</span><span class=err></span><span class=k>if</span> <span class=p>(</span><span class=nx>has</span><span class=p>(</span><span class=s1>&#39;termguicolors&#39;</span><span class=p>))</span><span class=err>
+</span><span class=err></span>  <span class=nx>set</span> <span class=nx>termguicolors</span><span class=err>
+</span><span class=err></span><span class=k>endif</span><span class=err>
+</span><span class=err></span><span class=c>
+</span><span class=c>&#34; variants: mirage, dark, dark</span><span class=err>
+</span><span class=err></span><span class=c>&#34;let ayucolor=&#34;mirage&#34;</span><span class=err>
+</span><span class=err></span><span class=c>&#34;colorscheme ayu</span><span class=err>
+</span><span class=err>
+</span><span class=err>
+</span><span class=err></span><span class=nx>lua</span> <span class=p>&lt;&lt;</span> <span class=nx>EOF</span><span class=err>
+</span><span class=err></span><span class=p>--</span> <span class=nx>Set</span> <span class=nx>completeopt</span> <span class=nx>to</span> <span class=nx>have</span> <span class=nx>a</span> <span class=nx>better</span> <span class=nx>completion</span> <span class=nx>experience</span><span class=err>
+</span><span class=err></span><span class=nx>vim</span>.<span class=nx>o</span>.<span class=nx>completeopt</span> <span class=p>=</span> <span class=s1>&#39;menuone,noselect&#39;</span><span class=err>
+</span><span class=err>
+</span><span class=err></span><span class=p>--</span> <span class=nx>luasnip</span> <span class=nx>setup</span><span class=err>
+</span><span class=err></span><span class=nx>local</span> <span class=nx>luasnip</span> <span class=p>=</span> <span class=nx>require</span> <span class=s1>&#39;luasnip&#39;</span><span class=err>
+</span><span class=err>
+</span><span class=err></span><span class=p>--</span> <span class=nx>nvim</span><span class=p>-</span><span class=nx>cmp</span> <span class=nx>setup</span><span class=err>
+</span><span class=err></span><span class=nx>local</span> <span class=nx>cmp</span> <span class=p>=</span> <span class=nx>require</span> <span class=s1>&#39;cmp&#39;</span><span class=err>
+</span><span class=err></span><span class=nx>cmp</span>.<span class=nx>setup</span> {<span class=err>
+</span><span class=err></span>  <span class=nx>completion</span> <span class=p>=</span> {<span class=err>
+</span><span class=err></span>    <span class=nx>autocomplete</span> <span class=p>=</span> <span class=nx>false</span><span class=err>
+</span><span class=err></span>  }<span class=p>,</span><span class=err>
+</span><span class=err></span>  <span class=nx>snippet</span> <span class=p>=</span> {<span class=err>
+</span><span class=err></span>    <span class=nx>expand</span> <span class=p>=</span> <span class=k>function</span><span class=p>(</span><span class=nx>args</span><span class=p>)</span><span class=err>
+</span><span class=err></span>      <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;luasnip&#39;</span><span class=p>)</span>.<span class=nx>lsp_expand</span><span class=p>(</span><span class=nx>args</span>.<span class=nx>body</span><span class=p>)</span><span class=err>
+</span><span class=err></span>    <span class=nx>end</span><span class=p>,</span><span class=err>
+</span><span class=err></span>  }<span class=p>,</span><span class=err>
+</span><span class=err></span>  <span class=nx>mapping</span> <span class=p>=</span> {<span class=err>
+</span><span class=err></span>    [<span class=s1>&#39;&lt;C-p&gt;&#39;</span>] <span class=p>=</span> <span class=nx>cmp</span>.<span class=nx>mapping</span>.<span class=nx>select_prev_item</span><span class=p>(),</span><span class=err>
+</span><span class=err></span>    [<span class=s1>&#39;&lt;C-n&gt;&#39;</span>] <span class=p>=</span> <span class=nx>cmp</span>.<span class=nx>mapping</span>.<span class=nx>select_next_item</span><span class=p>(),</span><span class=err>
+</span><span class=err></span>    [<span class=s1>&#39;&lt;C-d&gt;&#39;</span>] <span class=p>=</span> <span class=nx>cmp</span>.<span class=nx>mapping</span>.<span class=nx>scroll_docs</span><span class=p>(</span><span class=m>-4</span><span class=p>),</span><span class=err>
+</span><span class=err></span>    [<span class=s1>&#39;&lt;C-f&gt;&#39;</span>] <span class=p>=</span> <span class=nx>cmp</span>.<span class=nx>mapping</span>.<span class=nx>scroll_docs</span><span class=p>(</span><span class=m>4</span><span class=p>),</span><span class=err>
+</span><span class=err></span>    [<span class=s1>&#39;&lt;C-Space&gt;&#39;</span>] <span class=p>=</span> <span class=nx>cmp</span>.<span class=nx>mapping</span>.<span class=nx>complete</span><span class=p>(),</span><span class=err>
+</span><span class=err></span>    [<span class=s1>&#39;&lt;C-e&gt;&#39;</span>] <span class=p>=</span> <span class=nx>cmp</span>.<span class=nx>mapping</span>.<span class=nx>close</span><span class=p>(),</span><span class=err>
+</span><span class=err></span>    [<span class=s1>&#39;&lt;CR&gt;&#39;</span>] <span class=p>=</span> <span class=nx>cmp</span>.<span class=nx>mapping</span>.<span class=nx>confirm</span> {<span class=err>
+</span><span class=err></span>      <span class=nx>behavior</span> <span class=p>=</span> <span class=nx>cmp</span>.<span class=nx>ConfirmBehavior</span>.<span class=nx>Replace</span><span class=p>,</span><span class=err>
+</span><span class=err></span>      <span class=nx>select</span> <span class=p>=</span> <span class=nx>true</span><span class=p>,</span><span class=err>
+</span><span class=err></span>    }<span class=p>,</span><span class=err>
+</span><span class=err></span>    [<span class=s1>&#39;&lt;Tab&gt;&#39;</span>] <span class=p>=</span> <span class=k>function</span><span class=p>(</span><span class=nx>fallback</span><span class=p>)</span><span class=err>
+</span><span class=err></span>      <span class=k>if</span> <span class=nx>vim</span>.<span class=nx>fn</span>.<span class=nx>pumvisible</span><span class=p>()</span> <span class=p>==</span> <span class=m>1</span> <span class=nx>then</span><span class=err>
+</span><span class=err></span>        <span class=nx>vim</span>.<span class=nx>fn</span>.<span class=nx>feedkeys</span><span class=p>(</span><span class=nx>vim</span>.<span class=nx>api</span>.<span class=nx>nvim_replace_termcodes</span><span class=p>(</span><span class=s1>&#39;&lt;C-n&gt;&#39;</span><span class=p>,</span> <span class=nx>true</span><span class=p>,</span> <span class=nx>true</span><span class=p>,</span> <span class=nx>true</span><span class=p>),</span> <span class=s1>&#39;n&#39;</span><span class=p>)</span><span class=err>
+</span><span class=err></span>      <span class=k>elseif</span> <span class=nx>luasnip</span>.<span class=nx>expand_or_jumpable</span><span class=p>()</span> <span class=nx>then</span><span class=err>
+</span><span class=err></span>        <span class=nx>vim</span>.<span class=nx>fn</span>.<span class=nx>feedkeys</span><span class=p>(</span><span class=nx>vim</span>.<span class=nx>api</span>.<span class=nx>nvim_replace_termcodes</span><span class=p>(</span><span class=s1>&#39;&lt;Plug&gt;luasnip-expand-or-jump&#39;</span><span class=p>,</span> <span class=nx>true</span><span class=p>,</span> <span class=nx>true</span><span class=p>,</span> <span class=nx>true</span><span class=p>),</span> <span class=s1>&#39;&#39;</span><span class=p>)</span><span class=err>
+</span><span class=err></span>      <span class=k>else</span><span class=err>
+</span><span class=err></span>        <span class=nx>fallback</span><span class=p>()</span><span class=err>
+</span><span class=err></span>      <span class=nx>end</span><span class=err>
+</span><span class=err></span>    <span class=nx>end</span><span class=p>,</span><span class=err>
+</span><span class=err></span>    [<span class=s1>&#39;&lt;S-Tab&gt;&#39;</span>] <span class=p>=</span> <span class=k>function</span><span class=p>(</span><span class=nx>fallback</span><span class=p>)</span><span class=err>
+</span><span class=err></span>      <span class=k>if</span> <span class=nx>vim</span>.<span class=nx>fn</span>.<span class=nx>pumvisible</span><span class=p>()</span> <span class=p>==</span> <span class=m>1</span> <span class=nx>then</span><span class=err>
+</span><span class=err></span>        <span class=nx>vim</span>.<span class=nx>fn</span>.<span class=nx>feedkeys</span><span class=p>(</span><span class=nx>vim</span>.<span class=nx>api</span>.<span class=nx>nvim_replace_termcodes</span><span class=p>(</span><span class=s1>&#39;&lt;C-p&gt;&#39;</span><span class=p>,</span> <span class=nx>true</span><span class=p>,</span> <span class=nx>true</span><span class=p>,</span> <span class=nx>true</span><span class=p>),</span> <span class=s1>&#39;n&#39;</span><span class=p>)</span><span class=err>
+</span><span class=err></span>      <span class=k>elseif</span> <span class=nx>luasnip</span>.<span class=nx>jumpable</span><span class=p>(</span><span class=m>-1</span><span class=p>)</span> <span class=nx>then</span><span class=err>
+</span><span class=err></span>        <span class=nx>vim</span>.<span class=nx>fn</span>.<span class=nx>feedkeys</span><span class=p>(</span><span class=nx>vim</span>.<span class=nx>api</span>.<span class=nx>nvim_replace_termcodes</span><span class=p>(</span><span class=s1>&#39;&lt;Plug&gt;luasnip-jump-prev&#39;</span><span class=p>,</span> <span class=nx>true</span><span class=p>,</span> <span class=nx>true</span><span class=p>,</span> <span class=nx>true</span><span class=p>),</span> <span class=s1>&#39;&#39;</span><span class=p>)</span><span class=err>
+</span><span class=err></span>      <span class=k>else</span><span class=err>
+</span><span class=err></span>        <span class=nx>fallback</span><span class=p>()</span><span class=err>
+</span><span class=err></span>      <span class=nx>end</span><span class=err>
+</span><span class=err></span>    <span class=nx>end</span><span class=p>,</span><span class=err>
+</span><span class=err></span>  }<span class=p>,</span><span class=err>
+</span><span class=err></span>  <span class=nx>sources</span> <span class=p>=</span> {<span class=err>
+</span><span class=err></span>    { <span class=nx>name</span> <span class=p>=</span> <span class=s1>&#39;nvim_lsp&#39;</span> }<span class=p>,</span><span class=err>
+</span><span class=err></span>    { <span class=nx>name</span> <span class=p>=</span> <span class=s1>&#39;luasnip&#39;</span> }<span class=p>,</span><span class=err>
+</span><span class=err></span>  }<span class=p>,</span><span class=err>
+</span><span class=err></span>}<span class=err>
+</span><span class=err></span><span class=nx>EOF</span><span class=err>
+</span><span class=err>
+</span><span class=err></span><span class=nx>lua</span> <span class=p>&lt;&lt;</span> <span class=nx>EOF</span><span class=err>
+</span><span class=err></span><span class=nx>local</span> <span class=nx>nvim_lsp</span> <span class=p>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;lspconfig&#39;</span><span class=p>)</span><span class=err>
+</span><span class=err>
+</span><span class=err></span><span class=p>--</span> <span class=nx>Use</span> <span class=nx>an</span> <span class=nx>on_attach</span> <span class=k>function</span> <span class=nx>to</span> <span class=nx>only</span> <span class=nx>map</span> <span class=nx>the</span> <span class=nx>following</span> <span class=nx>keys</span><span class=err>
+</span><span class=err></span><span class=p>--</span> <span class=nx>after</span> <span class=nx>the</span> <span class=nx>language</span> <span class=nx>server</span> <span class=nx>attaches</span> <span class=nx>to</span> <span class=nx>the</span> <span class=nx>current</span> <span class=nx>buffer</span><span class=err>
+</span><span class=err></span><span class=nx>local</span> <span class=nx>on_attach</span> <span class=p>=</span> <span class=k>function</span><span class=p>(</span><span class=nx>client</span><span class=p>,</span> <span class=nx>bufnr</span><span class=p>)</span><span class=err>
+</span><span class=err>
+</span><span class=err></span>  <span class=nx>local</span> <span class=k>function</span> <span class=nx>buf_set_keymap</span><span class=p>(</span>...<span class=p>)</span> <span class=nx>vim</span>.<span class=nx>api</span>.<span class=nx>nvim_buf_set_keymap</span><span class=p>(</span><span class=nx>bufnr</span><span class=p>,</span> ...<span class=p>)</span> <span class=nx>end</span><span class=err>
+</span><span class=err></span>  <span class=nx>local</span> <span class=k>function</span> <span class=nx>buf_set_option</span><span class=p>(</span>...<span class=p>)</span> <span class=nx>vim</span>.<span class=nx>api</span>.<span class=nx>nvim_buf_set_option</span><span class=p>(</span><span class=nx>bufnr</span><span class=p>,</span> ...<span class=p>)</span> <span class=nx>end</span><span class=err>
+</span><span class=err>
+</span><span class=err></span>  <span class=p>--</span> <span class=nx>Enable</span> <span class=nx>completion</span> <span class=nx>triggered</span> <span class=nx>by</span> <span class=p>&lt;</span><span class=nx>c</span><span class=p>-</span><span class=nx>x</span><span class=p>&gt;&lt;</span><span class=nx>c</span><span class=p>-</span><span class=nx>o</span><span class=p>&gt;</span><span class=err>
+</span><span class=err></span>  <span class=nx>buf_set_option</span><span class=p>(</span><span class=s1>&#39;omnifunc&#39;</span><span class=p>,</span> <span class=s1>&#39;v:lua.vim.lsp.omnifunc&#39;</span><span class=p>)</span><span class=err>
+</span><span class=err>
+</span><span class=err></span>  <span class=p>--</span> <span class=nx>Mappings</span>.<span class=err>
+</span><span class=err></span>  <span class=nx>local</span> <span class=nx>opts</span> <span class=p>=</span> { <span class=nx>noremap</span><span class=p>=</span><span class=nx>true</span><span class=p>,</span> <span class=nx>silent</span><span class=p>=</span><span class=nx>true</span> }<span class=err>
+</span><span class=err>
+</span><span class=err></span>  <span class=p>--</span> <span class=nx>See</span> `:<span class=nx>help</span> <span class=nx>vim</span>.<span class=nx>lsp</span>.*` <span class=nx>for</span> <span class=nx>documentation</span> <span class=nx>on</span> <span class=nx>any</span> <span class=nx>of</span> <span class=nx>the</span> <span class=nx>below</span> <span class=nx>functions</span><span class=err>
+</span><span class=err></span>  <span class=nx>buf_set_keymap</span><span class=p>(</span><span class=s1>&#39;n&#39;</span><span class=p>,</span> <span class=s1>&#39;gD&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;cmd&gt;lua vim.lsp.buf.declaration()&lt;CR&gt;&#39;</span><span class=p>,</span> <span class=nx>opts</span><span class=p>)</span><span class=err>
+</span><span class=err></span>  <span class=nx>buf_set_keymap</span><span class=p>(</span><span class=s1>&#39;n&#39;</span><span class=p>,</span> <span class=s1>&#39;gd&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;cmd&gt;lua vim.lsp.buf.definition()&lt;CR&gt;&#39;</span><span class=p>,</span> <span class=nx>opts</span><span class=p>)</span><span class=err>
+</span><span class=err></span>  <span class=nx>buf_set_keymap</span><span class=p>(</span><span class=s1>&#39;n&#39;</span><span class=p>,</span> <span class=s1>&#39;K&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;cmd&gt;lua vim.lsp.buf.hover()&lt;CR&gt;&#39;</span><span class=p>,</span> <span class=nx>opts</span><span class=p>)</span><span class=err>
+</span><span class=err></span>  <span class=nx>buf_set_keymap</span><span class=p>(</span><span class=s1>&#39;n&#39;</span><span class=p>,</span> <span class=s1>&#39;gi&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;cmd&gt;lua vim.lsp.buf.implementation()&lt;CR&gt;&#39;</span><span class=p>,</span> <span class=nx>opts</span><span class=p>)</span><span class=err>
+</span><span class=err></span>  <span class=nx>buf_set_keymap</span><span class=p>(</span><span class=s1>&#39;n&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;C-k&gt;&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;cmd&gt;lua vim.lsp.buf.signature_help()&lt;CR&gt;&#39;</span><span class=p>,</span> <span class=nx>opts</span><span class=p>)</span><span class=err>
+</span><span class=err></span>  <span class=nx>buf_set_keymap</span><span class=p>(</span><span class=s1>&#39;n&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;space&gt;wa&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;cmd&gt;lua vim.lsp.buf.add_workspace_folder()&lt;CR&gt;&#39;</span><span class=p>,</span> <span class=nx>opts</span><span class=p>)</span><span class=err>
+</span><span class=err></span>  <span class=nx>buf_set_keymap</span><span class=p>(</span><span class=s1>&#39;n&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;space&gt;wr&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;cmd&gt;lua vim.lsp.buf.remove_workspace_folder()&lt;CR&gt;&#39;</span><span class=p>,</span> <span class=nx>opts</span><span class=p>)</span><span class=err>
+</span><span class=err></span>  <span class=nx>buf_set_keymap</span><span class=p>(</span><span class=s1>&#39;n&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;space&gt;wl&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;cmd&gt;lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))&lt;CR&gt;&#39;</span><span class=p>,</span> <span class=nx>opts</span><span class=p>)</span><span class=err>
+</span><span class=err></span>  <span class=nx>buf_set_keymap</span><span class=p>(</span><span class=s1>&#39;n&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;space&gt;D&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;cmd&gt;lua vim.lsp.buf.type_definition()&lt;CR&gt;&#39;</span><span class=p>,</span> <span class=nx>opts</span><span class=p>)</span><span class=err>
+</span><span class=err></span>  <span class=nx>buf_set_keymap</span><span class=p>(</span><span class=s1>&#39;n&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;space&gt;rn&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;cmd&gt;lua vim.lsp.buf.rename()&lt;CR&gt;&#39;</span><span class=p>,</span> <span class=nx>opts</span><span class=p>)</span><span class=err>
+</span><span class=err></span>  <span class=nx>buf_set_keymap</span><span class=p>(</span><span class=s1>&#39;n&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;space&gt;ca&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;cmd&gt;lua vim.lsp.buf.code_action()&lt;CR&gt;&#39;</span><span class=p>,</span> <span class=nx>opts</span><span class=p>)</span><span class=err>
+</span><span class=err></span>  <span class=nx>buf_set_keymap</span><span class=p>(</span><span class=s1>&#39;n&#39;</span><span class=p>,</span> <span class=s1>&#39;gr&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;cmd&gt;lua vim.lsp.buf.references()&lt;CR&gt;&#39;</span><span class=p>,</span> <span class=nx>opts</span><span class=p>)</span><span class=err>
+</span><span class=err></span>  <span class=nx>buf_set_keymap</span><span class=p>(</span><span class=s1>&#39;n&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;space&gt;e&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;cmd&gt;lua vim.lsp.diagnostic.show_line_diagnostics()&lt;CR&gt;&#39;</span><span class=p>,</span> <span class=nx>opts</span><span class=p>)</span><span class=err>
+</span><span class=err></span>  <span class=nx>buf_set_keymap</span><span class=p>(</span><span class=s1>&#39;n&#39;</span><span class=p>,</span> <span class=s1>&#39;[d&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;cmd&gt;lua vim.lsp.diagnostic.goto_prev()&lt;CR&gt;&#39;</span><span class=p>,</span> <span class=nx>opts</span><span class=p>)</span><span class=err>
+</span><span class=err></span>  <span class=nx>buf_set_keymap</span><span class=p>(</span><span class=s1>&#39;n&#39;</span><span class=p>,</span> <span class=s1>&#39;]d&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;cmd&gt;lua vim.lsp.diagnostic.goto_next()&lt;CR&gt;&#39;</span><span class=p>,</span> <span class=nx>opts</span><span class=p>)</span><span class=err>
+</span><span class=err></span>  <span class=nx>buf_set_keymap</span><span class=p>(</span><span class=s1>&#39;n&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;space&gt;q&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;cmd&gt;lua vim.lsp.diagnostic.set_loclist()&lt;CR&gt;&#39;</span><span class=p>,</span> <span class=nx>opts</span><span class=p>)</span><span class=err>
+</span><span class=err></span>  <span class=nx>buf_set_keymap</span><span class=p>(</span><span class=s1>&#39;n&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;space&gt;f&#39;</span><span class=p>,</span> <span class=s1>&#39;&lt;cmd&gt;lua vim.lsp.buf.formatting()&lt;CR&gt;&#39;</span><span class=p>,</span> <span class=nx>opts</span><span class=p>)</span><span class=err>
+</span><span class=err>
+</span><span class=err></span><span class=nx>end</span><span class=err>
+</span><span class=err>
+</span><span class=err></span><span class=p>--</span> <span class=nx>Use</span> <span class=nx>a</span> <span class=nx>loop</span> <span class=nx>to</span> <span class=nx>conveniently</span> <span class=nx>call</span> <span class=s1>&#39;setup&#39;</span> <span class=nx>on</span> <span class=nx>multiple</span> <span class=nx>servers</span> <span class=nx>and</span><span class=err>
+</span><span class=err></span><span class=p>--</span> <span class=nx>map</span> <span class=nx>buffer</span> <span class=nx>local</span> <span class=nx>keybindings</span> <span class=nx>when</span> <span class=nx>the</span> <span class=nx>language</span> <span class=nx>server</span> <span class=nx>attaches</span><span class=err>
+</span><span class=err></span><span class=nx>local</span> <span class=nx>servers</span> <span class=p>=</span> { <span class=s1>&#39;pyright&#39;</span><span class=p>,</span> }<span class=err>
+</span><span class=err></span><span class=nx>for</span> <span class=nx>_</span><span class=p>,</span> <span class=nx>lsp</span> <span class=nx>in</span> <span class=nx>ipairs</span><span class=p>(</span><span class=nx>servers</span><span class=p>)</span> <span class=nx>do</span><span class=err>
+</span><span class=err></span>  <span class=nx>nvim_lsp</span>[<span class=nx>lsp</span>].<span class=nx>setup</span> {<span class=err>
+</span><span class=err></span>    <span class=nx>on_attach</span> <span class=p>=</span> <span class=nx>on_attach</span><span class=p>,</span><span class=err>
+</span><span class=err></span>    <span class=nx>flags</span> <span class=p>=</span> {<span class=err>
+</span><span class=err></span>      <span class=nx>debounce_text_changes</span> <span class=p>=</span> <span class=m>150</span><span class=p>,</span><span class=err>
+</span><span class=err></span>    }<span class=err>
+</span><span class=err></span>  }<span class=err>
+</span><span class=err></span><span class=nx>end</span><span class=err>
+</span><span class=err></span><span class=nx>EOF</span><span class=err>
+</span><span class=err></span><span class=c>
+</span><span class=c>
+</span><span class=c>
+</span><span class=c>&#34; Delete buffer while keeping window layout (don&#39;t close buffer&#39;s windows).</span><span class=err>
+</span><span class=err></span><span class=c>&#34; Version 2008-11-18 from http://vim.wikia.com/wiki/VimTip165</span><span class=err>
+</span><span class=err></span><span class=k>if</span> <span class=nx>v</span>:<span class=nx>version</span> <span class=p>&lt;</span> <span class=m>700</span> <span class=p>||</span> <span class=nx>exists</span><span class=p>(</span><span class=s1>&#39;loaded_bclose&#39;</span><span class=p>)</span> <span class=p>||</span> &amp;<span class=nx>cp</span><span class=err>
+</span><span class=err></span>  <span class=nx>finish</span><span class=err>
+</span><span class=err></span><span class=k>endif</span><span class=err>
+</span><span class=err></span><span class=k>let</span> <span class=nx>loaded_bclose</span> <span class=p>=</span> <span class=m>1</span><span class=err>
+</span><span class=err></span><span class=k>if</span> <span class=p>!</span><span class=nx>exists</span><span class=p>(</span><span class=s1>&#39;bclose_multiple&#39;</span><span class=p>)</span><span class=err>
+</span><span class=err></span>  <span class=k>let</span> <span class=nx>bclose_multiple</span> <span class=p>=</span> <span class=m>1</span><span class=err>
+</span><span class=err></span><span class=k>endif</span><span class=err>
+</span><span class=err></span><span class=c>
+</span><span class=c>&#34; Display an error message.</span><span class=err>
+</span><span class=err></span><span class=k>function</span><span class=p>!</span> <span class=nx>s</span>:<span class=nx>Warn</span><span class=p>(</span><span class=nx>msg</span><span class=p>)</span><span class=err>
+</span><span class=err></span>  <span class=nx>echohl</span> <span class=nx>ErrorMsg</span><span class=err>
+</span><span class=err></span>  <span class=nx>echomsg</span> <span class=nx>a</span>:<span class=nx>msg</span><span class=err>
+</span><span class=err></span>  <span class=nx>echohl</span> <span class=nb>NONE</span><span class=err>
+</span><span class=err></span><span class=k>endfunction</span><span class=err>
+</span><span class=err></span><span class=c>
+</span><span class=c>&#34; Command &#39;:Bclose&#39; executes &#39;:bd&#39; to delete buffer in current window.</span><span class=err>
+</span><span class=err></span><span class=c>&#34; The window will show the alternate buffer (Ctrl-^) if it exists,</span><span class=err>
+</span><span class=err></span><span class=c>&#34; or the previous buffer (:bp), or a blank buffer if no previous.</span><span class=err>
+</span><span class=err></span><span class=c>&#34; Command &#39;:Bclose!&#39; is the same, but executes &#39;:bd!&#39; (discard changes).</span><span class=err>
+</span><span class=err></span><span class=c>&#34; An optional argument can specify which buffer to close (name or number).</span><span class=err>
+</span><span class=err></span><span class=k>function</span><span class=p>!</span> <span class=nx>s</span>:<span class=nx>Bclose</span><span class=p>(</span><span class=nx>bang</span><span class=p>,</span> <span class=nx>buffer</span><span class=p>)</span><span class=err>
+</span><span class=err></span>  <span class=k>if</span> <span class=nx>empty</span><span class=p>(</span><span class=nx>a</span>:<span class=nx>buffer</span><span class=p>)</span><span class=err>
+</span><span class=err></span>    <span class=k>let</span> <span class=nx>btarget</span> <span class=p>=</span> <span class=nx>bufnr</span><span class=p>(</span><span class=s1>&#39;%&#39;</span><span class=p>)</span><span class=err>
+</span><span class=err></span>  <span class=k>elseif</span> <span class=nx>a</span>:<span class=nx>buffer</span> <span class=p>=~</span> <span class=s1>&#39;^\d\+$&#39;</span><span class=err>
+</span><span class=err></span>    <span class=k>let</span> <span class=nx>btarget</span> <span class=p>=</span> <span class=nx>bufnr</span><span class=p>(</span><span class=nx>str2nr</span><span class=p>(</span><span class=nx>a</span>:<span class=nx>buffer</span><span class=p>))</span><span class=err>
+</span><span class=err></span>  <span class=k>else</span><span class=err>
+</span><span class=err></span>    <span class=k>let</span> <span class=nx>btarget</span> <span class=p>=</span> <span class=nx>bufnr</span><span class=p>(</span><span class=nx>a</span>:<span class=nx>buffer</span><span class=p>)</span><span class=err>
+</span><span class=err></span>  <span class=k>endif</span><span class=err>
+</span><span class=err></span>  <span class=k>if</span> <span class=nx>btarget</span> <span class=p>&lt;</span> <span class=m>0</span><span class=err>
+</span><span class=err></span>    <span class=nx>call</span> <span class=nx>s</span>:<span class=nx>Warn</span><span class=p>(</span><span class=s1>&#39;No matching buffer for &#39;</span>.<span class=nx>a</span>:<span class=nx>buffer</span><span class=p>)</span><span class=err>
+</span><span class=err></span>    <span class=nx>return</span><span class=err>
+</span><span class=err></span>  <span class=k>endif</span><span class=err>
+</span><span class=err></span>  <span class=k>if</span> <span class=nx>empty</span><span class=p>(</span><span class=nx>a</span>:<span class=nx>bang</span><span class=p>)</span> &amp;&amp; <span class=nx>getbufvar</span><span class=p>(</span><span class=nx>btarget</span><span class=p>,</span> <span class=s1>&#39;&amp;modified&#39;</span><span class=p>)</span><span class=err>
+</span><span class=err></span>    <span class=nx>call</span> <span class=nx>s</span>:<span class=nx>Warn</span><span class=p>(</span><span class=s1>&#39;No write since last change for buffer &#39;</span>.<span class=nx>btarget</span>.<span class=s1>&#39; (use :Bclose!)&#39;</span><span class=p>)</span><span class=err>
+</span><span class=err></span>    <span class=nx>return</span><span class=err>
+</span><span class=err></span>  <span class=k>endif</span><span class=err>
+</span><span class=err></span><span class=c>  &#34; Numbers of windows that view target buffer which we will delete.</span><span class=err>
+</span><span class=err></span>  <span class=k>let</span> <span class=nx>wnums</span> <span class=p>=</span> <span class=nx>filter</span><span class=p>(</span><span class=nx>range</span><span class=p>(</span><span class=m>1</span><span class=p>,</span> <span class=nx>winnr</span><span class=p>(</span><span class=s1>&#39;$&#39;</span><span class=p>)),</span> <span class=s1>&#39;winbufnr(v:val) == btarget&#39;</span><span class=p>)</span><span class=err>
+</span><span class=err></span>  <span class=k>if</span> <span class=p>!</span><span class=nx>g</span>:<span class=nx>bclose_multiple</span> &amp;&amp; <span class=nx>len</span><span class=p>(</span><span class=nx>wnums</span><span class=p>)</span> <span class=p>&gt;</span> <span class=m>1</span><span class=err>
+</span><span class=err></span>    <span class=nx>call</span> <span class=nx>s</span>:<span class=nx>Warn</span><span class=p>(</span><span class=s1>&#39;Buffer is in multiple windows (use &#34;:let bclose_multiple=1&#34;)&#39;</span><span class=p>)</span><span class=err>
+</span><span class=err></span>    <span class=nx>return</span><span class=err>
+</span><span class=err></span>  <span class=k>endif</span><span class=err>
+</span><span class=err></span>  <span class=k>let</span> <span class=nx>wcurrent</span> <span class=p>=</span> <span class=nx>winnr</span><span class=p>()</span><span class=err>
+</span><span class=err></span>  <span class=nx>for</span> <span class=nx>w</span> <span class=nx>in</span> <span class=nx>wnums</span><span class=err>
+</span><span class=err></span>    <span class=nx>execute</span> <span class=nx>w</span>.<span class=s1>&#39;wincmd w&#39;</span><span class=err>
+</span><span class=err></span>    <span class=k>let</span> <span class=nx>prevbuf</span> <span class=p>=</span> <span class=nx>bufnr</span><span class=p>(</span><span class=s1>&#39;#&#39;</span><span class=p>)</span><span class=err>
+</span><span class=err></span>    <span class=k>if</span> <span class=nx>prevbuf</span> <span class=p>&gt;</span> <span class=m>0</span> &amp;&amp; <span class=nx>buflisted</span><span class=p>(</span><span class=nx>prevbuf</span><span class=p>)</span> &amp;&amp; <span class=nx>prevbuf</span> <span class=p>!=</span> <span class=nx>btarget</span><span class=err>
+</span><span class=err></span>      <span class=nx>buffer</span> #<span class=err>
+</span><span class=err></span>    <span class=k>else</span><span class=err>
+</span><span class=err></span>      <span class=nx>bprevious</span><span class=err>
+</span><span class=err></span>    <span class=k>endif</span><span class=err>
+</span><span class=err></span>    <span class=k>if</span> <span class=nx>btarget</span> <span class=p>==</span> <span class=nx>bufnr</span><span class=p>(</span><span class=s1>&#39;%&#39;</span><span class=p>)</span><span class=err>
+</span><span class=err></span><span class=c>      &#34; Numbers of listed buffers which are not the target to be deleted.</span><span class=err>
+</span><span class=err></span>      <span class=k>let</span> <span class=nx>blisted</span> <span class=p>=</span> <span class=nx>filter</span><span class=p>(</span><span class=nx>range</span><span class=p>(</span><span class=m>1</span><span class=p>,</span> <span class=nx>bufnr</span><span class=p>(</span><span class=s1>&#39;$&#39;</span><span class=p>)),</span> <span class=s1>&#39;buflisted(v:val) &amp;&amp; v:val != btarget&#39;</span><span class=p>)</span><span class=err>
+</span><span class=err></span><span class=c>      &#34; Listed, not target, and not displayed.</span><span class=err>
+</span><span class=err></span>      <span class=k>let</span> <span class=nx>bhidden</span> <span class=p>=</span> <span class=nx>filter</span><span class=p>(</span><span class=nx>copy</span><span class=p>(</span><span class=nx>blisted</span><span class=p>),</span> <span class=s1>&#39;bufwinnr(v:val) &lt; 0&#39;</span><span class=p>)</span><span class=err>
+</span><span class=err></span><span class=c>      &#34; Take the first buffer, if any (could be more intelligent).</span><span class=err>
+</span><span class=err></span>      <span class=k>let</span> <span class=nx>bjump</span> <span class=p>=</span> <span class=p>(</span><span class=nx>bhidden</span> <span class=p>+</span> <span class=nx>blisted</span> <span class=p>+</span> [<span class=m>-1</span>]<span class=p>)</span>[<span class=m>0</span>]<span class=err>
+</span><span class=err></span>      <span class=k>if</span> <span class=nx>bjump</span> <span class=p>&gt;</span> <span class=m>0</span><span class=err>
+</span><span class=err></span>        <span class=nx>execute</span> <span class=s1>&#39;buffer &#39;</span>.<span class=nx>bjump</span><span class=err>
+</span><span class=err></span>      <span class=k>else</span><span class=err>
+</span><span class=err></span>        <span class=nx>execute</span> <span class=s1>&#39;enew&#39;</span>.<span class=nx>a</span>:<span class=nx>bang</span><span class=err>
+</span><span class=err></span>      <span class=k>endif</span><span class=err>
+</span><span class=err></span>    <span class=k>endif</span><span class=err>
+</span><span class=err></span>  <span class=nx>endfor</span><span class=err>
+</span><span class=err></span>  <span class=nx>execute</span> <span class=s1>&#39;bdelete&#39;</span>.<span class=nx>a</span>:<span class=nx>bang</span>.<span class=s1>&#39; &#39;</span>.<span class=nx>btarget</span><span class=err>
+</span><span class=err></span>  <span class=nx>execute</span> <span class=nx>wcurrent</span>.<span class=s1>&#39;wincmd w&#39;</span><span class=err>
+</span><span class=err></span><span class=k>endfunction</span><span class=err>
+</span><span class=err></span><span class=nx>command</span><span class=p>!</span> <span class=p>-</span><span class=nx>bang</span> <span class=p>-</span><span class=nx>complete</span><span class=p>=</span><span class=nx>buffer</span> <span class=p>-</span><span class=nx>nargs</span><span class=p>=</span>? <span class=nx>Bclose</span> <span class=nx>call</span> <span class=p>&lt;</span><span class=nx>SID</span><span class=p>&gt;</span><span class=nx>Bclose</span><span class=p>(&lt;</span><span class=nx>q</span><span class=p>-</span><span class=nx>bang</span><span class=p>&gt;,</span> <span class=p>&lt;</span><span class=nx>q</span><span class=p>-</span><span class=nx>args</span><span class=p>&gt;)</span><span class=err>
+</span><span class=err></span><span class=nx>nnoremap</span> <span class=p>&lt;</span><span class=nx>silent</span><span class=p>&gt;</span> <span class=p>&lt;</span><span class=nx>Leader</span><span class=p>&gt;</span><span class=nx>bd</span> :<span class=nx>Bclose</span><span class=p>&lt;</span><span class=nx>CR</span><span class=p>&gt;</span><span class=err>
+</span><span class=err></span><span class=c>
+</span><span class=c>&#34; turn off search highlight</span><span class=err>
+</span><span class=err></span><span class=nx>nnoremap</span> <span class=p>,&lt;</span><span class=nx>space</span><span class=p>&gt;</span> :<span class=nx>nohlsearch</span><span class=p>&lt;</span><span class=nx>CR</span><span class=p>&gt;</span><span class=err>
+</span><span class=err></span><span class=nx>inoremap</span> <span class=nx>jk</span> <span class=p>&lt;</span><span class=nx>esc</span><span class=p>&gt;</span><span class=err>
+</span><span class=err>
+</span><span class=err></span><span class=nx>map</span> <span class=nx>gn</span> :<span class=nx>bn</span><span class=p>&lt;</span><span class=nx>cr</span><span class=p>&gt;</span><span class=err>
+</span><span class=err></span><span class=nx>map</span> <span class=nx>gp</span> :<span class=nx>bp</span><span class=p>&lt;</span><span class=nx>cr</span><span class=p>&gt;</span><span class=err>
+</span><span class=err></span><span class=nx>map</span> <span class=nx>gw</span> :<span class=nx>Bclose</span><span class=p>&lt;</span><span class=nx>cr</span><span class=p>&gt;</span><span class=err>
+</span><span class=err>
+</span><span class=err></span><span class=nx>nnoremap</span> <span class=p>&lt;</span><span class=nx>F3</span><span class=p>&gt;</span> :<span class=nx>NERDTreeMirror</span><span class=p>&lt;</span><span class=nx>CR</span><span class=p>&gt;</span><span class=err>
+</span><span class=err></span><span class=nx>nnoremap</span> <span class=p>&lt;</span><span class=nx>F3</span><span class=p>&gt;</span> :<span class=nx>NERDTreeToggle</span><span class=p>&lt;</span><span class=nx>CR</span><span class=p>&gt;</span><span class=err>
+</span><span class=err></span><span class=c>
+</span><span class=c>&#34; Move line up/down by Opt+up/Opt+down</span><span class=err>
+</span><span class=err></span><span class=nx>nnoremap</span> <span class=p>&lt;</span><span class=nx>silent</span><span class=p>&gt;</span> <span class=p>&lt;</span><span class=nx>Esc</span><span class=p>&gt;</span><span class=nx>j</span> :<span class=nx>m</span> .<span class=p>+</span><span class=m>1</span><span class=p>&lt;</span><span class=nx>CR</span><span class=p>&gt;==</span><span class=err>
+</span><span class=err></span><span class=nx>nnoremap</span> <span class=p>&lt;</span><span class=nx>silent</span><span class=p>&gt;</span> <span class=p>&lt;</span><span class=nx>Esc</span><span class=p>&gt;</span><span class=nx>k</span> :<span class=nx>m</span> .<span class=m>-2</span><span class=p>&lt;</span><span class=nx>CR</span><span class=p>&gt;==</span><span class=err>
+</span><span class=err></span><span class=nx>inoremap</span> <span class=p>&lt;</span><span class=nx>silent</span><span class=p>&gt;</span> <span class=p>&lt;</span><span class=nx>Esc</span><span class=p>&gt;</span><span class=nx>j</span> <span class=p>&lt;</span><span class=nx>Esc</span><span class=p>&gt;</span>:<span class=nx>m</span> .<span class=p>+</span><span class=m>1</span><span class=p>&lt;</span><span class=nx>CR</span><span class=p>&gt;==</span><span class=nx>gi</span><span class=err>
+</span><span class=err></span><span class=nx>inoremap</span> <span class=p>&lt;</span><span class=nx>silent</span><span class=p>&gt;</span> <span class=p>&lt;</span><span class=nx>Esc</span><span class=p>&gt;</span><span class=nx>k</span> <span class=p>&lt;</span><span class=nx>Esc</span><span class=p>&gt;</span>:<span class=nx>m</span> .<span class=m>-2</span><span class=p>&lt;</span><span class=nx>CR</span><span class=p>&gt;==</span><span class=nx>gi</span><span class=err>
+</span><span class=err></span><span class=nx>vnoremap</span> <span class=p>&lt;</span><span class=nx>silent</span><span class=p>&gt;</span> <span class=p>&lt;</span><span class=nx>Esc</span><span class=p>&gt;</span><span class=nx>j</span> :<span class=nx>m</span> &#39;<span class=p>&gt;+</span><span class=m>1</span><span class=p>&lt;</span><span class=nx>CR</span><span class=p>&gt;</span><span class=nx>gv</span><span class=p>=</span><span class=nx>gv</span><span class=err>
+</span><span class=err></span><span class=nx>vnoremap</span> <span class=p>&lt;</span><span class=nx>silent</span><span class=p>&gt;</span> <span class=p>&lt;</span><span class=nx>Esc</span><span class=p>&gt;</span><span class=nx>k</span> :<span class=nx>m</span> &#39;<span class=p>&lt;</span><span class=m>-2</span><span class=p>&lt;</span><span class=nx>CR</span><span class=p>&gt;</span><span class=nx>gv</span><span class=p>=</span><span class=nx>gv</span><span class=err>
+</span><span class=err></span><span class=c>
+</span><span class=c>&#34; run current script with python3 by CTRL+R in command and insert mode</span><span class=err>
+</span><span class=err></span><span class=nx>autocmd</span> <span class=nx>FileType</span> <span class=nx>python</span> <span class=nx>map</span> <span class=p>&lt;</span><span class=nx>buffer</span><span class=p>&gt;</span> <span class=p>&lt;</span><span class=nx>C</span><span class=p>-</span><span class=nx>r</span><span class=p>&gt;</span> :<span class=nx>w</span><span class=p>&lt;</span><span class=nx>CR</span><span class=p>&gt;</span>:<span class=nx>exec</span> <span class=s1>&#39;!python3&#39;</span> <span class=nx>shellescape</span><span class=p>(</span>@%<span class=p>,</span> <span class=m>1</span><span class=p>)&lt;</span><span class=nx>CR</span><span class=p>&gt;</span><span class=err>
+</span><span class=err></span><span class=nx>autocmd</span> <span class=nx>FileType</span> <span class=nx>python</span> <span class=nx>imap</span> <span class=p>&lt;</span><span class=nx>buffer</span><span class=p>&gt;</span> <span class=p>&lt;</span><span class=nx>C</span><span class=p>-</span><span class=nx>r</span><span class=p>&gt;</span> <span class=p>&lt;</span><span class=nx>esc</span><span class=p>&gt;</span>:<span class=nx>w</span><span class=p>&lt;</span><span class=nx>CR</span><span class=p>&gt;</span>:<span class=nx>exec</span> <span class=s1>&#39;!python3&#39;</span> <span class=nx>shellescape</span><span class=p>(</span>@%<span class=p>,</span> <span class=m>1</span><span class=p>)&lt;</span><span class=nx>CR</span><span class=p>&gt;</span><span class=err>
+</span></code></pre></td></tr></table>
+</div>
+</div><p>Практически полная копия файла<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup> от &ldquo;Диджитализируй!&rdquo; из его видео<sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup> с небольшими изменениями.</p>
+<h2 id=установка-плагинов>Установка плагинов</h2>
+<p>Заходим в <code>nvim</code> и запускаем установку плагинов <code>:PlugInstall</code></p>
+<p>И еще один полезный <a href=https://gist.github.com/celso/6cefedb9fce92827ee38e8f7411b8b30 target=_blank rel="noopener noreffer"><code>gist</code></a></p>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p><a href=https://neovim.io target=_blank rel="noopener noreffer">Neovim</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:2 role=doc-endnote>
+<p><a href=https://github.com/junegunn/vim-plug target=_blank rel="noopener noreffer">vim-plug</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:3 role=doc-endnote>
+<p><a href=https://github.com/alexey-goloburdin/nvim-config target=_blank rel="noopener noreffer">alexey-goloburdin/nvim-config</a>&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:4 role=doc-endnote>
+<p><a href="https://www.youtube.com/watch?v=PA7zZNJXJEk" target=_blank rel="noopener noreffer">БОЖЕСТВЕННЫЙ nvim как IDE для Python, Rust и всех-всех-всех — встречаем LSP!</a>&#160;<a href=#fnref:4 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</div>
+<div class=post-footer id=post-footer>
+<div class=post-info>
+<div class=post-info-line>
+<div class=post-info-mod>
+<span>Oбновлено 11.05.2022</span>
+</div>
+<div class=post-info-license></div>
+</div>
+<div class=post-info-line>
+<div class=post-info-md></div>
+<div class=post-info-share>
+<span><a href=# onclick=return!1 title="Поделиться Twitter" data-sharer=twitter data-url=https://baikov.dev/neovim-settings/ data-title="Установка и настройка Neovim" data-hashtags=vim><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться Facebook" data-sharer=facebook data-url=https://baikov.dev/neovim-settings/ data-hashtag=vim><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться Linkedin" data-sharer=linkedin data-url=https://baikov.dev/neovim-settings/><i class="fab fa-linkedin fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться WhatsApp" data-sharer=whatsapp data-url=https://baikov.dev/neovim-settings/ data-title="Установка и настройка Neovim" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href=# onclick=return!1 title="Поделиться VK" data-sharer=vk data-url=https://baikov.dev/neovim-settings/ data-title="Установка и настройка Neovim" data-caption="Установка и настройка Neovim"><i class="fab fa-vk fa-fw"></i></a></span>
+</div>
+</div>
+</div>
+<div class=post-info-more>
+<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/vim/>vim</a></section>
+<section>
+<span><a href=javascript:void(0); onclick=window.history.back()>Назад</a></span>&nbsp;|&nbsp;<span><a href=/>Главная</a></span>
+</section>
+</div>
+<div class=post-nav><a href=/decorators-in-python/ class=prev rel=prev title="Декораторы в Python: определение, особенности, примеры декораторов"><i class="fas fa-angle-left fa-fw"></i>Декораторы в Python: определение, особенности, примеры декораторов</a></div>
+</div>
+</article></div>
+</main><footer class=footer>
+<div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2019 - 2022</span></div>
+</div></footer></div>
+<div id=fixed-buttons><a href=#back-to-top id=back-to-top-button class=fixed-button title=Наверх>
+<i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title="Посмотреть комментарии">
+<i class="fas fa-comment fa-fw"></i>
+</a>
+</div><div class=assets><script type=text/javascript src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.fill%2CArray.prototype.find%2CArray.from%2CIntersectionObserver%2CMath.sign%2CObject.assign%2CPromise%2CObject.entries%2Chtml5shiv%2CObject.values%2Cfetch%2CElement.prototype.after"></script><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/fuse/fuse.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/topbar/topbar.min.js></script><script type=text/javascript src=/lib/pjax/pjax.min.js></script><script type=text/javascript src=/js/theme.min.js></script></div>
+<div class=pjax-assets><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/js/custom.js></script><script type=text/javascript>window.config={code:{copyTitle:"Копировать в буфер обмена",maxShownLines:20},comment:{},search:{distance:100,findAllMatches:!1,fuseIndexURL:"/index.json",highlightTag:"em",ignoreFieldNorm:!1,ignoreLocation:!0,isCaseSensitive:!1,location:0,maxResultLength:10,minMatchCharLength:3,noResultsFound:"Результатов не найдено",snippetLength:300,threshold:.1,type:"fuse",useExtendedSearch:!1},sharerjs:!0}</script></div>
+</body>
+</html>
